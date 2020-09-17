@@ -36,18 +36,9 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
             context.gameBroad.forEach { (chessman, row, column) ->
                 if (chessman.owner == player) {
                     yieldAll(
-                        rule(chessman).nextMove(Position(row, column), context, chessman.owner)
-                            .mapNotNull { (newRow, newColumn) ->
-                                if (newRow in 0 until ROW_SIZE &&
-                                    newColumn in 0 until COLUMN_SIZE &&
-                                    (row != newRow || column != newColumn) &&
-                                    context.gameBroad[newRow, newColumn]?.owner != chessman.owner
-                                ) {
-                                    ChineseChessAction(chessman, row, column, newRow, newColumn)
-                                } else {
-                                    null
-                                }
-                            }
+                        rule(chessman).nextMove(row, column, context).map { (newRow, newColumn) ->
+                            ChineseChessAction(chessman, row, column, newRow, newColumn)
+                        }
                     )
                 }
             }

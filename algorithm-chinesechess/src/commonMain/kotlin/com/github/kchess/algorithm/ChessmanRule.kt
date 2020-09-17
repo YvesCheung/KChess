@@ -58,7 +58,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequenceFromStep(current, step)
                 .filter { //不能离开九宫格
-                    it.r in 3..5 && (it.c in 0..2 || it.c in 7..9)
+                    it.c in 3..5 && (it.r in 0..2 || it.r in 7..9)
                 }
         }
 
@@ -155,7 +155,17 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
         }
     };
 
-    abstract fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position>
+    fun nextMove(currentRow: Int, currentColumn: Int, game: ChineseChess): Sequence<Position> {
+        val chessman = game.gameBroad[currentRow, currentColumn]!!
+        return nextMove(Position(currentRow, currentColumn), game, chessman.owner)
+            .filter { (newRow, newColumn) ->
+                game.gameBroad.contains(newRow, newColumn) &&
+                        (currentRow != newRow || currentColumn != newColumn) &&
+                        game.gameBroad[newRow, newColumn]?.owner != chessman.owner
+            }
+    }
+
+    protected abstract fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position>
 
     companion object {
 
