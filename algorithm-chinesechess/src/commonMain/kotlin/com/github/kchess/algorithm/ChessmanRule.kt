@@ -97,19 +97,19 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
     },
     Bin(红卒, 黑兵) {
         private val toLeftRight = arrayOf(Position(0, 1), Position(0, -1))
-        private val toTop = arrayOf(Position(1, 0))
-        private val toBottom = arrayOf(Position(-1, 0))
+        private val toTop = arrayOf(Position(-1, 0))
+        private val toBottom = arrayOf(Position(1, 0))
         private val toTopLeftRight = toTop + toLeftRight
         private val toBottomLeftRight = toBottom + toLeftRight
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return if (!!owner) {
-                if (current.c <= 4) //过河
+                if (current.r <= 4) //过河
                     sequenceFromStep(current, toTopLeftRight)
                 else
                     sequenceFromStep(current, toTop)
             } else {
-                if (current.c > 4)
+                if (current.r > 4)
                     sequenceFromStep(current, toBottomLeftRight)
                 else
                     sequenceFromStep(current, toBottom)

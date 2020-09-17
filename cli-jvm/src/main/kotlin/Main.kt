@@ -37,6 +37,6 @@ const val ANSI_RESET = "\u001B[0m"
 const val ANSI_RED = "\u001B[31m"
 const val ANSI_BLUE = "\u001B[34m"
 
-fun chessman(c: Chessman) = "-${if (!!c.owner) ANSI_BLUE else ANSI_RED}${c.name}$ANSI_RESET-"
+fun chessman(c: Chessman) = "-${if (!c.owner) ANSI_BLUE else ANSI_RED}${c.name}$ANSI_RESET-"
 
 fun noChessman() = "--+--"
