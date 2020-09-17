@@ -18,8 +18,8 @@ object GameBoardDemo {
 
             /*5*/arrayOf(红车, null, null, null, null, null, null, null, null),
             /*6*/arrayOf(null, null, null, null, null, null, null, null, null),
-            /*7*/arrayOf(null, 红炮, null, null, null, null, null, null, null),
+            /*7*/arrayOf(null, 红炮, null, null, 红马, null, null, null, null),
             /*8*/arrayOf(null, null, null, null, 红士, null, null, null, null),
-            /*9*/arrayOf(null, 红马, 红象, null, null, 红将, 红象, 红马, 红炮)
+            /*9*/arrayOf(null, null, 红象, null, null, 红将, 红象, 红马, 红炮)
         )
 }
