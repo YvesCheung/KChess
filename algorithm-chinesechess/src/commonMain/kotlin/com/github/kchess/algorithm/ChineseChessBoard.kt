@@ -35,6 +35,18 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         )
     }
 
+    fun reset(board: Array<Array<Chessman?>>) {
+        if (board.size != ROW_SIZE) {
+            throw IllegalArgumentException("board.size must be $ROW_SIZE")
+        }
+        board.forEachIndexed { index, row ->
+            if (row.size != COLUMN_SIZE) {
+                throw IllegalArgumentException("board[$index].size must be $COLUMN_SIZE")
+            }
+        }
+        gameBoard = board
+    }
+
     fun allRows(): Iterator<Iterator<Chessman?>> {
         return iterator {
             gameBoard.forEach { row ->
