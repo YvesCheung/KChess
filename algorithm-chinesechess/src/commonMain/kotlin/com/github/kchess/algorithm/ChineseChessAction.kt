@@ -13,14 +13,14 @@ class ChineseChessAction(
     private var eat: Chessman? = null
 
     override fun run(context: ChineseChess) {
-        context.gameBroad[x][y] = null
-        eat = context.gameBroad[newX][newY]
-        context.gameBroad[newX][newY] = chessman
+        context.gameBroad[x, y] = null
+        eat = context.gameBroad[newX, newY]
+        context.gameBroad[newX, newY] = chessman
     }
 
     override fun undo(context: ChineseChess) {
-        context.gameBroad[newX][newY] = eat
-        context.gameBroad[x][y] = chessman
+        context.gameBroad[newX, newY] = eat
+        context.gameBroad[x, y] = chessman
     }
 
     override fun toString(): String {

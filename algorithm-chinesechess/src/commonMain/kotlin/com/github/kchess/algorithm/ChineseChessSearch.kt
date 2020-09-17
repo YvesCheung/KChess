@@ -1,7 +1,7 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.ChineseChessBoard.COLUMN_SIZE
-import com.github.kchess.algorithm.ChineseChessBoard.ROW_SIZE
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
 
 /**
  * @author YvesCheung
@@ -13,11 +13,11 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     override fun evaluate(context: ChineseChess): Int {
         var value = 0
-        context.gameBroad.forEachIndexed { x, row ->
-            row.forEachIndexed { y, chessman ->
-                if (chessman != null) {
-                    value += evaluator(chessman).valueMap[x][y]
-                }
+        context.gameBroad.forEach { (chessman, r, c) ->
+            if (!chessman.owner) {
+                value -= evaluator(chessman).valueMap[ROW_SIZE - r - 1][COLUMN_SIZE - c - 1]
+            } else {
+                value += evaluator(chessman).valueMap[r][c]
             }
         }
         return value
@@ -27,24 +27,22 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     override fun nextMove(context: ChineseChess, player: OwnerShip): Sequence<GameAction<ChineseChess>> {
         return sequence {
-            context.gameBroad.forEachIndexed { x, row ->
-                row.forEachIndexed { y, chessman ->
-                    if (chessman != null && chessman.owner == player) {
-                        yieldAll(
-                            rule(chessman).nextMove(Position(x, y), context, chessman.owner)
-                                .mapNotNull { (newX, newY) ->
-                                    if (newX in 0 until ROW_SIZE &&
-                                        newY in 0 until COLUMN_SIZE &&
-                                        (x != newX || y != newY) &&
-                                        context.gameBroad[newX][newY]?.owner != chessman.owner
-                                    ) {
-                                        ChineseChessAction(chessman, x, y, newX, newY)
-                                    } else {
-                                        null
-                                    }
+            context.gameBroad.forEach { (chessman, row, column) ->
+                if (chessman.owner == player) {
+                    yieldAll(
+                        rule(chessman).nextMove(Position(row, column), context, chessman.owner)
+                            .mapNotNull { (newRow, newColumn) ->
+                                if (newRow in 0 until ROW_SIZE &&
+                                    newColumn in 0 until COLUMN_SIZE &&
+                                    (row != newRow || column != newColumn) &&
+                                    context.gameBroad[newRow, newColumn]?.owner != chessman.owner
+                                ) {
+                                    ChineseChessAction(chessman, row, column, newRow, newColumn)
+                                } else {
+                                    null
                                 }
-                        )
-                    }
+                            }
+                    )
                 }
             }
         }

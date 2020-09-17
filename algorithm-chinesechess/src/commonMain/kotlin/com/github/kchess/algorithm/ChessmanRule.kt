@@ -1,8 +1,8 @@
 package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.Chessman.*
-import com.github.kchess.algorithm.ChineseChessBoard.COLUMN_SIZE
-import com.github.kchess.algorithm.ChineseChessBoard.ROW_SIZE
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
 
 /**
  * @author YvesCheung
@@ -13,21 +13,41 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
     Che(红车, 黑车) {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequence {
-                for (r in 0 until ROW_SIZE) yield(Position(r, current.c))
-                for (c in 0 until COLUMN_SIZE) yield(Position(current.r, c))
+                suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
+                    val target = game.gameBroad[r, c]
+                    if (target == null || target.owner != owner) yield(Position(r, c))
+                    return target == null
+                }
+                for (r in current.r - 1 downTo 0) {
+                    if (yieldPosition(r, current.c)) break
+                }
+                for (r in current.r + 1 until ROW_SIZE) {
+                    if (yieldPosition(r, current.c)) break
+                }
+                for (c in current.c - 1 downTo 0) {
+                    if (yieldPosition(current.r, c)) break
+                }
+                for (c in current.c + 1 until COLUMN_SIZE) {
+                    if (yieldPosition(current.r, c)) break
+                }
             }
         }
     },
     Ma(红马, 黑马) {
-        private val step = arrayOf(
-            Position(1, 2), Position(2, 1),
-            Position(-1, -2), Position(-2, -1),
-            Position(1, -2), Position(2, -1),
-            Position(-1, 2), Position(-2, 1)
-        )
+        private val top = arrayOf(Position(-2, -1), Position(-2, 1))
+        private val left = arrayOf(Position(-1, -2), Position(1, -2))
+        private val right = arrayOf(Position(-1, 2), Position(1, 2))
+        private val bottom = arrayOf(Position(2, -1), Position(2, 1))
 
-        override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> =
-            sequenceFromStep(current, step)
+        override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
+            var step = emptyArray<Position>()
+            //考虑扳马脚的情况
+            if (game.gameBroad[current.r - 1, current.c] == null) step += top
+            if (game.gameBroad[current.r + 1, current.c] == null) step += bottom
+            if (game.gameBroad[current.r, current.c - 1] == null) step += left
+            if (game.gameBroad[current.r, current.c + 1] == null) step += right
+            return sequenceFromStep(current, step)
+        }
     },
     Shi(红士, 黑士) {
         private val step = arrayOf(
@@ -44,12 +64,17 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
 
     },
     Xiang(红象, 黑象) {
-        private val step = arrayOf(
-            Position(2, 2), Position(2, -2),
-            Position(-2, -2), Position(-2, 2)
-        )
+        private val leftTop = arrayOf(Position(-2, -2))
+        private val rightTop = arrayOf(Position(-2, 2))
+        private val leftBottom = arrayOf(Position(2, -2))
+        private val rightBottom = arrayOf(Position(-2, -2))
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
+            var step = emptyArray<Position>()
+            if (game.gameBroad[current.r - 1, current.c - 1] == null) step += leftTop
+            if (game.gameBroad[current.r - 1, current.c + 1] == null) step += rightTop
+            if (game.gameBroad[current.r + 1, current.c - 1] == null) step += leftBottom
+            if (game.gameBroad[current.r + 1, current.c + 1] == null) step += rightBottom
             return sequenceFromStep(current, step)
                 .filter { //不能过河
                     (!!owner && it.c > 4) || (!owner && it.c <= 4)
@@ -63,6 +88,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
         )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
+            //todo:长将的情况
             return sequenceFromStep(current, step)
                 .filter { //不能离开九宫格
                     it.r in 3..5 && (it.c in 0..2 || it.c in 7..9)
@@ -92,17 +118,40 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
     },
     Pao(红炮, 黑炮) {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
-            var hasBlock = false
-            for (r in current.r - 1 downTo 0) {
-                val target = game.gameBroad[r][current.c]
-                if(hasBlock && target?.owner != owner){
-
+            return sequence {
+                var hasBlock = false
+                suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
+                    val target = game.gameBroad[r, c]
+                    if (hasBlock && target != null) {
+                        if (target.owner != owner) {
+                            yield(Position(r, c))
+                        }
+                        return true
+                    } else if (target != null) {
+                        hasBlock = true
+                    } else {
+                        yield(Position(r, c))
+                    }
+                    return false
                 }
-                if (game.gameBroad[r][current.c] != null) {
-                    hasBlock = true
+
+                hasBlock = false
+                for (r in current.r - 1 downTo 0) {
+                    if (yieldPosition(r, current.c)) break
+                }
+                hasBlock = false
+                for (r in current.r + 1 until ROW_SIZE) {
+                    if (yieldPosition(r, current.c)) break
+                }
+                hasBlock = false
+                for (c in current.c - 1 downTo 0) {
+                    if (yieldPosition(current.r, c)) break
+                }
+                hasBlock = false
+                for (c in current.c + 1 until COLUMN_SIZE) {
+                    if (yieldPosition(current.r, c)) break
                 }
             }
-            return Che.nextMove(current, game, owner)
         }
     };
 

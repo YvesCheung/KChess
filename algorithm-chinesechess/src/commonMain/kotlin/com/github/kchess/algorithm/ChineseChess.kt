@@ -9,12 +9,12 @@ class ChineseChess {
     /**
      * 棋盘
      */
-    val gameBroad: Array<Array<Chessman?>> = ChineseChessBoard.reset()
+    val gameBroad = ChineseChessBoard()
 
     /**
      * 当前是否红子回合
      */
-    var redTurn: Boolean = true
+    var currentPlayer: OwnerShip = OwnerShip.Player1
 }
 
 
