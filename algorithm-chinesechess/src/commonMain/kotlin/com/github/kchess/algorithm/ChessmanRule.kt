@@ -129,7 +129,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
                         return true
                     } else if (target != null) {
                         hasBlock = true
-                    } else {
+                    } else if (!hasBlock) {
                         yield(Position(r, c))
                     }
                     return false
