@@ -14,17 +14,17 @@ object ChineseChessBoard {
     fun reset(): Array<Array<Chessman?>> {
         @Suppress("RemoveExplicitTypeArguments")
         return arrayOf<Array<Chessman?>>(
-            arrayOf(车, Ma, Xiang, Shi, Jiang, Shi, Xiang, Ma, 车),
+            arrayOf(黑车, 黑马, 黑象, 黑士, 黑帅, 黑士, 黑象, 黑马, 黑车),
             arrayOf(null, null, null, null, null, null, null, null, null),
-            arrayOf(null, Pao, null, null, null, null, null, Pao, null),
-            arrayOf(Zu, null, Zu, null, Zu, null, Zu, null, Zu),
+            arrayOf(null, 黑炮, null, null, null, null, null, 黑炮, null),
+            arrayOf(黑兵, null, 黑兵, null, 黑兵, null, 黑兵, null, 黑兵),
             arrayOf(null, null, null, null, null, null, null, null, null),
 
             arrayOf(null, null, null, null, null, null, null, null, null),
-            arrayOf(Bin, null, Bin, null, Bin, null, Bin, null, Bin),
-            arrayOf(null, Pao2, null, null, null, null, null, Pao2, null),
+            arrayOf(红卒, null, 红卒, null, 红卒, null, 红卒, null, 红卒),
+            arrayOf(null, 红炮, null, null, null, null, null, 红炮, null),
             arrayOf(null, null, null, null, null, null, null, null, null),
-            arrayOf(Ju, Ma2, Xiang2, Shi2, 帅, Shi2, Xiang2, Ma2, Ju)
+            arrayOf(红车, 红马, 红象, 红士, 红将, 红士, 红象, 红马, 红车)
         )
     }
 

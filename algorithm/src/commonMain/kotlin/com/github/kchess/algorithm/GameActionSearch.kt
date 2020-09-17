@@ -7,22 +7,31 @@ package com.github.kchess.algorithm
  */
 abstract class GameActionSearch<Game : Any> {
 
-    fun alphaBetaSearch(depth: Int, context: Game): GameSearchResult<Game> {
-        if (depth <= 0) {
-            throw IllegalArgumentException("depth must be > 0, but actual value is $depth!")
+    fun alphaBetaSearch(
+        depth: Int,
+        alpha: Int = Int.MIN_VALUE,
+        beta: Int = Int.MAX_VALUE,
+        context: Game,
+        turn: Boolean = false
+    ): GameSearchResult<Game> {
+        if (depth < 0) {
+            throw IllegalArgumentException("depth must be >= 0, but actual value is $depth!")
         }
-        var alpha = Int.MIN_VALUE
-        val beta = Int.MAX_VALUE
+        if (depth == 0) {
+            return GameSearchResult(null, evaluate(context))
+        }
+        var maxAlpha = alpha
         var alphaAction: GameAction<Game>? = null
-        for (action in nextMove(context, false)) {
+        for (action in nextMove(context, turn)) {
             action.run(context)
-            val value = -alphaBetaSearchValue(depth - 1, -beta, -alpha, true, context)
+            val result = alphaBetaSearch(depth - 1, -beta, -alpha, context, turn)
+            val value = result.evaluateValue
             action.undo(context)
             if (value >= beta) {
-                return GameSearchResult(action, value)
+                return result //GameSearchResult(action, value)
             }
-            if (value > alpha) {
-                alpha = value
+            if (value > maxAlpha) {
+                maxAlpha = value
                 alphaAction = action
             }
         }
@@ -53,5 +62,5 @@ abstract class GameActionSearch<Game : Any> {
 
     abstract fun evaluate(context: Game): Int
 
-    abstract fun nextMove(context: Game, simulateTurn: Boolean): Iterable<GameAction<Game>>
+    abstract fun nextMove(context: Game, simulateTurn: Boolean): Sequence<GameAction<Game>>
 }

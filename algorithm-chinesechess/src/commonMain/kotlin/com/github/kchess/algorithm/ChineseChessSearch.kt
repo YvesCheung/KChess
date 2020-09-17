@@ -23,21 +23,30 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
         return value
     }
 
-    override fun nextMove(context: ChineseChess, simulateTurn: Boolean): Iterable<GameAction<ChineseChess>> {
-        val result = mutableListOf<GameAction<ChineseChess>>()
-        context.gameBroad.forEachIndexed { x, row ->
-            row.forEachIndexed { y, chessman ->
-                if (chessman != null && chessman.redTurn == simulateTurn) {
-                    chessman.nextMove(Position(x, y)).forEach { (newX, newY) ->
-                        if (newX in 0 until ROW_SIZE &&
-                            newY in 0 until COLUMN_SIZE
-                        ) {
-                            result.add(ChineseChessAction(chessman, x, y, newX, newY))
-                        }
+    private val rule = ChessmanRule.createFactory()
+
+    override fun nextMove(context: ChineseChess, simulateTurn: Boolean): Sequence<GameAction<ChineseChess>> {
+        return sequence {
+            context.gameBroad.forEachIndexed { x, row ->
+                row.forEachIndexed { y, chessman ->
+                    if (chessman != null && chessman.redTurn == simulateTurn) {
+                        yieldAll(
+                            rule(chessman).nextMove(Position(x, y), context, chessman.redTurn)
+                                .mapNotNull { (newX, newY) ->
+                                    if (newX in 0 until ROW_SIZE &&
+                                        newY in 0 until COLUMN_SIZE &&
+                                        x != newX && y != newY &&
+                                        context.gameBroad[newX][newY]?.redTurn != chessman.redTurn
+                                    ) {
+                                        ChineseChessAction(chessman, x, y, newX, newY)
+                                    } else {
+                                        null
+                                    }
+                                }
+                        )
                     }
                 }
             }
         }
-        return result
     }
 }

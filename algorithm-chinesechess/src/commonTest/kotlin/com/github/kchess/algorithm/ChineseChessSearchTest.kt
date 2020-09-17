@@ -12,6 +12,6 @@ class ChineseChessSearchTest {
     fun testAlphaBeta() {
         val game = ChineseChess()
         val algorithm = ChineseChessSearch()
-        println(algorithm.alphaBetaSearch(1, game))
+        println(algorithm.alphaBetaSearch(4, context = game))
     }
 }
