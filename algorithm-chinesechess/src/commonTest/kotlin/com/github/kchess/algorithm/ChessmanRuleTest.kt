@@ -116,6 +116,23 @@ class ChessmanRuleTest {
     }
 
     @Test
+    fun testXiang() {
+        testChessman(
+            2, 4, Chessman.黑象,
+            listOf(
+                Position(r = 0, c = 2),
+                Position(r = 4, c = 2),
+                Position(r = 4, c = 6)
+            )
+        )
+
+        testChessman(
+            9, 2, Chessman.红象,
+            listOf()
+        )
+    }
+
+    @Test
     fun testShi() {
         testChessman(
             8, 4, Chessman.红士,

@@ -67,7 +67,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
         private val leftTop = arrayOf(Position(-2, -2))
         private val rightTop = arrayOf(Position(-2, 2))
         private val leftBottom = arrayOf(Position(2, -2))
-        private val rightBottom = arrayOf(Position(-2, -2))
+        private val rightBottom = arrayOf(Position(2, 2))
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
@@ -77,7 +77,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
             if (game.gameBroad[current.r + 1, current.c + 1] == null) step += rightBottom
             return sequenceFromStep(current, step)
                 .filter { //不能过河
-                    (!!owner && it.c > 4) || (!owner && it.c <= 4)
+                    (!!owner && it.r > 4) || (!owner && it.r <= 4)
                 }
         }
     },
