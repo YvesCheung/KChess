@@ -1,4 +1,6 @@
 # Project exclude paths
+.DS_Store
+/.idea
 /.gradle/
 /algorithm/build/
 /algorithm/build/classes/kotlin/js/main/
