@@ -37,11 +37,11 @@ enum class ChessmanEvaluator(vararg val belongTo: Chessman) {
     },
     Xiang(Chessman.红象, Chessman.黑象) {
         override val valueMap: Array<IntArray> = arrayOf(
-            intArrayOf(0, 0, 20, 0, 0, 0, 20, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 23, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 20, 0, 0, 0, 20, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
 
             intArrayOf(0, 0, 20, 0, 0, 0, 20, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -52,9 +52,9 @@ enum class ChessmanEvaluator(vararg val belongTo: Chessman) {
     },
     Shi(Chessman.红士, Chessman.黑士) {
         override val valueMap: Array<IntArray> = arrayOf(
-            intArrayOf(0, 0, 0, 20, 0, 20, 0, 0, 0),
-            intArrayOf(0, 0, 0, 0, 23, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 20, 0, 20, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
+            intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
 

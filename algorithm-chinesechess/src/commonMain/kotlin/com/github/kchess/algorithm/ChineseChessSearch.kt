@@ -11,13 +11,19 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     private val evaluator = ChessmanEvaluator.createFactory()
 
-    override fun evaluate(context: ChineseChess): Int {
+    override fun evaluate(context: ChineseChess, player: OwnerShip): Int {
         var value = 0
         context.gameBroad.forEach { (chessman, r, c) ->
-            if (!chessman.owner) {
-                value -= evaluator(chessman).valueMap[ROW_SIZE - r - 1][COLUMN_SIZE - c - 1]
+            val evaluate =
+                if (!player) {
+                    evaluator(chessman).valueMap[ROW_SIZE - r - 1][COLUMN_SIZE - c - 1]
+                } else {
+                    evaluator(chessman).valueMap[r][c]
+                }
+            if (chessman.owner != player) {
+                value -= evaluate
             } else {
-                value += evaluator(chessman).valueMap[r][c]
+                value += evaluate
             }
         }
         return value
