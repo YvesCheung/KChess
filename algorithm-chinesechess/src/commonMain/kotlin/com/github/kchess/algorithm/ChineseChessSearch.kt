@@ -25,18 +25,18 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     private val rule = ChessmanRule.createFactory()
 
-    override fun nextMove(context: ChineseChess, simulateTurn: Boolean): Sequence<GameAction<ChineseChess>> {
+    override fun nextMove(context: ChineseChess, player: OwnerShip): Sequence<GameAction<ChineseChess>> {
         return sequence {
             context.gameBroad.forEachIndexed { x, row ->
                 row.forEachIndexed { y, chessman ->
-                    if (chessman != null && chessman.redTurn == simulateTurn) {
+                    if (chessman != null && chessman.owner == player) {
                         yieldAll(
-                            rule(chessman).nextMove(Position(x, y), context, chessman.redTurn)
+                            rule(chessman).nextMove(Position(x, y), context, chessman.owner)
                                 .mapNotNull { (newX, newY) ->
                                     if (newX in 0 until ROW_SIZE &&
                                         newY in 0 until COLUMN_SIZE &&
                                         (x != newX || y != newY) &&
-                                        context.gameBroad[newX][newY]?.redTurn != chessman.redTurn
+                                        context.gameBroad[newX][newY]?.owner != chessman.owner
                                     ) {
                                         ChineseChessAction(chessman, x, y, newX, newY)
                                     } else {

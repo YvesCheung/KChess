@@ -7,8 +7,8 @@ package com.github.kchess.algorithm
  */
 abstract class GameActionSearch<Game : Any> {
 
-    fun alphaBetaSearch(depth: Int, context: Game): GameSearchResult<Game> {
-        return alphaBetaSearch(depth, Int.MIN_VALUE, Int.MAX_VALUE, context, false)
+    fun alphaBetaSearch(depth: Int, context: Game, player: OwnerShip = OwnerShip.Player2): GameSearchResult<Game> {
+        return alphaBetaSearch(depth, Int.MIN_VALUE, Int.MAX_VALUE, context, player)
     }
 
     private fun alphaBetaSearch(
@@ -16,7 +16,7 @@ abstract class GameActionSearch<Game : Any> {
         alpha: Int,
         beta: Int,
         context: Game,
-        turn: Boolean = false
+        player: OwnerShip
     ): GameSearchResult<Game> {
         if (depth < 0) {
             throw IllegalArgumentException("depth must be >= 0, but actual value is $depth!")
@@ -26,9 +26,9 @@ abstract class GameActionSearch<Game : Any> {
         }
         var maxAlpha = alpha
         var alphaAction: GameAction<Game>? = null
-        for (action in nextMove(context, turn)) {
+        for (action in nextMove(context, player)) {
             action.run(context)
-            val result = alphaBetaSearch(depth - 1, -beta, -maxAlpha, context, !turn)
+            val result = alphaBetaSearch(depth - 1, -beta, -maxAlpha, context, -player)
             val value = -result.evaluateValue
             action.undo(context)
             if (value >= beta) {
@@ -44,5 +44,5 @@ abstract class GameActionSearch<Game : Any> {
 
     abstract fun evaluate(context: Game): Int
 
-    abstract fun nextMove(context: Game, simulateTurn: Boolean): Sequence<GameAction<Game>>
+    abstract fun nextMove(context: Game, player: OwnerShip): Sequence<GameAction<Game>>
 }
