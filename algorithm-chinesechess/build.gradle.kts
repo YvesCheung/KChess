@@ -16,7 +16,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
-                implementation(project(":algorithm"))
+                api(project(":algorithm"))
             }
         }
         val commonTest by getting {
