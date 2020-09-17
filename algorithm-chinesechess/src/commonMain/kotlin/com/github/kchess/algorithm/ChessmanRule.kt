@@ -16,7 +16,7 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
                 suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
                     val target = game.gameBroad[r, c]
                     if (target == null || target.owner != owner) yield(Position(r, c))
-                    return target == null
+                    return target != null
                 }
                 for (r in current.r - 1 downTo 0) {
                     if (yieldPosition(r, current.c)) break
