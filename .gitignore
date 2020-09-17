@@ -3,9 +3,5 @@
 /.idea
 /.gradle/
 /algorithm/build/
-/algorithm/build/classes/kotlin/js/main/
-/algorithm/build/classes/kotlin/jvm/main/
 /algorithm-chinesechess/build/
-/algorithm-chinesechess/build/classes/kotlin/js/main/
-/algorithm-chinesechess/build/classes/kotlin/jvm/main/
-/algorithm-chinesechess/build/classes/kotlin/jvm/test/
+/cli-jvm/build/
