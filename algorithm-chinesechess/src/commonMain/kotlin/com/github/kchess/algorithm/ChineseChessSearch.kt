@@ -35,7 +35,7 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
                                 .mapNotNull { (newX, newY) ->
                                     if (newX in 0 until ROW_SIZE &&
                                         newY in 0 until COLUMN_SIZE &&
-                                        x != newX && y != newY &&
+                                        (x != newX || y != newY) &&
                                         context.gameBroad[newX][newY]?.redTurn != chessman.redTurn
                                     ) {
                                         ChineseChessAction(chessman, x, y, newX, newY)
