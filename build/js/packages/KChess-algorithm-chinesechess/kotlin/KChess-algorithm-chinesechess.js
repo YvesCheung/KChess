@@ -1409,78 +1409,20 @@
       }}
     this.gameBoard_0 = board;
   };
-  function Coroutine$ChineseChessBoard$allRows$lambda(this$ChineseChessBoard_0, $receiver_0, controller, continuation_0) {
-    CoroutineImpl.call(this, continuation_0);
-    this.$controller = controller;
-    this.exceptionState_0 = 1;
-    this.local$this$ChineseChessBoard = this$ChineseChessBoard_0;
-    this.local$$receiver = void 0;
-    this.local$tmp$ = void 0;
-    this.local$$receiver_0 = $receiver_0;
-  }
-  Coroutine$ChineseChessBoard$allRows$lambda.$metadata$ = {
-    kind: Kotlin.Kind.CLASS,
-    simpleName: null,
-    interfaces: [CoroutineImpl]
-  };
-  Coroutine$ChineseChessBoard$allRows$lambda.prototype = Object.create(CoroutineImpl.prototype);
-  Coroutine$ChineseChessBoard$allRows$lambda.prototype.constructor = Coroutine$ChineseChessBoard$allRows$lambda;
-  Coroutine$ChineseChessBoard$allRows$lambda.prototype.doResume = function () {
-    do
-      try {
-        switch (this.state_0) {
-          case 0:
-            this.local$$receiver = this.local$this$ChineseChessBoard.gameBoard_0;
-            this.local$tmp$ = 0;
-            this.state_0 = 2;
-            continue;
-          case 1:
-            throw this.exception_0;
-          case 2:
-            if (this.local$tmp$ === this.local$$receiver.length) {
-              this.state_0 = 5;
-              continue;
-            }
-            var element = this.local$$receiver[this.local$tmp$];
-            this.state_0 = 3;
-            this.result_0 = this.local$$receiver_0.yield_11rb$(Kotlin.arrayIterator(element), this);
-            if (this.result_0 === COROUTINE_SUSPENDED)
-              return COROUTINE_SUSPENDED;
-            continue;
-          case 3:
-            this.state_0 = 4;
-            continue;
-          case 4:
-            ++this.local$tmp$;
-            this.state_0 = 2;
-            continue;
-          case 5:
-            return Unit;
-          default:this.state_0 = 1;
-            throw new Error('State Machine Unreachable execution');
-        }
-      } catch (e) {
-        if (this.state_0 === 1) {
-          this.exceptionState_0 = this.state_0;
-          throw e;
-        } else {
-          this.state_0 = this.exceptionState_0;
-          this.exception_0 = e;
-        }
+  ChineseChessBoard.prototype.forEach = function (yield_0) {
+    var newLine = {v: false};
+    var $receiver = this.gameBoard_0;
+    var tmp$;
+    for (tmp$ = 0; tmp$ !== $receiver.length; ++tmp$) {
+      var element = $receiver[tmp$];
+      var tmp$_0;
+      for (tmp$_0 = 0; tmp$_0 !== element.length; ++tmp$_0) {
+        var element_0 = element[tmp$_0];
+        yield_0(newLine.v, element_0);
+        newLine.v = false;
       }
-     while (true);
-  };
-  function ChineseChessBoard$allRows$lambda(this$ChineseChessBoard_0) {
-    return function ($receiver_0, continuation_0, suspended) {
-      var instance = new Coroutine$ChineseChessBoard$allRows$lambda(this$ChineseChessBoard_0, $receiver_0, this, continuation_0);
-      if (suspended)
-        return instance;
-      else
-        return instance.doResume(null);
-    };
-  }
-  ChineseChessBoard.prototype.allRows = function () {
-    return iterator(ChineseChessBoard$allRows$lambda(this));
+      newLine.v = true;
+    }
   };
   function Coroutine$ChineseChessBoard$iterator$lambda(this$ChineseChessBoard_0, $receiver_0, controller, continuation_0) {
     CoroutineImpl.call(this, continuation_0);
@@ -1811,6 +1753,9 @@
     }
     return new toFactory$ObjectLiteral(map);
   }
+  function ChineseChess_0() {
+    return new ChineseChess();
+  }
   Object.defineProperty(Chessman, '\u7EA2\u8F66', {
     get: Chessman$红车_getInstance
   });
@@ -1920,6 +1865,7 @@
   package$algorithm.Factory = Factory;
   package$algorithm.Producible = Producible;
   package$algorithm.toFactory_alwag$ = toFactory;
+  _.ChineseChess = ChineseChess_0;
   Kotlin.defineModule('kchess-algorithm-chinesechess', _);
   return _;
 }));

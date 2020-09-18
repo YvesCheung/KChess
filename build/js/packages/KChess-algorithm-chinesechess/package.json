@@ -4,12 +4,12 @@
     "source-map-support": "0.5.16"
   },
   "dependencies": {
-    "kchess-algorithm": "1.0.0-SNAPSHOT",
+    "kchess-algorithm": "0.0.1-SNAPSHOT",
     "kotlin": "1.3.72"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
   "bundledDependencies": [],
   "name": "kchess-algorithm-chinesechess",
-  "version": "1.0.0-SNAPSHOT"
+  "version": "0.0.1-SNAPSHOT"
 }
