@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.GameBoardDemo.DEMO1
+import com.github.kchess.algorithm.GameBoardDemo.DEMO3
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -88,6 +89,26 @@ class ChessmanRuleTest {
                 Position(r = 2, c = 7)
             )
         )
+    }
+
+    @Test
+    fun testChe2() {
+        game.gameBroad.reset(DEMO3)
+
+        testChessman(3, 5, Chessman.黑车,
+            listOf(
+                Position(r = 2, c = 5),
+                Position(r = 1, c = 5),
+                Position(r = 4, c = 5),
+                Position(r = 5, c = 5),
+                Position(r = 6, c = 5),
+                Position(r = 7, c = 5),
+                Position(r = 8, c = 5),
+                Position(r = 9, c = 5),
+                Position(r = 3, c = 4),
+                Position(r = 3, c = 6),
+                Position(r = 3, c = 7)
+            ))
     }
 
     @Test
