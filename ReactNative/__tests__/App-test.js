@@ -12,3 +12,9 @@ import renderer from 'react-test-renderer';
 it('renders correctly', () => {
   renderer.create(<App />);
 });
+
+it('test kotlin2js', function () {
+  const algorithm = require("KChess/KChess-algorithm-chinesechess")
+  const game = new algorithm.com.github.kchess.algorithm.ChineseChess()
+  console.log(game.gameBroad)
+});

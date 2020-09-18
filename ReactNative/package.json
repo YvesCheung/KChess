@@ -1,5 +1,5 @@
 {
-  "name": "KChessRN",
+  "name": "KChess",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -10,6 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "kotlin": "file:../build/js/packages_imported/kotlin/1.3.72",
+    "KChess-algorithm": "file:../build/js/packages/KChess-algorithm",
+    "KChess": "file:../build/js/packages",
     "react": "16.13.1",
     "react-native": "0.63.2"
   },
