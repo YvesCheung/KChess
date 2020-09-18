@@ -116,6 +116,31 @@ class ChessmanRuleTest {
     }
 
     @Test
+    fun testPao() {
+        testChessman(2, 1, Chessman.黑炮,
+            listOf(
+                Position(r = 1, c = 1),
+                Position(r = 0, c = 1),
+                Position(r = 3, c = 1),
+                Position(r = 4, c = 1),
+                Position(r = 5, c = 1),
+                Position(r = 6, c = 1),
+                Position(r = 2, c = 0),
+                Position(r = 2, c = 2),
+                Position(r = 2, c = 3),
+                Position(r = 2, c = 6)
+            ))
+
+        testChessman(2, 7, Chessman.黑炮,
+            listOf(
+                Position(r = 1, c = 7),
+                Position(r = 3, c = 7),
+                Position(r = 9, c = 7),
+                Position(r = 2, c = 8)
+            ))
+    }
+
+    @Test
     fun testXiang() {
         testChessman(
             2, 4, Chessman.黑象,
@@ -167,6 +192,20 @@ class ChessmanRuleTest {
                 Position(r = 9, c = 4)
             )
         )
+    }
+
+    @Test
+    fun testBin() {
+        testChessman(4, 4, Chessman.黑兵,
+            listOf(Position(r = 5, c = 4))
+        )
+
+        testChessman(4, 7, Chessman.红卒,
+            listOf(
+                Position(r = 3, c = 7),
+                Position(r = 4, c = 8),
+                Position(r = 4, c = 6)
+            ))
     }
 
     private fun testChessman(
