@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.github.kchess"
-version = "1.0-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -32,16 +32,41 @@ kotlin {
                 implementation(kotlin("stdlib-jdk8"))
             }
         }
-        val jsMain by getting {
-            dependencies {
-                implementation(kotlin("stdlib-js"))
-            }
-        }
         val jvmTest by getting {
             dependencies {
                 implementation(kotlin("test"))
                 implementation(kotlin("test-junit"))
             }
+        }
+        val jsMain by getting {
+            dependencies {
+                implementation(kotlin("stdlib-js"))
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                implementation(kotlin("test-js"))
+                implementation(npm("jest"))
+            }
+        }
+    }
+}
+
+tasks {
+    create("publishNpm") {
+        group = "publish"
+        dependsOn(rootProject.tasks.getByName("clean"))
+        dependsOn(getByName("assemble"))
+        doLast {
+            file("$rootDir/build/js/packages").listFiles()
+                .forEach { path ->
+                    if (!path.name.contains("test")) {
+                        project.exec {
+                            println("npm publish $path")
+                            commandLine("npm", "publish", path)
+                        }
+                    }
+                }
         }
     }
 }
