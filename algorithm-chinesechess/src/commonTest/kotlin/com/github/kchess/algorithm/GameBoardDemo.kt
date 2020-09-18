@@ -14,7 +14,7 @@ object GameBoardDemo {
             /*1*/arrayOf(null, null, null, null, null, null, null, null, null),
             /*2*/arrayOf(null, 黑炮, null, null, 黑象, null, 红车, 黑炮, null),
             /*3*/arrayOf(null, null, null, null, null, null, null, null, null),
-            /*4*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*4*/arrayOf(null, null, null, null, 黑兵, null, null, 红卒, null),
 
             /*5*/arrayOf(红车, null, null, null, null, null, null, null, null),
             /*6*/arrayOf(null, null, null, null, null, null, null, null, null),
