@@ -23,12 +23,12 @@ fun main() {
 }
 
 private fun printChessBoard(board: ChineseChessBoard) {
-    board.allRows().forEach { row ->
-        row.forEach { chessman ->
-            if (chessman != null) print(chessman(chessman)) else print(noChessman())
+    board.forEachNullable { newLine, chessman ->
+        if (newLine) {
+            println()
+            println()
         }
-        println()
-        println()
+        if (chessman != null) print(chessman(chessman)) else print(noChessman())
     }
     println()
 }

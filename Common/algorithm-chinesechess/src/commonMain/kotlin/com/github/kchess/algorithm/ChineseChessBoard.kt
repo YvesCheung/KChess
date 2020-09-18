@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.Chessman.*
+import kotlin.js.JsName
 
 /**
  * @author YvesCheung
@@ -47,11 +48,15 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         gameBoard = board
     }
 
-    fun allRows(): Iterator<Iterator<Chessman?>> {
-        return iterator {
-            gameBoard.forEach { row ->
-                yield(row.iterator())
+    @JsName("forEach")
+    fun forEachNullable(yield: (newLine: Boolean, element: Chessman?) -> Unit) {
+        var newLine = false
+        gameBoard.forEach { row ->
+            row.forEach { chessman ->
+                yield(newLine, chessman)
+                newLine = false
             }
+            newLine = true
         }
     }
 
