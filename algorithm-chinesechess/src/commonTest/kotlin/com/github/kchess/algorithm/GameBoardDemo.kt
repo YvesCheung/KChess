@@ -22,4 +22,19 @@ object GameBoardDemo {
             /*8*/arrayOf(null, 黑马, null, null, 红士, null, null, null, null),
             /*9*/arrayOf(null, null, 红象, null, null, 红将, 红象, 红马, 红炮)
         )
+
+    val DEMO2 =
+        arrayOf<Array<Chessman?>>(
+            /*0*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*1*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*2*/arrayOf(null, null, null, 红车, null, null, null, null, null),
+            /*3*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*4*/arrayOf(null, 黑马, null, null, null, null, null, null, null),
+
+            /*5*/arrayOf(null, null, null, null, null, null, null, 黑马, null),
+            /*6*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*7*/arrayOf(null, null, null, null, 红车, null, null, null, null),
+            /*8*/arrayOf(null, null, null, null, null, null, null, null, null),
+            /*9*/arrayOf(null, null, null, null, null, null, null, null, null)
+        )
 }

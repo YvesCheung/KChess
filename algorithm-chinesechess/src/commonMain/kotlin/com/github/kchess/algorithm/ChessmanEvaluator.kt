@@ -125,7 +125,7 @@ enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
         fun evaluate(chessman: Chessman, row: Int, column: Int, player: OwnerShip): Int {
             val evaluator = factory.create(chessman)
             val evaluate =
-                if (!player) {
+                if (!chessman.owner) {
                     evaluator.valueMap[ROW_SIZE - row - 1][COLUMN_SIZE - column - 1]
                 } else {
                     evaluator.valueMap[row][column]
