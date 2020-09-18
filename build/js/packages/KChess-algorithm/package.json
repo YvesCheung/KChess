@@ -1,0 +1,14 @@
+{
+  "main": "kotlin/KChess-algorithm.js",
+  "devDependencies": {
+    "source-map-support": "0.5.16"
+  },
+  "dependencies": {
+    "kotlin": "1.3.72"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "KChess-algorithm",
+  "version": "1.0.0-SNAPSHOT"
+}

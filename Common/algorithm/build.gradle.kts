@@ -10,7 +10,9 @@ repositories {
 }
 
 kotlin {
-    js()
+    js {
+        nodejs()
+    }
     jvm()
     sourceSets {
         val commonMain by getting {

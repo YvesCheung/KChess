@@ -2,3 +2,5 @@
 .DS_Store
 /.idea
 /.gradle
+/build/kotlin
+/build/tmp

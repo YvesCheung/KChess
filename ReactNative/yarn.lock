@@ -1301,6 +1301,14 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
+"KChess-algorithm@file:../build/js/packages/KChess-algorithm":
+  version "1.0.0-SNAPSHOT"
+  dependencies:
+    kotlin "1.3.72"
+
+"KChess@file:../build/js/packages":
+  version "0.0.0"
+
 abab@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.5.tgz#c0b678fb32d60fc1219c784d6a826fe385aeb79a"
@@ -4311,6 +4319,9 @@ kleur@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-3.0.3.tgz#a79c9ecc86ee1ce3fa6206d1216c501f147fc07e"
   integrity sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==
+
+kotlin@1.3.72, "kotlin@file:../build/js/packages_imported/kotlin/1.3.72":
+  version "1.3.72"
 
 leven@^3.1.0:
   version "3.1.0"
