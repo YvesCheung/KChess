@@ -14,6 +14,9 @@ dependencies {
     compile(project(":algorithm-chinesechess"))
     compile(kotlin("stdlib-common"))
     compile(kotlin("stdlib-jdk8"))
+
+    testCompile(kotlin("test"))
+    testCompile(kotlin("test-junit"))
 }
 
 configure<JavaPluginConvention> {
