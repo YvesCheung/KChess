@@ -54,7 +54,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
-            //考虑扳马脚的情况
+            //考虑绊马脚的情况
             if (game.gameBroad[current.r - 1, current.c] == null) step += top
             if (game.gameBroad[current.r + 1, current.c] == null) step += bottom
             if (game.gameBroad[current.r, current.c - 1] == null) step += left
