@@ -14,7 +14,7 @@ object GameBoardDemo {
             /*1*/arrayOf(null, null, null, null, null, null, null, null, null),
             /*2*/arrayOf(null, 黑炮, null, null, 黑象, null, 红车, 黑炮, null),
             /*3*/arrayOf(null, null, null, null, null, null, null, null, null),
-            /*4*/arrayOf(null, null, null, null, 黑兵, null, null, 红卒, null),
+            /*4*/arrayOf(null, null, null, null, 黑卒, null, null, 红兵, null),
 
             /*5*/arrayOf(红车, null, null, null, null, null, null, null, null),
             /*6*/arrayOf(null, null, null, null, null, null, null, null, null),
@@ -43,10 +43,10 @@ object GameBoardDemo {
             /*0*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/黑士, /*4*/黑帅, /*5*/黑士, /*6*/黑象, /*7*/null, /*8*/null),
             /*1*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
             /*2*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/黑象, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
-            /*3*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红炮, /*5*/黑车, /*6*/null, /*7*/null, /*8*/黑兵),
-            /*4*/arrayOf(/*0*/黑兵, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/黑兵, /*7*/null, /*8*/null),
-            /*5*/arrayOf(/*0*/null, /*1*/null, /*2*/黑兵, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
-            /*6*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/黑车, /*8*/红卒),
+            /*3*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红炮, /*5*/黑车, /*6*/null, /*7*/null, /*8*/黑卒),
+            /*4*/arrayOf(/*0*/黑卒, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/黑卒, /*7*/null, /*8*/null),
+            /*5*/arrayOf(/*0*/null, /*1*/null, /*2*/黑卒, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*6*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/黑车, /*8*/红兵),
             /*7*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红象, /*5*/null, /*6*/红马, /*7*/黑炮, /*8*/null),
             /*8*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/红车, /*8*/null),
             /*9*/arrayOf(/*0*/null, /*1*/null, /*2*/红象, /*3*/红士, /*4*/红将, /*5*/红士, /*6*/null, /*7*/null, /*8*/null)

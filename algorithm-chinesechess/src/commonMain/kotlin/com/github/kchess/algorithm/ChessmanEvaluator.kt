@@ -98,7 +98,7 @@ enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
             intArrayOf(96, 96, 97, 99, 99, 99, 97, 96, 96)
         )
     },
-    Zu(Chessman.红卒, Chessman.黑兵) {
+    Zu(Chessman.红兵, Chessman.黑卒) {
         override val valueMap: Array<IntArray> = arrayOf(
             intArrayOf(9, 9, 9, 11, 13, 11, 9, 9, 9),
             intArrayOf(19, 24, 34, 42, 44, 42, 34, 24, 19),

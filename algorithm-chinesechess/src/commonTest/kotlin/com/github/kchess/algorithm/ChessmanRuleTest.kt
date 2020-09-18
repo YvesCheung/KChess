@@ -215,11 +215,11 @@ class ChessmanRuleTest {
 
     @Test
     fun testBin() {
-        testChessman(4, 4, Chessman.黑兵,
+        testChessman(4, 4, Chessman.黑卒,
             listOf(Position(r = 5, c = 4))
         )
 
-        testChessman(4, 7, Chessman.红卒,
+        testChessman(4, 7, Chessman.红兵,
             listOf(
                 Position(r = 3, c = 7),
                 Position(r = 4, c = 8),

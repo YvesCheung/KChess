@@ -1,13 +1,13 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.Chessman.红卒
+import com.github.kchess.algorithm.Chessman.红兵
 import com.github.kchess.algorithm.Chessman.红士
 import com.github.kchess.algorithm.Chessman.红将
 import com.github.kchess.algorithm.Chessman.红炮
 import com.github.kchess.algorithm.Chessman.红象
 import com.github.kchess.algorithm.Chessman.红车
 import com.github.kchess.algorithm.Chessman.红马
-import com.github.kchess.algorithm.Chessman.黑兵
+import com.github.kchess.algorithm.Chessman.黑卒
 import com.github.kchess.algorithm.Chessman.黑士
 import com.github.kchess.algorithm.Chessman.黑帅
 import com.github.kchess.algorithm.Chessman.黑炮
@@ -108,7 +108,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
                 }
         }
     },
-    Bin(红卒, 黑兵) {
+    Bin(红兵, 黑卒) {
         private val toLeftRight = arrayOf(Position(0, 1), Position(0, -1))
         private val toTop = arrayOf(Position(-1, 0))
         private val toBottom = arrayOf(Position(1, 0))
