@@ -1,10 +1,13 @@
 package com.github.kchess.algorithm
 
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
+
 /**
  * @author YvesCheung
  * 2020/9/16
  */
-enum class ChessmanEvaluator(vararg val belongTo: Chessman) {
+enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
     Che(Chessman.红车, Chessman.黑车) {
         override val valueMap: Array<IntArray> = arrayOf(
             intArrayOf(206, 208, 207, 213, 214, 213, 207, 208, 206),
@@ -111,18 +114,27 @@ enum class ChessmanEvaluator(vararg val belongTo: Chessman) {
         )
     };
 
+    override val productName: Array<out Chessman> = chessman
+
     abstract val valueMap: Array<IntArray>
 
     companion object {
 
-        fun createFactory(): (Chessman) -> ChessmanEvaluator {
-            val map = mutableMapOf<Chessman, ChessmanEvaluator>()
-            values().forEach { evaluator ->
-                evaluator.belongTo.forEach { chessman ->
-                    map[chessman] = evaluator
+        private val factory = values().toFactory()
+
+        fun evaluate(chessman: Chessman, row: Int, column: Int, player: OwnerShip): Int {
+            val evaluator = factory.create(chessman)
+            val evaluate =
+                if (!player) {
+                    evaluator.valueMap[ROW_SIZE - row - 1][COLUMN_SIZE - column - 1]
+                } else {
+                    evaluator.valueMap[row][column]
                 }
+            return if (chessman.owner != player) {
+                -evaluate
+            } else {
+                evaluate
             }
-            return { map[it]!! }
         }
     }
 }

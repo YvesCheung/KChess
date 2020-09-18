@@ -1,6 +1,19 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.Chessman.*
+import com.github.kchess.algorithm.Chessman.红卒
+import com.github.kchess.algorithm.Chessman.红士
+import com.github.kchess.algorithm.Chessman.红将
+import com.github.kchess.algorithm.Chessman.红炮
+import com.github.kchess.algorithm.Chessman.红象
+import com.github.kchess.algorithm.Chessman.红车
+import com.github.kchess.algorithm.Chessman.红马
+import com.github.kchess.algorithm.Chessman.黑兵
+import com.github.kchess.algorithm.Chessman.黑士
+import com.github.kchess.algorithm.Chessman.黑帅
+import com.github.kchess.algorithm.Chessman.黑炮
+import com.github.kchess.algorithm.Chessman.黑象
+import com.github.kchess.algorithm.Chessman.黑车
+import com.github.kchess.algorithm.Chessman.黑马
 import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
 import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
 
@@ -9,7 +22,7 @@ import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
  * 2020/9/16
  */
 @Suppress("unused")
-enum class ChessmanRule(vararg val chessman: Chessman) {
+enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
     Che(红车, 黑车) {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequence {
@@ -155,19 +168,23 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
         }
     };
 
-    fun nextMove(currentRow: Int, currentColumn: Int, game: ChineseChess): Sequence<Position> {
-        val chessman = game.gameBroad[currentRow, currentColumn]!!
-        return nextMove(Position(currentRow, currentColumn), game, chessman.owner)
-            .filter { (newRow, newColumn) ->
-                game.gameBroad.contains(newRow, newColumn) &&
-                        (currentRow != newRow || currentColumn != newColumn) &&
-                        game.gameBroad[newRow, newColumn]?.owner != chessman.owner
-            }
-    }
+    override val productName: Array<out Chessman> = chessman
 
     protected abstract fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position>
 
     companion object {
+
+        private val factory = values().toFactory()
+
+        fun nextMove(chessman: Chessman, currentRow: Int, currentColumn: Int, game: ChineseChess): Sequence<Position> {
+            val rule = factory.create(chessman)
+            return rule.nextMove(Position(currentRow, currentColumn), game, chessman.owner)
+                .filter { (newRow, newColumn) ->
+                    game.gameBroad.contains(newRow, newColumn) &&
+                        (currentRow != newRow || currentColumn != newColumn) &&
+                        game.gameBroad[newRow, newColumn]?.owner != chessman.owner
+                }
+        }
 
         /**
          * 根据[step]对[current]进行偏移，生成移动序列
@@ -178,15 +195,5 @@ enum class ChessmanRule(vararg val chessman: Chessman) {
                     yield(current.offset(stepOffset))
                 }
             }
-
-        fun createFactory(): (Chessman) -> ChessmanRule {
-            val map = mutableMapOf<Chessman, ChessmanRule>()
-            values().forEach { rule ->
-                rule.chessman.forEach { chessman ->
-                    map[chessman] = rule
-                }
-            }
-            return { map[it]!! }
-        }
     }
 }

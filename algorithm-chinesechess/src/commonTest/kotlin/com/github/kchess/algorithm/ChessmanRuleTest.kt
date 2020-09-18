@@ -12,8 +12,6 @@ import kotlin.test.assertSame
  */
 class ChessmanRuleTest {
 
-    private val rule = ChessmanRule.createFactory()
-
     private val game = ChineseChess()
 
     @BeforeTest
@@ -218,7 +216,7 @@ class ChessmanRuleTest {
         assertSame(expectChessman, chessman)
         assertEquals(
             expectMovement,
-            rule(chessman).nextMove(row, column, game).toList()
+            ChessmanRule.nextMove(chessman, row, column, game).toList()
         )
     }
 }
