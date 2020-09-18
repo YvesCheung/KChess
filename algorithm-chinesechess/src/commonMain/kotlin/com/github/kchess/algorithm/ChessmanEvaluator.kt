@@ -67,17 +67,17 @@ enum class ChessmanEvaluator(vararg val belongTo: Chessman) {
     },
     jiang(Chessman.红将, Chessman.黑帅) {
         override val valueMap: Array<IntArray> = arrayOf(
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0),
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0),
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0),
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
 
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0),
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0),
-            intArrayOf(0, 0, 0, 8888, 8888, 8888, 0, 0, 0)
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0)
         )
     },
     Pao(Chessman.红炮, Chessman.黑炮) {
