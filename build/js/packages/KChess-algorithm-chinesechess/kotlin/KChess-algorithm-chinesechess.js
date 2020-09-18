@@ -1,18 +1,18 @@
 (function (root, factory) {
   if (typeof define === 'function' && define.amd)
-    define(['exports', 'kotlin', 'KChess-algorithm'], factory);
+    define(['exports', 'kotlin', 'kchess-algorithm'], factory);
   else if (typeof exports === 'object')
-    factory(module.exports, require('kotlin'), require('KChess-algorithm'));
+    factory(module.exports, require('kotlin'), require('kchess-algorithm'));
   else {
     if (typeof kotlin === 'undefined') {
-      throw new Error("Error loading module 'KChess-algorithm-chinesechess'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'KChess-algorithm-chinesechess'.");
-    }if (typeof this['KChess-algorithm'] === 'undefined') {
-      throw new Error("Error loading module 'KChess-algorithm-chinesechess'. Its dependency 'KChess-algorithm' was not found. Please, check whether 'KChess-algorithm' is loaded prior to 'KChess-algorithm-chinesechess'.");
-    }root['KChess-algorithm-chinesechess'] = factory(typeof this['KChess-algorithm-chinesechess'] === 'undefined' ? {} : this['KChess-algorithm-chinesechess'], kotlin, this['KChess-algorithm']);
+      throw new Error("Error loading module 'kchess-algorithm-chinesechess'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'kchess-algorithm-chinesechess'.");
+    }if (typeof this['kchess-algorithm'] === 'undefined') {
+      throw new Error("Error loading module 'kchess-algorithm-chinesechess'. Its dependency 'kchess-algorithm' was not found. Please, check whether 'kchess-algorithm' is loaded prior to 'kchess-algorithm-chinesechess'.");
+    }root['kchess-algorithm-chinesechess'] = factory(typeof this['kchess-algorithm-chinesechess'] === 'undefined' ? {} : this['kchess-algorithm-chinesechess'], kotlin, this['kchess-algorithm']);
   }
-}(this, function (_, Kotlin, $module$KChess_algorithm) {
+}(this, function (_, Kotlin, $module$kchess_algorithm) {
   'use strict';
-  var OwnerShip = $module$KChess_algorithm.com.github.kchess.algorithm.OwnerShip;
+  var OwnerShip = $module$kchess_algorithm.com.github.kchess.algorithm.OwnerShip;
   var Enum = Kotlin.kotlin.Enum;
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var throwISE = Kotlin.throwISE;
@@ -23,13 +23,13 @@
   var sequence = Kotlin.kotlin.sequences.sequence_o0x0bg$;
   var filter = Kotlin.kotlin.sequences.filter_euau3h$;
   var equals = Kotlin.equals;
-  var GameAction = $module$KChess_algorithm.com.github.kchess.algorithm.GameAction;
+  var GameAction = $module$kchess_algorithm.com.github.kchess.algorithm.GameAction;
   var throwUPAE = Kotlin.throwUPAE;
   var IllegalArgumentException_init = Kotlin.kotlin.IllegalArgumentException_init_pdl1vj$;
   var iterator = Kotlin.kotlin.sequences.iterator_o0x0bg$;
   var Iterable = Kotlin.kotlin.collections.Iterable;
   var map = Kotlin.kotlin.sequences.map_z5avom$;
-  var GameActionSearch = $module$KChess_algorithm.com.github.kchess.algorithm.GameActionSearch;
+  var GameActionSearch = $module$kchess_algorithm.com.github.kchess.algorithm.GameActionSearch;
   var Kind_INTERFACE = Kotlin.Kind.INTERFACE;
   var ensureNotNull = Kotlin.ensureNotNull;
   var LinkedHashMap_init = Kotlin.kotlin.collections.LinkedHashMap_init_q3lmfv$;
@@ -1920,8 +1920,8 @@
   package$algorithm.Factory = Factory;
   package$algorithm.Producible = Producible;
   package$algorithm.toFactory_alwag$ = toFactory;
-  Kotlin.defineModule('KChess-algorithm-chinesechess', _);
+  Kotlin.defineModule('kchess-algorithm-chinesechess', _);
   return _;
 }));
 
-//# sourceMappingURL=KChess-algorithm-chinesechess.js.map
+//# sourceMappingURL=kchess-algorithm-chinesechess.js.map

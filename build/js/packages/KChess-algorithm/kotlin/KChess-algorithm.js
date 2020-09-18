@@ -5,8 +5,8 @@
     factory(module.exports, require('kotlin'));
   else {
     if (typeof kotlin === 'undefined') {
-      throw new Error("Error loading module 'KChess-algorithm'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'KChess-algorithm'.");
-    }root['KChess-algorithm'] = factory(typeof this['KChess-algorithm'] === 'undefined' ? {} : this['KChess-algorithm'], kotlin);
+      throw new Error("Error loading module 'kchess-algorithm'. Its dependency 'kotlin' was not found. Please, check whether 'kotlin' is loaded prior to 'kchess-algorithm'.");
+    }root['kchess-algorithm'] = factory(typeof this['kchess-algorithm'] === 'undefined' ? {} : this['kchess-algorithm'], kotlin);
   }
 }(this, function (_, Kotlin) {
   'use strict';
@@ -152,8 +152,8 @@
     get: OwnerShip$Player2_getInstance
   });
   package$algorithm.OwnerShip = OwnerShip;
-  Kotlin.defineModule('KChess-algorithm', _);
+  Kotlin.defineModule('kchess-algorithm', _);
   return _;
 }));
 
-//# sourceMappingURL=KChess-algorithm.js.map
+//# sourceMappingURL=kchess-algorithm.js.map
