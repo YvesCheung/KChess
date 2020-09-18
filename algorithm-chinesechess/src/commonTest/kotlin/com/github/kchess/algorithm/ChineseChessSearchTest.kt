@@ -10,16 +10,12 @@ import kotlin.time.measureTimedValue
  */
 class ChineseChessSearchTest {
 
-    @OptIn(ExperimentalTime::class)
+    @ExperimentalTime
     @Test
     fun testAlphaBeta() {
         val game = ChineseChess()
         val algorithm = ChineseChessSearch()
 
         println(measureTimedValue { algorithm.alphaBetaSearch(4, game) })
-
-        println(measureTimedValue { algorithm.alphaBetaSearch(5, game) })
-
-        println(measureTimedValue { algorithm.alphaBetaSearch(6, game) })
     }
 }
