@@ -1,6 +1,5 @@
 import com.github.kchess.algorithm.Chessman
 import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
-import kotlin.text.StringBuilder
 
 /**
  * @author YvesCheung

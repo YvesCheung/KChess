@@ -1,4 +1,3 @@
 # Project exclude paths
 .DS_Store
-/.idea
-/.gradle
+/build

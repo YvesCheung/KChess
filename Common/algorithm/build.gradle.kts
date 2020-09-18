@@ -1,6 +1,4 @@
 plugins {
-//    id("org.jetbrains.kotlin.js") version "1.3.72"
-//    kotlin("jvm") version "1.3.72"
     kotlin("multiplatform") version "1.3.72"
 }
 
@@ -38,13 +36,3 @@ kotlin {
         }
     }
 }
-//kotlin.target.browser { }
-//kotlin.target.nodejs { }
-//tasks {
-//    compileKotlin {
-//        kotlinOptions.jvmTarget = "1.8"
-//    }
-//    compileTestKotlin {
-//        kotlinOptions.jvmTarget = "1.8"
-//    }
-//}

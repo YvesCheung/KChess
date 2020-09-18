@@ -1,4 +1,15 @@
 rootProject.name = "KChess"
-include(":algorithm", ":algorithm-chinesechess")
-include(":cli-jvm")
+
+includeCommonProject(
+    "algorithm",
+    "algorithm-chinesechess",
+    "cli-jvm"
+)
+
+fun includeCommonProject(vararg projectNames: String) {
+    projectNames.forEach { name ->
+        include(":$name")
+        project(":$name").projectDir = file("Common/$name")
+    }
+}
 
