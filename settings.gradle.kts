@@ -1,4 +1,4 @@
-rootProject.name = "KChess"
+rootProject.name = "kchess"
 
 includeCommonProject(
     "algorithm",
