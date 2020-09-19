@@ -2,6 +2,10 @@
   "name": "KChess",
   "version": "0.0.1",
   "private": true,
+  "workspaces": [
+    "../build/js/packages/kchess-algorithm",
+    "../build/js/packages/kchess-algorithm-chinesechess"
+  ],
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -11,8 +15,8 @@
   },
   "dependencies": {
     "kotlin": "1.3.72",
-    "kchess-algorithm": "0.0.1-SNAPSHOT",
-    "kchess-algorithm-chinesechess": "0.0.1-SNAPSHOT",
+    "kchess-algorithm": "file:../build/js/packages/kchess-algorithm",
+    "kchess-algorithm-chinesechess": "file:../build/js/packages/kchess-algorithm-chinesechess",
     "react": "16.13.1",
     "react-native": "0.63.2"
   },

@@ -2233,11 +2233,11 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3:
     ms "2.0.0"
 
 debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
-  integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.2.0.tgz#7f150f93920e94c58f5574c2fd01a3110effe7f1"
+  integrity sha512-IX2ncY78vDTjZMFUdmsvIRFY2Cf4FnD0wRs+nQwJU8Lu99/tPFdb0VybiiMTPe3I6rQmwsqQqRBvxU+bZ/I8sg==
   dependencies:
-    ms "^2.1.1"
+    ms "2.1.2"
 
 decamelize@^1.2.0:
   version "1.2.0"
@@ -4271,18 +4271,14 @@ jsx-ast-utils@^2.2.3:
     array-includes "^3.1.1"
     object.assign "^4.1.0"
 
-kchess-algorithm-chinesechess@0.0.1-SNAPSHOT:
+"kchess-algorithm-chinesechess@file:../build/js/packages/kchess-algorithm-chinesechess":
   version "0.0.1-SNAPSHOT"
-  resolved "https://registry.yarnpkg.com/kchess-algorithm-chinesechess/-/kchess-algorithm-chinesechess-0.0.1-SNAPSHOT.tgz#5eaf5838177273be190777b095303b509db9e0ab"
-  integrity sha512-BdFair3MDIsNFKJV6eQ3f12r7K9EzgNSgJ05tRAdeNdo0G/niJ0hTLQyKQ8kM7QpA71w7NVzFGl7YDAYvk88Tg==
   dependencies:
     kchess-algorithm "0.0.1-SNAPSHOT"
     kotlin "1.3.72"
 
-kchess-algorithm@0.0.1-SNAPSHOT:
+"kchess-algorithm@file:../build/js/packages/kchess-algorithm":
   version "0.0.1-SNAPSHOT"
-  resolved "https://registry.yarnpkg.com/kchess-algorithm/-/kchess-algorithm-0.0.1-SNAPSHOT.tgz#8ffc72bdd48286dce5c2993027ae274d17920c32"
-  integrity sha512-9+ZCd937iQ3VEkORILgouGz0zTHEFbcdCMFZ5JT7j1NhEw4IMwy5rTjfmiUhczqfL8hvjwmhgRC2k6TMoDqevw==
   dependencies:
     kotlin "1.3.72"
 
@@ -4894,7 +4890,7 @@ ms@2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
-ms@^2.1.1:
+ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
