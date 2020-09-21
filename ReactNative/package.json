@@ -14,11 +14,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "kotlin": "1.3.72",
     "kchess-algorithm": "file:../build/js/packages/kchess-algorithm",
     "kchess-algorithm-chinesechess": "file:../build/js/packages/kchess-algorithm-chinesechess",
+    "kotlin": "1.3.72",
     "react": "16.13.1",
-    "react-native": "0.63.2"
+    "react-native": "0.63.2",
+    "react-native-canvas": "^0.1.37",
+    "react-native-path": "0.0.5",
+    "react-native-webview": "^10.9.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
