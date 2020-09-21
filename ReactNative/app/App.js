@@ -2,22 +2,34 @@ import React, {Component} from 'react';
 import {Image, ImageBackground, StatusBar, StyleSheet, View} from 'react-native';
 import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
-import Canvas, {Image as CanvasImage} from 'react-native-canvas';
+import Canvas from 'react-native-canvas';
+import CanvasRenderer from './CanvasRenderer'
 
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.game = new ChineseChess.ChineseChess()
+    this.renderer = new CanvasRenderer({
+      chessBoardWidth: styles.gameBoard.width,
+      chessBoardHeight: styles.gameBoard.height,
+      chessBoardStart: ui.px2dp(8),
+      chessBoardTop: ui.px2dp(20),
+      chessmanWidth: ui.px2dp(30),
+      chessmanHeight: ui.px2dp(30),
+      rowGap: ui.px2dp(36),
+      columnGap: ui.px2dp(35),
+      imageUrlMap: App.imgSrc,
+      gameBoard: this.game.gameBroad
+    })
   }
 
   render() {
-
     return <View style={{flex: 1}}>
       <StatusBar backgroundColor={'#ffaa00'} barStyle={'light-content'}/>
       <ImageBackground style={styles.background} source={require('./img/bg.jpg')}>
         <ImageBackground style={styles.gameBoard} source={require('./img/bg.png')}>
-          <Canvas ref={this.renderCanvas}/>
+          <Canvas ref={this.renderer.onCanvasReady}/>
         </ImageBackground>
       </ImageBackground>
     </View>
@@ -42,53 +54,12 @@ export default class App extends Component {
     img.set(man.黑马, require('./img/b_m.png'))
     img.set(man.黑象, require('./img/b_x.png'))
     img.set(man.黑帅, require('./img/b_j.png'))
+
+    for ([key, value] of img.entries()) {
+      img.set(key, Image.resolveAssetSource(value).uri)
+    }
     return img
   })()
-
-  onImageReady = (ctx, imgResult, ready) => {
-    console.log("ready = " + ready)
-    if (ready === 0) {
-      let left = ui.px2dp(8)
-      let top = ui.px2dp(20)
-      this.game.gameBroad.forEach((newLine, chessman) => {
-        if (newLine) {
-          left = ui.px2dp(8)
-          top += ui.px2dp(36)
-        }
-        if (chessman) {
-          const image = imgResult[chessman]
-          if (image) {
-            ctx.save()
-            ctx.translate(left, top)
-            ctx.drawImage(image, 0, 0);
-            ctx.restore()
-          }
-        }
-        left += ui.px2dp(35)
-      })
-    }
-  }
-  renderCanvas = (canvas) => {
-    if (canvas) {
-      canvas.width = styles.gameBoard.width
-      canvas.height = styles.gameBoard.height
-
-      const ctx = canvas.getContext('2d');
-      let readyCnt = App.imgSrc.size
-      let imgResult = new Map()
-      for (const [chessman, imgSrc] of App.imgSrc.entries()) {
-        const image = new CanvasImage(canvas)
-        image.src = Image.resolveAssetSource(imgSrc).uri
-        image.addEventListener('load', () => {
-          imgResult[chessman] = image
-          this.onImageReady(ctx, imgResult, --readyCnt)
-        });
-        image.addEventListener('error', () => {
-          this.onImageReady(ctx, imgResult, --readyCnt)
-        });
-      }
-    }
-  }
 }
 
 const styles = StyleSheet.create({
