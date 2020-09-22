@@ -49,11 +49,11 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
     }
 
     @JsName("forEach")
-    fun forEachNullable(yield: (newLine: Boolean, element: Chessman?) -> Unit) {
+    fun forEachNullable(yield: (element: Chessman?, newLine: Boolean, row: Int, column: Int) -> Unit) {
         var newLine = false
-        gameBoard.forEach { row ->
-            row.forEach { chessman ->
-                yield(newLine, chessman)
+        gameBoard.forEachIndexed { rowIndex, row ->
+            row.forEachIndexed { columnIndex, chessman ->
+                yield(chessman, newLine, rowIndex, columnIndex)
                 newLine = false
             }
             newLine = true
@@ -82,7 +82,7 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         return null
     }
 
-    operator fun set(row: Int, column: Int, chessman: Chessman?) {
+    internal operator fun set(row: Int, column: Int, chessman: Chessman?) {
         if (contains(row, column)) {
             gameBoard[row][column] = chessman
         }

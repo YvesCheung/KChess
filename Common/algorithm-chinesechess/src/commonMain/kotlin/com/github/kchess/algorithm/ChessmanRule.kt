@@ -27,7 +27,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequence {
                 suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
-                    val target = game.gameBroad[r, c]
+                    val target = game.gameBoard[r, c]
                     if (target == null || target.owner != owner) yield(Position(r, c))
                     return target != null
                 }
@@ -55,10 +55,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
             //考虑绊马脚的情况
-            if (game.gameBroad[current.r - 1, current.c] == null) step += top
-            if (game.gameBroad[current.r + 1, current.c] == null) step += bottom
-            if (game.gameBroad[current.r, current.c - 1] == null) step += left
-            if (game.gameBroad[current.r, current.c + 1] == null) step += right
+            if (game.gameBoard[current.r - 1, current.c] == null) step += top
+            if (game.gameBoard[current.r + 1, current.c] == null) step += bottom
+            if (game.gameBoard[current.r, current.c - 1] == null) step += left
+            if (game.gameBoard[current.r, current.c + 1] == null) step += right
             return sequenceFromStep(current, step)
         }
     },
@@ -84,10 +84,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
-            if (game.gameBroad[current.r - 1, current.c - 1] == null) step += leftTop
-            if (game.gameBroad[current.r - 1, current.c + 1] == null) step += rightTop
-            if (game.gameBroad[current.r + 1, current.c - 1] == null) step += leftBottom
-            if (game.gameBroad[current.r + 1, current.c + 1] == null) step += rightBottom
+            if (game.gameBoard[current.r - 1, current.c - 1] == null) step += leftTop
+            if (game.gameBoard[current.r - 1, current.c + 1] == null) step += rightTop
+            if (game.gameBoard[current.r + 1, current.c - 1] == null) step += leftBottom
+            if (game.gameBoard[current.r + 1, current.c + 1] == null) step += rightBottom
             return sequenceFromStep(current, step)
                 .filter { //不能过河
                     (!!owner && it.r > 4) || (!owner && it.r <= 4)
@@ -134,7 +134,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
             return sequence {
                 var hasBlock = false
                 suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
-                    val target = game.gameBroad[r, c]
+                    val target = game.gameBoard[r, c]
                     if (hasBlock && target != null) {
                         if (target.owner != owner) {
                             yield(Position(r, c))
@@ -180,9 +180,9 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
             val rule = factory.create(chessman)
             return rule.nextMove(Position(currentRow, currentColumn), game, chessman.owner)
                 .filter { (newRow, newColumn) ->
-                    game.gameBroad.contains(newRow, newColumn) &&
+                    game.gameBoard.contains(newRow, newColumn) &&
                         (currentRow != newRow || currentColumn != newColumn) &&
-                        game.gameBroad[newRow, newColumn]?.owner != chessman.owner
+                        game.gameBoard[newRow, newColumn]?.owner != chessman.owner
                 }
         }
 

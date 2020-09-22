@@ -17,7 +17,7 @@ class ChessmanRuleTest {
 
     @BeforeTest
     fun resetGameBoard() {
-        game.gameBroad.reset(DEMO1)
+        game.gameBoard.reset(DEMO1)
     }
 
     @Test
@@ -93,7 +93,7 @@ class ChessmanRuleTest {
 
     @Test
     fun testChe2() {
-        game.gameBroad.reset(DEMO3)
+        game.gameBoard.reset(DEMO3)
 
         testChessman(3, 5, Chessman.黑车,
             listOf(
@@ -233,7 +233,7 @@ class ChessmanRuleTest {
         expectChessman: Chessman,
         expectMovement: List<Position>
     ) {
-        val chessman = game.gameBroad[row, column]!!
+        val chessman = game.gameBoard[row, column]!!
         assertSame(expectChessman, chessman)
         assertEquals(
             expectMovement,

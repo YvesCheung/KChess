@@ -6,24 +6,24 @@ package com.github.kchess.algorithm
  */
 class ChineseChessAction(
     private val chessman: Chessman,
-    private val x: Int, private val y: Int,
-    private val newX: Int, private val newY: Int
+    private val row: Int, private val column: Int,
+    private val newRow: Int, private val newColumn: Int
 ) : GameAction<ChineseChess> {
 
     private var eat: Chessman? = null
 
     override fun run(context: ChineseChess) {
-        context.gameBroad[x, y] = null
-        eat = context.gameBroad[newX, newY]
-        context.gameBroad[newX, newY] = chessman
+        context.gameBoard[row, column] = null
+        eat = context.gameBoard[newRow, newColumn]
+        context.gameBoard[newRow, newColumn] = chessman
     }
 
     override fun undo(context: ChineseChess) {
-        context.gameBroad[newX, newY] = eat
-        context.gameBroad[x, y] = chessman
+        context.gameBoard[newRow, newColumn] = eat
+        context.gameBoard[row, column] = chessman
     }
 
     override fun toString(): String {
-        return "Move $chessman from [$x,$y] to [$newX,$newY]"
+        return "Move $chessman from [$row,$column] to [$newRow,$newColumn]"
     }
 }

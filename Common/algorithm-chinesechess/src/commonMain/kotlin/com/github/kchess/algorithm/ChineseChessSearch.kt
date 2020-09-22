@@ -7,14 +7,14 @@ package com.github.kchess.algorithm
 class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     override fun evaluate(context: ChineseChess, player: OwnerShip): Int {
-        return context.gameBroad.fold(0) { value, (chessman, row, column) ->
+        return context.gameBoard.fold(0) { value, (chessman, row, column) ->
             value + ChessmanEvaluator.evaluate(chessman, row, column, player)
         }
     }
 
     override fun nextMove(context: ChineseChess, player: OwnerShip): Sequence<GameAction<ChineseChess>> {
         return sequence {
-            context.gameBroad.forEach { (chessman, row, column) ->
+            context.gameBoard.forEach { (chessman, row, column) ->
                 if (chessman.owner == player) {
                     yieldAll(
                         ChessmanRule.nextMove(chessman, row, column, context).map { (newRow, newColumn) ->

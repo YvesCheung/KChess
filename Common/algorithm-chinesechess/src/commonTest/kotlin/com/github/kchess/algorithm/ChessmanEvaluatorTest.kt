@@ -18,14 +18,14 @@ class ChessmanEvaluatorTest {
 
     @BeforeTest
     fun resetGameBoard() {
-        game.gameBroad.reset(GameBoardDemo.DEMO2)
+        game.gameBoard.reset(GameBoardDemo.DEMO2)
     }
 
     @Test
     fun testTwoPlayerEvaluateTheSame() {
 
         fun testTwoPlayerEvaluateTheSame(r: Int, c: Int, expectChessman: Chessman, evaluator: ChessmanEvaluator) {
-            val chessman = game.gameBroad[r, c]!!
+            val chessman = game.gameBoard[r, c]!!
             assertSame(expectChessman, chessman)
 
             val player1Value = ChessmanEvaluator.evaluate(chessman, r, c, OwnerShip.Player1)
