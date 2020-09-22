@@ -6,7 +6,7 @@ import com.github.kchess.algorithm.*
  */
 fun main() {
     val game = ChineseChess()
-    printChessBoard(game.gameBroad)
+    printChessBoard(game.gameBoard)
 
     val algorithm = ChineseChessSearch()
     var player = OwnerShip.Player1
@@ -17,13 +17,13 @@ fun main() {
         val action = result.action ?: break
         action.run(game)
         println("$player: $action")
-        printChessBoard(game.gameBroad)
+        printChessBoard(game.gameBoard)
         player = -player
     }
 }
 
 private fun printChessBoard(board: ChineseChessBoard) {
-    board.forEachNullable { newLine, chessman ->
+    board.forEachNullable { chessman, newLine, _, _ ->
         if (newLine) {
             println()
             println()

@@ -4,6 +4,7 @@ import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
 import Canvas from 'react-native-canvas';
 import CanvasRenderer from './CanvasRenderer'
+import OnTouchEventDispatcher from "./OnTouchEventDispatcher";
 
 export default class App extends Component {
 
@@ -20,8 +21,12 @@ export default class App extends Component {
       rowGap: ui.px2dp(36),
       columnGap: ui.px2dp(35),
       imageUrlMap: App.imgSrc,
-      gameBoard: this.game.gameBroad
+      gameBoard: this.game.gameBoard
     })
+  }
+
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return false
   }
 
   render() {
@@ -29,7 +34,9 @@ export default class App extends Component {
       <StatusBar backgroundColor={'#ffaa00'} barStyle={'light-content'}/>
       <ImageBackground style={styles.background} source={require('./img/bg.jpg')}>
         <ImageBackground style={styles.gameBoard} source={require('./img/bg.png')}>
-          <Canvas ref={this.renderer.onCanvasReady}/>
+          <OnTouchEventDispatcher listener={this.renderer}>
+            <Canvas ref={this.renderer.onCanvasReady}/>
+          </OnTouchEventDispatcher>
         </ImageBackground>
       </ImageBackground>
     </View>
@@ -54,6 +61,9 @@ export default class App extends Component {
     img.set(man.黑马, require('./img/b_m.png'))
     img.set(man.黑象, require('./img/b_x.png'))
     img.set(man.黑帅, require('./img/b_j.png'))
+
+    img.set("targetRed", require('./img/r_box.png'))
+    img.set("targetBlack", require('./img/b_box.png'))
 
     for ([key, value] of img.entries()) {
       img.set(key, Image.resolveAssetSource(value).uri)
