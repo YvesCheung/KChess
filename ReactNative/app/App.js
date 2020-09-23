@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, StatusBar, StyleSheet, View} from 'react-native';
+import {Image, ImageBackground, StatusBar, StyleSheet, View, Button, Text, TouchableOpacity} from 'react-native';
 import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
 import Canvas from 'react-native-canvas';
@@ -40,6 +40,20 @@ export default class App extends Component {
             <Canvas ref={this.renderer.onCanvasReady}/>
           </OnTouchEventDispatcher>
         </ImageBackground>
+        <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+          <TouchableOpacity style={{padding: ui.px2dp(10)}} onPress={() => {
+            this.game.regret()
+            this.renderer.render()
+          }}>
+            <Text>悔棋</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={{padding: ui.px2dp(10)}} onPress={() => {
+            this.game.reset()
+            this.renderer.render()
+          }}>
+            <Text>重来</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     </View>
   }
