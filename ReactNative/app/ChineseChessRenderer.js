@@ -118,17 +118,48 @@ export default class ChineseChessRenderer {
 
   onClick = ({nativeEvent}) => {
     if (this.context) {
+      let needAutoMove = false
       const columnIndex = Math.floor((nativeEvent.locationX - this.style.chessBoardStart) / this.style.columnGap)
       const rowIndex = Math.floor((nativeEvent.locationY - this.style.chessBoardTop) / this.style.rowGap)
       console.log(`click target row = ${rowIndex}, column = ${columnIndex}`)
-      if (this.gameBoard.get(rowIndex, columnIndex)) {
-        this.selectedTarget = {
-          row: rowIndex,
-          column: columnIndex,
-          intent: this.game.getIntentAction()
+      if (this.selectedTarget) {
+        const intentActions =
+          this.game.getIntentAction(this.selectedTarget.row, this.selectedTarget.column)
+        if (intentActions.toArray().find((action) =>
+          action.row === rowIndex && action.column === columnIndex)) {
+          this.game.move(
+            new ChineseChess.ChineseChessAction(
+              this.selectedTarget.chessman,
+              this.selectedTarget.row,
+              this.selectedTarget.column,
+              rowIndex,
+              columnIndex
+            )
+          )
+          needAutoMove = true
+        }
+        this.selectedTarget = null
+      } else {
+        const chessman = this.gameBoard.get(rowIndex, columnIndex)
+        if (chessman) {
+          this.selectedTarget = {
+            chessman: chessman,
+            row: rowIndex,
+            column: columnIndex
+          }
+        } else {
+          this.selectedTarget = null
         }
       }
+
       this.render()
+
+      if (needAutoMove) {
+        setTimeout(() => {
+          this.game.autoMove()
+          this.render()
+        }, 500)
+      }
     }
   }
 }
