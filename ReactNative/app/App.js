@@ -11,6 +11,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.game = new ChineseChess.ChineseChess()
+    this.controller = new ChineseChess.Controller(this.game)
     this.renderer = new ChineseChessRenderer({
       chessBoardWidth: styles.gameBoard.width,
       chessBoardHeight: styles.gameBoard.height,
@@ -21,7 +22,8 @@ export default class App extends Component {
       rowGap: ui.px2dp(36),
       columnGap: ui.px2dp(35),
       imageUrlMap: App.imgSrc,
-      game: this.game
+      game: this.game,
+      controller: this.controller
     })
   }
 

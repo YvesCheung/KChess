@@ -3,8 +3,8 @@ import ChineseChess from "kchess-algorithm-chinesechess"
 
 export default class ChineseChessRenderer {
 
-  static ROW_SIZE = ChineseChess.ChineseChessBoard.ROW_SIZE
-  static COLUMN_SIZE = ChineseChess.ChineseChessBoard.COLUMN_SIZE
+  static ROW_SIZE = ChineseChess.ChessBoard.ROW_SIZE
+  static COLUMN_SIZE = ChineseChess.ChessBoard.COLUMN_SIZE
 
   constructor(props) {
     this.style = {
@@ -19,6 +19,7 @@ export default class ChineseChessRenderer {
     }
     this.imageUrlMap = props.imageUrlMap
     this.game = props.game
+    this.controller = props.controller
     this.gameBoard = this.game.gameBoard
     this.imgResult = new Map()
     require('./util')
@@ -30,6 +31,11 @@ export default class ChineseChessRenderer {
       this.context = ref.getContext('2d')
       this.canvas.width = this.style.chessBoardWidth
       this.canvas.height = this.style.chessBoardHeight
+
+      this.controller.onRenderFrame((finish) => {
+        this.render()
+        setTimeout(finish, 500) //enough time for render
+      })
       this._downloadImage()
     }
   }
@@ -71,16 +77,16 @@ export default class ChineseChessRenderer {
               new RenderElement(this.context.drawImage, image, 0, 0, width, height)
             )
 
-            if (this.selectedTarget &&
-              this.selectedTarget.row === row &&
-              this.selectedTarget.column === column
-            ) {
-              const targetDecorate = this.imgResult.get(
-                chessman.owner.toBoolean() ? "targetRed" : "targetBlack")
-              if (targetDecorate) {
+            const decorateArray = this.controller.getRenderDecorate(row, column)
+            for (const decorate of decorateArray) {
+              const name = ChineseChessRenderer.decorateImage[decorate]
+              const decorImg = this.imgResult.get(name)
+              if (decorImg) {
                 drawBufferCache[row][column].push(
-                  new RenderElement(this.context.drawImage, targetDecorate, 0, 0, width, height)
+                  new RenderElement(this.context.drawImage, decorImg, 0, 0, width, height)
                 )
+              } else {
+                console.error(`No Image found for ${decorate}-${name}, is it correct?`)
               }
             }
           } else {
@@ -98,6 +104,7 @@ export default class ChineseChessRenderer {
             this.lastDrawCache[row] &&
             this.lastDrawCache[row][column]
           if (!columnElement.equals(lastElement)) {
+            console.log(`render position(${row}, ${column})`)
             this.context.save()
             this.context.translate(left, top)
             this.context.clearRect(0, 0, width, height)
@@ -115,55 +122,27 @@ export default class ChineseChessRenderer {
     }
   }
 
-
   onClick = ({nativeEvent}) => {
     if (this.context) {
-      let needAutoMove = false
       const columnIndex = Math.floor((nativeEvent.locationX - this.style.chessBoardStart) / this.style.columnGap)
       const rowIndex = Math.floor((nativeEvent.locationY - this.style.chessBoardTop) / this.style.rowGap)
       console.log(`click target row = ${rowIndex}, column = ${columnIndex}`)
-      if (this.selectedTarget) {
-        const intentActions =
-          this.game.getIntentAction(this.selectedTarget.row, this.selectedTarget.column)
-        if (intentActions.toArray().find((action) =>
-          action.row === rowIndex && action.column === columnIndex)) {
-          this.game.move(
-            new ChineseChess.ChineseChessAction(
-              this.selectedTarget.chessman,
-              this.selectedTarget.row,
-              this.selectedTarget.column,
-              rowIndex,
-              columnIndex
-            )
-          )
-          needAutoMove = true
-        }
-        this.selectedTarget = null
-      } else {
-        const chessman = this.gameBoard.get(rowIndex, columnIndex)
-        if (chessman) {
-          this.selectedTarget = {
-            chessman: chessman,
-            row: rowIndex,
-            column: columnIndex
-          }
-        } else {
-          this.selectedTarget = null
-        }
-      }
-
-      this.render()
-
-      if (needAutoMove) {
-        setTimeout(() => {
-          this.game.autoMove()
-          this.render()
-        }, 500)
-      }
+      this.controller.click(rowIndex, columnIndex)
     }
   }
-}
 
+  static decorateImage = (() => {
+    const Decorate = ChineseChess.com.github.kchess.algorithm.ChineseChessUiController.Decorate
+    return {
+      [Decorate.Player1From]: "targetRed",
+      [Decorate.Player1To]: "targetRed",
+      [Decorate.Player1Select]: "targetRed",
+      [Decorate.Player2From]: "targetBlack",
+      [Decorate.Player2To]: "targetBlack",
+      [Decorate.Player2Select]: "targetBlack",
+    }
+  })()
+}
 
 export class RenderElement {
   constructor(renderFunction, ...param) {

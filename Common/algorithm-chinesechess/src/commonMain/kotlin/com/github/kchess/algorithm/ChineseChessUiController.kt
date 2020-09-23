@@ -24,10 +24,12 @@ class ChineseChessUiController(val game: ChineseChess) {
         if (clickTarget?.owner == player) { //重新选了自己的另外的一个棋子
             selectedTarget = ChessmanWithPosition(clickTarget, row, column)
         } else if (selectTarget != null) { //已经有选中的棋子
-            val canMove = game.getIntentAction(row, column)
+            val canMove =
+                game.getIntentAction(selectTarget.row, selectTarget.column)
             val canMoveToTarget =
                 canMove.find { it.row == row && it.column == column }
             if (canMoveToTarget != null) {
+                println("Can move to $canMoveToTarget")
                 game.move(
                     ChineseChessAction(
                         selectTarget,
@@ -36,6 +38,8 @@ class ChineseChessUiController(val game: ChineseChess) {
                     )
                 )
                 shouldAutoMove = true
+            } else {
+                println("Can't move to ($row, $column)")
             }
         }
 
