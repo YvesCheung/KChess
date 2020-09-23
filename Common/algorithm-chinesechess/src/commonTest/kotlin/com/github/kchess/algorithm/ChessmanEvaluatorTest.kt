@@ -18,7 +18,7 @@ class ChessmanEvaluatorTest {
 
     @BeforeTest
     fun resetGameBoard() {
-        game.gameBoard.reset(GameBoardDemo.DEMO2)
+        game.reset(GameBoardDemo.DEMO2)
     }
 
     @Test

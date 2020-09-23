@@ -17,7 +17,7 @@ class ChessmanRuleTest {
 
     @BeforeTest
     fun resetGameBoard() {
-        game.gameBoard.reset(DEMO1)
+        game.reset(DEMO1)
     }
 
     @Test
@@ -93,7 +93,7 @@ class ChessmanRuleTest {
 
     @Test
     fun testChe2() {
-        game.gameBoard.reset(DEMO3)
+        game.reset(DEMO3)
 
         testChessman(3, 5, Chessman.黑车,
             listOf(

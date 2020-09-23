@@ -19,8 +19,7 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
     /**
      * [ROW_SIZE] * [COLUMN_SIZE]
      */
-    @JsName("reset")
-    fun reset() {
+    internal fun reset() {
         @Suppress("RemoveExplicitTypeArguments")
         gameBoard = arrayOf<Array<Chessman?>>(
             arrayOf(黑车, 黑马, 黑象, 黑士, 黑帅, 黑士, 黑象, 黑马, 黑车),
@@ -37,7 +36,7 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         )
     }
 
-    fun reset(board: Array<Array<Chessman?>>) {
+    internal fun reset(board: Array<Array<Chessman?>>) {
         if (board.size != ROW_SIZE) {
             throw IllegalArgumentException("board.size must be $ROW_SIZE")
         }

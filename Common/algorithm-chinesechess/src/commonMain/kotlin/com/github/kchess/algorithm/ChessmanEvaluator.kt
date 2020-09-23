@@ -70,17 +70,17 @@ enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
     },
     jiang(Chessman.红将, Chessman.黑帅) {
         override val valueMap: Array<IntArray> = arrayOf(
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
 
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
             intArrayOf(0, 0, 0, 0, 0, 0, 0, 0, 0),
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0),
-            intArrayOf(0, 0, 0, 99999, 99999, 99999, 0, 0, 0)
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0),
+            intArrayOf(0, 0, 0, 999999, 999999, 999999, 0, 0, 0)
         )
     },
     Pao(Chessman.红炮, Chessman.黑炮) {
@@ -119,6 +119,12 @@ enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
     abstract val valueMap: Array<IntArray>
 
     companion object {
+
+        /**
+         * 只有[ChessmanEvaluator.jiang]的价值大于这个值，
+         * 其余所有棋子的价值都远低于这个值。可以用来判断是否将死。
+         */
+        const val DEAD_VALUE = 900000
 
         private val factory = values().toFactory()
 

@@ -1,6 +1,8 @@
 package com.github.kchess.algorithm
 
+import com.github.kchess.algorithm.ChessmanEvaluator.Companion.DEAD_VALUE
 import kotlin.js.JsName
+import kotlin.math.abs
 
 /**
  * @author YvesCheung
@@ -12,6 +14,9 @@ class ChineseChess {
     private val moveSearch = ChineseChessSearch()
 
     private val actionRecord = mutableListOf<GameAction<ChineseChess>>()
+
+    private val listeners: Map<String, MutableList<(param: Array<Any>) -> Unit>> =
+        listOf("reset", "over").associateWith { mutableListOf() }
 
     /**
      * 棋盘
@@ -54,6 +59,12 @@ class ChineseChess {
         action.run(this)
         actionRecord.add(action)
         currentPlayer = -player
+
+        val checkGameOver =
+            moveSearch.alphaBetaSearch(2, this, currentPlayer)
+        if (abs(checkGameOver.evaluateValue) > DEAD_VALUE) {
+            listeners["over"]?.forEach { callback -> callback(arrayOf(player)) }
+        }
     }
 
     /**
@@ -88,6 +99,46 @@ class ChineseChess {
             return ChessmanRule.nextMove(chessman, row, column, this).toList()
         }
         return emptyList()
+    }
+
+    /**
+     * 重置游戏
+     */
+    @JsName("reset")
+    fun reset(board: Array<Array<Chessman?>>? = null) {
+        if (board == null) {
+            gameBoard.reset()
+        } else {
+            gameBoard.reset(board)
+        }
+        currentPlayer = OwnerShip.Player1
+        actionRecord.clear()
+
+        listeners["reset"]?.forEach { callback -> callback(emptyArray()) }
+    }
+
+    /**
+     * 添加事件监听
+     *
+     * @sample
+     * ```
+     * addEventListener("over", (winner)=>{})
+     * addEventListener("reset", ()=>{})
+     * ```
+     */
+    @JsName("addEventListener")
+    fun addEventListener(type: String, callback: (param: Array<Any>) -> Unit) {
+        val typeListeners = listeners[type]
+        typeListeners?.add(callback)
+    }
+
+    /**
+     * @see addEventListener
+     */
+    @JsName("removeEventListener")
+    fun removeEventListener(type: String, callback: (param: Array<Any>) -> Unit) {
+        val typeListeners = listeners[type]
+        typeListeners?.remove(callback)
     }
 }
 
