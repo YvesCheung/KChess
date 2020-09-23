@@ -11,11 +11,14 @@ export default class CanvasRenderer {
       chessmanWidth: props.chessmanWidth,
       chessmanHeight: props.chessmanHeight,
       rowGap: props.rowGap,
-      columnGap: props.columnGap
+      columnGap: props.columnGap,
+      rowSize: props.rowSize,
+      columnSize: props.columnSize
     }
     this.imageUrlMap = props.imageUrlMap
     this.gameBoard = props.gameBoard
     this.imgResult = new Map()
+    require('./util')
   }
 
   onCanvasReady = (ref) => {
@@ -49,23 +52,16 @@ export default class CanvasRenderer {
 
   render = () => {
     if (this.context && this.imgResult.size > 0) {
-      let left = this.style.chessBoardStart
-      let top = this.style.chessBoardTop
-      const width = this.style.chessmanWidth
-      const height = this.style.chessmanHeight
-      // this.context.clearRect(0, 0, this.style.chessBoardWidth, this.style.chessBoardHeight)
+      const drawBufferCache = new Array(this.style.rowSize)
       this.gameBoard.forEach((chessman, newLine, row, column) => {
-        if (newLine) {
-          left = this.style.chessBoardStart
-          top += this.style.rowGap
+        if (column === 0) {
+          drawBufferCache[row] = new Array(this.style.columnSize)
         }
-        this.context.save()
-        this.context.translate(left, top)
-        this.context.clearRect(0, 0, width, height)
+        drawBufferCache[row][column] = []
         if (chessman) {
           const image = this.imgResult.get(chessman)
           if (image) {
-            this.context.drawImage(image, 0, 0, width, height);
+            drawBufferCache[row][column].push(image)
 
             if (this.selectedTarget &&
               this.selectedTarget.row === row &&
@@ -74,16 +70,40 @@ export default class CanvasRenderer {
               const targetDecorate = this.imgResult.get(
                 chessman.owner.toBoolean() ? "targetRed" : "targetBlack")
               if (targetDecorate) {
-                this.context.drawImage(targetDecorate, 0, 0, width, height);
+                drawBufferCache[row][column].push(targetDecorate)
               }
             }
           } else {
             console.error(`No Image found for ${chessman}, did 'prepareImage' has been called?`)
           }
         }
-        this.context.restore()
-        left += this.style.columnGap
       })
+
+      let left = this.style.chessBoardStart
+      let top = this.style.chessBoardTop
+      const width = this.style.chessmanWidth
+      const height = this.style.chessmanHeight
+      drawBufferCache.forEach((rowElement, row) => {
+        rowElement.forEach((columnElement, column) => {
+          const lastElement =
+            this.lastDrawCache &&
+            this.lastDrawCache[row] &&
+            this.lastDrawCache[row][column]
+          if (!columnElement.equals(lastElement)) {
+            this.context.save()
+            this.context.translate(left, top)
+            this.context.clearRect(0, 0, width, height)
+            for (const element of columnElement) {
+              this.context.drawImage(element, 0, 0, width, height)
+            }
+            this.context.restore()
+          }
+          left += this.style.columnGap
+        })
+        left = this.style.chessBoardStart
+        top += this.style.rowGap
+      })
+      this.lastDrawCache = drawBufferCache
     }
   }
 
@@ -92,9 +112,11 @@ export default class CanvasRenderer {
       const columnIndex = Math.floor((nativeEvent.locationX - this.style.chessBoardStart) / this.style.columnGap)
       const rowIndex = Math.floor((nativeEvent.locationY - this.style.chessBoardTop) / this.style.rowGap)
       console.log(`click target row = ${rowIndex}, column = ${columnIndex}`)
-      this.selectedTarget = {
-        row: rowIndex,
-        column: columnIndex
+      if (this.gameBoard.get(rowIndex, columnIndex)) {
+        this.selectedTarget = {
+          row: rowIndex,
+          column: columnIndex
+        }
       }
       this.render()
     }

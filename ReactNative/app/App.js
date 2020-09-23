@@ -20,6 +20,8 @@ export default class App extends Component {
       chessmanHeight: ui.px2dp(30),
       rowGap: ui.px2dp(36),
       columnGap: ui.px2dp(35),
+      rowSize: ChineseChess.ChineseChessBoard.ROW_SIZE,
+      columnSize: ChineseChess.ChineseChessBoard.COLUMN_SIZE,
       imageUrlMap: App.imgSrc,
       gameBoard: this.game.gameBoard
     })

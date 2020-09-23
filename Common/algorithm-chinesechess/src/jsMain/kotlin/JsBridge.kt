@@ -1,3 +1,4 @@
+@file:Suppress("FunctionName", "unused")
 import com.github.kchess.algorithm.Chessman
 
 /**
@@ -17,3 +18,6 @@ fun ChineseChessAction(
     newRow: Int,
     newColumn: Int
 ) = com.github.kchess.algorithm.ChineseChessAction(chessman, row, column, newRow, newColumn)
+
+@JsName("ChineseChessBoard")
+val ChineseChessBoard = com.github.kchess.algorithm.ChineseChessBoard
