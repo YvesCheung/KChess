@@ -7,20 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* KChessRNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KChessRNTests.m */; };
+		00E356F31AD99517003FC87E /* KChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KChessTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		28ADC7255277D980BF47D053 /* libPods-KChessRN-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4708C697838A8429286C616 /* libPods-KChessRN-tvOS.a */; };
+		22B3732F8CDF2AF788EE68FE /* libPods-KChess-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 902D3819373CBFBCF98A3076 /* libPods-KChess-tvOS.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		2DCD954D1E0B4F2C00145EB5 /* KChessRNTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KChessRNTests.m */; };
-		3EE47AF841A5537DF4DA4ADF /* libPods-KChessRN-KChessRNTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00227BC17675E4455ACC4A0E /* libPods-KChessRN-KChessRNTests.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* KChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* KChessTests.m */; };
+		516DE6B0CF5C25FA6C54B4D2 /* libPods-KChess-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DECCEF80A3CFA8E6BA0FBB /* libPods-KChess-tvOSTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		832233C6C8ED0D95A192F247 /* libPods-KChessRN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF1529CA935BE9E7CC353AE2 /* libPods-KChessRN.a */; };
-		F55FFED96D1CCF218762762E /* libPods-KChessRN-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4D600A16855B64AF61E47E /* libPods-KChessRN-tvOSTests.a */; };
-		E9B19BE8FEDF44928C197911 /* libRCTGCanvas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6E1154A25B4C1D9D4206E2 /* libRCTGCanvas.a */; };
+		8BD0E30AD52542C1FB74ED26 /* libPods-KChess-KChessTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C1371776A11A41D7FBF17A9 /* libPods-KChess-KChessTests.a */; };
+		ABB3BB7D8D59F17781297ED4 /* libPods-KChess.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 616D13838D801FF8E399EA22 /* libPods-KChess.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,47 +28,45 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = KChessRN;
+			remoteInfo = KChess;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "KChessRN-tvOS";
+			remoteInfo = "KChess-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00227BC17675E4455ACC4A0E /* libPods-KChessRN-KChessRNTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChessRN-KChessRNTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* KChessRNTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KChessRNTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* KChessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KChessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* KChessRNTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KChessRNTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* KChessRN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KChessRN.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KChessRN/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KChessRN/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KChessRN/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KChessRN/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KChessRN/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* KChessRN-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KChessRN-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* KChessRN-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KChessRN-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KChessRN/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A2BF32CA9B4751C4CF76D25D /* Pods-KChessRN-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-tvOS.release.xcconfig"; path = "Target Support Files/Pods-KChessRN-tvOS/Pods-KChessRN-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		A46929E4F4481752DC38DC7D /* Pods-KChessRN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN.debug.xcconfig"; path = "Target Support Files/Pods-KChessRN/Pods-KChessRN.debug.xcconfig"; sourceTree = "<group>"; };
-		B07E1EF74598726D55DE7B49 /* Pods-KChessRN-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-KChessRN-tvOSTests/Pods-KChessRN-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		B135AE58E2E09780634710E4 /* Pods-KChessRN-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-KChessRN-tvOS/Pods-KChessRN-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		BF53C8FD1D9A32797E07FA83 /* Pods-KChessRN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN.release.xcconfig"; path = "Target Support Files/Pods-KChessRN/Pods-KChessRN.release.xcconfig"; sourceTree = "<group>"; };
-		CE4D600A16855B64AF61E47E /* libPods-KChessRN-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChessRN-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD9217226E29F8CB57A91312 /* Pods-KChessRN-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-KChessRN-tvOSTests/Pods-KChessRN-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E7DC1F0C459CB604425B258E /* Pods-KChessRN-KChessRNTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-KChessRNTests.debug.xcconfig"; path = "Target Support Files/Pods-KChessRN-KChessRNTests/Pods-KChessRN-KChessRNTests.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* KChessTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KChessTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* KChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = KChess/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = KChess/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = KChess/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = KChess/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KChess/main.m; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* KChess-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KChess-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* KChess-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KChess-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		360EA82C69129BB238ED3C00 /* Pods-KChess-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-tvOS.release.xcconfig"; path = "Target Support Files/Pods-KChess-tvOS/Pods-KChess-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		41DA0AE5239FE70F367855CC /* Pods-KChess-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-KChess-tvOSTests/Pods-KChess-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		567577588C97E691536A0CAD /* Pods-KChess-KChessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-KChessTests.release.xcconfig"; path = "Target Support Files/Pods-KChess-KChessTests/Pods-KChess-KChessTests.release.xcconfig"; sourceTree = "<group>"; };
+		58DECCEF80A3CFA8E6BA0FBB /* libPods-KChess-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChess-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C1371776A11A41D7FBF17A9 /* libPods-KChess-KChessTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChess-KChessTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6083EE95A61F9E24DE6350DF /* Pods-KChess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess.release.xcconfig"; path = "Target Support Files/Pods-KChess/Pods-KChess.release.xcconfig"; sourceTree = "<group>"; };
+		616D13838D801FF8E399EA22 /* libPods-KChess.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChess.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		72AC37E701252960864DC2F7 /* Pods-KChess-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-KChess-tvOS/Pods-KChess-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		7DC1159C5EB6BBB97BF3CE05 /* Pods-KChess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess.debug.xcconfig"; path = "Target Support Files/Pods-KChess/Pods-KChess.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KChess/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		902D3819373CBFBCF98A3076 /* libPods-KChess-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChess-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		99542BAE4FCC6387B1CE7AE0 /* Pods-KChess-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-KChess-tvOSTests/Pods-KChess-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		D119C33C81AE33DFF40045FF /* Pods-KChess-KChessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChess-KChessTests.debug.xcconfig"; path = "Target Support Files/Pods-KChess-KChessTests/Pods-KChess-KChessTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		EF1529CA935BE9E7CC353AE2 /* libPods-KChessRN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChessRN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F4708C697838A8429286C616 /* libPods-KChessRN-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KChessRN-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE47A8EC55356D1A84291F67 /* Pods-KChessRN-KChessRNTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KChessRN-KChessRNTests.release.xcconfig"; path = "Target Support Files/Pods-KChessRN-KChessRNTests/Pods-KChessRN-KChessRNTests.release.xcconfig"; sourceTree = "<group>"; };
-		F53A5A06ED4244DFBE477AD8 /* RCTGCanvas.xcodeproj */ = {isa = PBXFileReference; name = "RCTGCanvas.xcodeproj"; path = "../node_modules/react-native-gcanvas/ios/RCTGCanvas.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
-		8B6E1154A25B4C1D9D4206E2 /* libRCTGCanvas.a */ = {isa = PBXFileReference; name = "libRCTGCanvas.a"; path = "libRCTGCanvas.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EE47AF841A5537DF4DA4ADF /* libPods-KChessRN-KChessRNTests.a in Frameworks */,
+				8BD0E30AD52542C1FB74ED26 /* libPods-KChess-KChessTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,8 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				832233C6C8ED0D95A192F247 /* libPods-KChessRN.a in Frameworks */,
-				E9B19BE8FEDF44928C197911 /* libRCTGCanvas.a in Frameworks */,
+				ABB3BB7D8D59F17781297ED4 /* libPods-KChess.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28ADC7255277D980BF47D053 /* libPods-KChessRN-tvOS.a in Frameworks */,
+				22B3732F8CDF2AF788EE68FE /* libPods-KChess-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,20 +98,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F55FFED96D1CCF218762762E /* libPods-KChessRN-tvOSTests.a in Frameworks */,
+				516DE6B0CF5C25FA6C54B4D2 /* libPods-KChess-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* KChessRNTests */ = {
+		00E356EF1AD99517003FC87E /* KChessTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* KChessRNTests.m */,
+				00E356F21AD99517003FC87E /* KChessTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = KChessRNTests;
+			path = KChessTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -126,7 +122,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* KChessRN */ = {
+		13B07FAE1A68108700A75B9A /* KChess */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -137,7 +133,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = KChessRN;
+			name = KChess;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -145,33 +141,33 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				EF1529CA935BE9E7CC353AE2 /* libPods-KChessRN.a */,
-				00227BC17675E4455ACC4A0E /* libPods-KChessRN-KChessRNTests.a */,
-				F4708C697838A8429286C616 /* libPods-KChessRN-tvOS.a */,
-				CE4D600A16855B64AF61E47E /* libPods-KChessRN-tvOSTests.a */,
+				616D13838D801FF8E399EA22 /* libPods-KChess.a */,
+				5C1371776A11A41D7FBF17A9 /* libPods-KChess-KChessTests.a */,
+				902D3819373CBFBCF98A3076 /* libPods-KChess-tvOS.a */,
+				58DECCEF80A3CFA8E6BA0FBB /* libPods-KChess-tvOSTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		61AE1BDFBBC3D41435FE6208 /* Pods */ = {
+		4D2C77230DB0E378ABADFF79 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A46929E4F4481752DC38DC7D /* Pods-KChessRN.debug.xcconfig */,
-				BF53C8FD1D9A32797E07FA83 /* Pods-KChessRN.release.xcconfig */,
-				E7DC1F0C459CB604425B258E /* Pods-KChessRN-KChessRNTests.debug.xcconfig */,
-				FE47A8EC55356D1A84291F67 /* Pods-KChessRN-KChessRNTests.release.xcconfig */,
-				B135AE58E2E09780634710E4 /* Pods-KChessRN-tvOS.debug.xcconfig */,
-				A2BF32CA9B4751C4CF76D25D /* Pods-KChessRN-tvOS.release.xcconfig */,
-				DD9217226E29F8CB57A91312 /* Pods-KChessRN-tvOSTests.debug.xcconfig */,
-				B07E1EF74598726D55DE7B49 /* Pods-KChessRN-tvOSTests.release.xcconfig */,
+				7DC1159C5EB6BBB97BF3CE05 /* Pods-KChess.debug.xcconfig */,
+				6083EE95A61F9E24DE6350DF /* Pods-KChess.release.xcconfig */,
+				D119C33C81AE33DFF40045FF /* Pods-KChess-KChessTests.debug.xcconfig */,
+				567577588C97E691536A0CAD /* Pods-KChess-KChessTests.release.xcconfig */,
+				72AC37E701252960864DC2F7 /* Pods-KChess-tvOS.debug.xcconfig */,
+				360EA82C69129BB238ED3C00 /* Pods-KChess-tvOS.release.xcconfig */,
+				41DA0AE5239FE70F367855CC /* Pods-KChess-tvOSTests.debug.xcconfig */,
+				99542BAE4FCC6387B1CE7AE0 /* Pods-KChess-tvOSTests.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				F53A5A06ED4244DFBE477AD8 /* RCTGCanvas.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -179,12 +175,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* KChessRN */,
+				13B07FAE1A68108700A75B9A /* KChess */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* KChessRNTests */,
+				00E356EF1AD99517003FC87E /* KChessTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				61AE1BDFBBC3D41435FE6208 /* Pods */,
+				4D2C77230DB0E378ABADFF79 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -194,10 +190,10 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* KChessRN.app */,
-				00E356EE1AD99517003FC87E /* KChessRNTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* KChessRN-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* KChessRN-tvOSTests.xctest */,
+				13B07F961A680F5B00A75B9A /* KChess.app */,
+				00E356EE1AD99517003FC87E /* KChessTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* KChess-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* KChess-tvOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,52 +201,52 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* KChessRNTests */ = {
+		00E356ED1AD99517003FC87E /* KChessTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KChessRNTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KChessTests" */;
 			buildPhases = (
-				2C30EEA3FFB8EAFB01A0C19E /* [CP] Check Pods Manifest.lock */,
+				7AD7C67921DEC38BC043AB42 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				B3C245983C460F2D45F7D8FC /* [CP] Copy Pods Resources */,
+				55BB3514217079DA39890A14 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = KChessRNTests;
-			productName = KChessRNTests;
-			productReference = 00E356EE1AD99517003FC87E /* KChessRNTests.xctest */;
+			name = KChessTests;
+			productName = KChessTests;
+			productReference = 00E356EE1AD99517003FC87E /* KChessTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* KChessRN */ = {
+		13B07F861A680F5B00A75B9A /* KChess */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KChessRN" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KChess" */;
 			buildPhases = (
-				A3314DB1AAC05422065B497D /* [CP] Check Pods Manifest.lock */,
+				99686D02CE96992761726BDE /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				7AD8BBF149658E474C51F784 /* [CP] Copy Pods Resources */,
+				8AD5C84E9FAFA359C6A05ADD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = KChessRN;
-			productName = KChessRN;
-			productReference = 13B07F961A680F5B00A75B9A /* KChessRN.app */;
+			name = KChess;
+			productName = KChess;
+			productReference = 13B07F961A680F5B00A75B9A /* KChess.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* KChessRN-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* KChess-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChessRN-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChess-tvOS" */;
 			buildPhases = (
-				A6638EB6556708EB6041CA59 /* [CP] Check Pods Manifest.lock */,
+				C8BC2F954D12CBD9789D2EC3 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F122414F3F0027D42C /* Start Packager */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
 				2D02E4781E0B4A5D006451C7 /* Frameworks */,
@@ -261,16 +257,16 @@
 			);
 			dependencies = (
 			);
-			name = "KChessRN-tvOS";
-			productName = "KChessRN-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* KChessRN-tvOS.app */;
+			name = "KChess-tvOS";
+			productName = "KChess-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* KChess-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* KChessRN-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* KChess-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChessRN-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChess-tvOSTests" */;
 			buildPhases = (
-				A6326B455A17B7CD6D3EBE0C /* [CP] Check Pods Manifest.lock */,
+				3EBF7365023E7A5957102156 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
@@ -280,9 +276,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "KChessRN-tvOSTests";
-			productName = "KChessRN-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* KChessRN-tvOSTests.xctest */;
+			name = "KChess-tvOSTests";
+			productName = "KChess-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* KChess-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -291,7 +287,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -311,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "KChessRN" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "KChess" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -324,10 +320,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* KChessRN */,
-				00E356ED1AD99517003FC87E /* KChessRNTests */,
-				2D02E47A1E0B4A5D006451C7 /* KChessRN-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* KChessRN-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* KChess */,
+				00E356ED1AD99517003FC87E /* KChessTests */,
+				2D02E47A1E0B4A5D006451C7 /* KChess-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* KChess-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,28 +377,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		2C30EEA3FFB8EAFB01A0C19E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KChessRN-KChessRNTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -417,13 +391,35 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		7AD8BBF149658E474C51F784 /* [CP] Copy Pods Resources */ = {
+		3EBF7365023E7A5957102156 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KChess-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55BB3514217079DA39890A14 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KChessRN/Pods-KChessRN-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KChess-KChessTests/Pods-KChess-KChessTests-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -432,10 +428,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KChessRN/Pods-KChessRN-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KChess-KChessTests/Pods-KChess-KChessTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A3314DB1AAC05422065B497D /* [CP] Check Pods Manifest.lock */ = {
+		7AD7C67921DEC38BC043AB42 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -450,64 +446,20 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KChessRN-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-KChess-KChessTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A6326B455A17B7CD6D3EBE0C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KChessRN-tvOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A6638EB6556708EB6041CA59 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KChessRN-tvOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3C245983C460F2D45F7D8FC /* [CP] Copy Pods Resources */ = {
+		8AD5C84E9FAFA359C6A05ADD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KChessRN-KChessRNTests/Pods-KChessRN-KChessRNTests-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KChess/Pods-KChess-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -516,7 +468,51 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KChessRN-KChessRNTests/Pods-KChessRN-KChessRNTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KChess/Pods-KChess-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99686D02CE96992761726BDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KChess-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8BC2F954D12CBD9789D2EC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KChess-tvOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -564,7 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* KChessRNTests.m in Sources */,
+				00E356F31AD99517003FC87E /* KChessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,7 +586,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* KChessRNTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* KChessTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,12 +595,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* KChessRN */;
+			target = 13B07F861A680F5B00A75B9A /* KChess */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* KChessRN-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* KChess-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -612,16 +608,15 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7DC1F0C459CB604425B258E /* Pods-KChessRN-KChessRNTests.debug.xcconfig */;
+			baseConfigurationReference = D119C33C81AE33DFF40045FF /* Pods-KChess-KChessTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = KChessRNTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = KChessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -630,27 +625,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChessRN.app/KChessRN";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChess.app/KChess";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE47A8EC55356D1A84291F67 /* Pods-KChessRN-KChessRNTests.release.xcconfig */;
+			baseConfigurationReference = 567577588C97E691536A0CAD /* Pods-KChess-KChessTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = KChessRNTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_FILE = KChessTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -659,27 +645,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChessRN.app/KChessRN";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChess.app/KChess";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A46929E4F4481752DC38DC7D /* Pods-KChessRN.debug.xcconfig */;
+			baseConfigurationReference = 7DC1159C5EB6BBB97BF3CE05 /* Pods-KChess.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = KChessRN/Info.plist;
+				INFOPLIST_FILE = KChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -687,25 +665,21 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = KChessRN;
+				PRODUCT_NAME = KChess;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BF53C8FD1D9A32797E07FA83 /* Pods-KChessRN.release.xcconfig */;
+			baseConfigurationReference = 6083EE95A61F9E24DE6350DF /* Pods-KChess.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = KChessRN/Info.plist;
+				INFOPLIST_FILE = KChess/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -713,19 +687,15 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = KChessRN;
+				PRODUCT_NAME = KChess;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B135AE58E2E09780634710E4 /* Pods-KChessRN-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 72AC37E701252960864DC2F7 /* Pods-KChess-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -736,32 +706,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "KChessRN-tvOS/Info.plist";
+				INFOPLIST_FILE = "KChess-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChessRN-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChess-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Debug;
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A2BF32CA9B4751C4CF76D25D /* Pods-KChessRN-tvOS.release.xcconfig */;
+			baseConfigurationReference = 360EA82C69129BB238ED3C00 /* Pods-KChess-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -772,32 +734,24 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "KChessRN-tvOS/Info.plist";
+				INFOPLIST_FILE = "KChess-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChessRN-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChess-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD9217226E29F8CB57A91312 /* Pods-KChessRN-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 41DA0AE5239FE70F367855CC /* Pods-KChess-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -807,32 +761,24 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "KChessRN-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "KChess-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChessRN-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChess-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChessRN-tvOS.app/KChessRN-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChess-tvOS.app/KChess-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B07E1EF74598726D55DE7B49 /* Pods-KChessRN-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = 99542BAE4FCC6387B1CE7AE0 /* Pods-KChess-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -842,26 +788,18 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "KChessRN-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "KChess-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChessRN-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.KChess-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChessRN-tvOS.app/KChessRN-tvOS";
-				TVOS_DEPLOYMENT_TARGET = 12.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SRCROOT)/../node_modules/react-native-gcanvas/ios/**",
-				);
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KChess-tvOS.app/KChess-tvOS";
+				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
 		};
@@ -888,7 +826,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -913,7 +850,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -949,7 +886,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -967,7 +903,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
@@ -983,7 +919,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KChessRNTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "KChessTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -992,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KChessRN" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "KChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1001,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChessRN-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChess-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -1010,7 +946,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChessRN-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "KChess-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -1019,7 +955,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "KChessRN" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "KChess" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

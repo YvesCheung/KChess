@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1200"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "KChessRN-tvOS.app"
-               BlueprintName = "KChessRN-tvOS"
-               ReferencedContainer = "container:KChessRN.xcodeproj">
+               BuildableName = "KChess-tvOS.app"
+               BlueprintName = "KChess-tvOS"
+               ReferencedContainer = "container:KChess.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "KChessRN-tvOSTests.xctest"
-               BlueprintName = "KChessRN-tvOSTests"
-               ReferencedContainer = "container:KChessRN.xcodeproj">
+               BuildableName = "KChess-tvOSTests.xctest"
+               BlueprintName = "KChess-tvOSTests"
+               ReferencedContainer = "container:KChess.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "KChessRN-tvOS.app"
-            BlueprintName = "KChessRN-tvOS"
-            ReferencedContainer = "container:KChessRN.xcodeproj">
+            BuildableName = "KChess-tvOS.app"
+            BlueprintName = "KChess-tvOS"
+            ReferencedContainer = "container:KChess.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "KChessRN-tvOS.app"
-            BlueprintName = "KChessRN-tvOS"
-            ReferencedContainer = "container:KChessRN.xcodeproj">
+            BuildableName = "KChess-tvOS.app"
+            BlueprintName = "KChess-tvOS"
+            ReferencedContainer = "container:KChess.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

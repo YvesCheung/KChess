@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.kchessrn"
+        applicationId "com.kchess"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

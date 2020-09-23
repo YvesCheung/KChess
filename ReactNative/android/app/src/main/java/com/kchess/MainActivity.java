@@ -1,4 +1,4 @@
-package com.kchessrn;
+package com.kchess;
 
 import com.facebook.react.ReactActivity;
 
