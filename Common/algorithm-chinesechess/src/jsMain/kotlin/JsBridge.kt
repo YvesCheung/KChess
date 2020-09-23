@@ -1,6 +1,7 @@
-@file:Suppress("FunctionName", "unused")
+@file:Suppress("FunctionName", "unused", "RemoveRedundantQualifierName")
 
 import com.github.kchess.algorithm.Chessman
+import com.github.kchess.algorithm.ChineseChess
 
 /**
  * 减少js代码调用kt时的包名声明
@@ -11,8 +12,8 @@ import com.github.kchess.algorithm.Chessman
 @JsName("ChineseChess")
 fun ChineseChess() = com.github.kchess.algorithm.ChineseChess()
 
-@JsName("ChineseChessAction")
-fun ChineseChessAction(
+@JsName("Action")
+fun Action(
     chessman: Chessman,
     row: Int,
     column: Int,
@@ -23,5 +24,8 @@ fun ChineseChessAction(
 @JsName("Position")
 fun Position(r: Int, c: Int) = com.github.kchess.algorithm.Position(r, c)
 
-@JsName("ChineseChessBoard")
-val ChineseChessBoard = com.github.kchess.algorithm.ChineseChessBoard
+@JsName("ChessBoard")
+val ChessBoard = com.github.kchess.algorithm.ChineseChessBoard
+
+@JsName("Controller")
+fun Controller(game: ChineseChess) = com.github.kchess.algorithm.ChineseChessUiController(game)

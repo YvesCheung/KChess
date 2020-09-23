@@ -16,7 +16,10 @@ class ChineseChess {
     private val actionRecord = mutableListOf<GameAction<ChineseChess>>()
 
     private val listeners: Map<String, MutableList<(param: Array<Any>) -> Unit>> =
-        listOf("reset", "over").associateWith { mutableListOf() }
+        listOf("reset", "over").associateWith {
+            @Suppress("RemoveExplicitTypeArguments")
+            mutableListOf<(param: Array<Any>) -> Unit>()
+        }
 
     /**
      * 棋盘
@@ -101,6 +104,9 @@ class ChineseChess {
         return emptyList()
     }
 
+    @JsName("record")
+    fun actionRecord(): List<GameAction<ChineseChess>> = actionRecord
+
     /**
      * 重置游戏
      */
@@ -120,7 +126,6 @@ class ChineseChess {
     /**
      * 添加事件监听
      *
-     * @sample
      * ```
      * addEventListener("over", (winner)=>{})
      * addEventListener("reset", ()=>{})

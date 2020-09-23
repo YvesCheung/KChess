@@ -4,11 +4,15 @@ package com.github.kchess.algorithm
  * @author YvesCheung
  * 2020/9/16
  */
+@Suppress("MemberVisibilityCanBePrivate")
 class ChineseChessAction(
-    private val chessman: Chessman,
-    private val row: Int, private val column: Int,
-    private val newRow: Int, private val newColumn: Int
+    val chessman: Chessman,
+    val row: Int, val column: Int,
+    val newRow: Int, val newColumn: Int
 ) : GameAction<ChineseChess> {
+
+    constructor(chessman: ChessmanWithPosition, newRow: Int, newColumn: Int) :
+        this(chessman.chessman, chessman.row, chessman.column, newRow, newColumn)
 
     private var eat: Chessman? = null
 
