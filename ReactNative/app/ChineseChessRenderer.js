@@ -1,6 +1,10 @@
 import {Image} from 'react-native-canvas';
+import ChineseChess from "kchess-algorithm-chinesechess"
 
-export default class CanvasRenderer {
+export default class ChineseChessRenderer {
+
+  static ROW_SIZE = ChineseChess.ChineseChessBoard.ROW_SIZE
+  static COLUMN_SIZE = ChineseChess.ChineseChessBoard.COLUMN_SIZE
 
   constructor(props) {
     this.style = {
@@ -11,12 +15,11 @@ export default class CanvasRenderer {
       chessmanWidth: props.chessmanWidth,
       chessmanHeight: props.chessmanHeight,
       rowGap: props.rowGap,
-      columnGap: props.columnGap,
-      rowSize: props.rowSize,
-      columnSize: props.columnSize
+      columnGap: props.columnGap
     }
     this.imageUrlMap = props.imageUrlMap
-    this.gameBoard = props.gameBoard
+    this.game = props.game
+    this.gameBoard = this.game.gameBoard
     this.imgResult = new Map()
     require('./util')
   }
@@ -51,17 +54,22 @@ export default class CanvasRenderer {
   }
 
   render = () => {
+    const width = this.style.chessmanWidth
+    const height = this.style.chessmanHeight
+
     if (this.context && this.imgResult.size > 0) {
-      const drawBufferCache = new Array(this.style.rowSize)
+      const drawBufferCache = new Array(ChineseChessRenderer.ROW_SIZE)
       this.gameBoard.forEach((chessman, newLine, row, column) => {
         if (column === 0) {
-          drawBufferCache[row] = new Array(this.style.columnSize)
+          drawBufferCache[row] = new Array(ChineseChessRenderer.COLUMN_SIZE)
         }
         drawBufferCache[row][column] = []
         if (chessman) {
           const image = this.imgResult.get(chessman)
           if (image) {
-            drawBufferCache[row][column].push(image)
+            drawBufferCache[row][column].push(
+              new RenderElement(this.context.drawImage, image, 0, 0, width, height)
+            )
 
             if (this.selectedTarget &&
               this.selectedTarget.row === row &&
@@ -70,7 +78,9 @@ export default class CanvasRenderer {
               const targetDecorate = this.imgResult.get(
                 chessman.owner.toBoolean() ? "targetRed" : "targetBlack")
               if (targetDecorate) {
-                drawBufferCache[row][column].push(targetDecorate)
+                drawBufferCache[row][column].push(
+                  new RenderElement(this.context.drawImage, targetDecorate, 0, 0, width, height)
+                )
               }
             }
           } else {
@@ -81,8 +91,6 @@ export default class CanvasRenderer {
 
       let left = this.style.chessBoardStart
       let top = this.style.chessBoardTop
-      const width = this.style.chessmanWidth
-      const height = this.style.chessmanHeight
       drawBufferCache.forEach((rowElement, row) => {
         rowElement.forEach((columnElement, column) => {
           const lastElement =
@@ -94,7 +102,7 @@ export default class CanvasRenderer {
             this.context.translate(left, top)
             this.context.clearRect(0, 0, width, height)
             for (const element of columnElement) {
-              this.context.drawImage(element, 0, 0, width, height)
+              element.drawOn(this.context)
             }
             this.context.restore()
           }
@@ -107,6 +115,7 @@ export default class CanvasRenderer {
     }
   }
 
+
   onClick = ({nativeEvent}) => {
     if (this.context) {
       const columnIndex = Math.floor((nativeEvent.locationX - this.style.chessBoardStart) / this.style.columnGap)
@@ -115,10 +124,30 @@ export default class CanvasRenderer {
       if (this.gameBoard.get(rowIndex, columnIndex)) {
         this.selectedTarget = {
           row: rowIndex,
-          column: columnIndex
+          column: columnIndex,
+          intent: this.game.getIntentAction()
         }
       }
       this.render()
     }
+  }
+}
+
+
+export class RenderElement {
+  constructor(renderFunction, ...param) {
+    this.func = renderFunction
+    this.param = param
+  }
+
+  equals = (other) => {
+    if (other instanceof RenderElement) {
+      return this.func === other.func && this.param.equals(other.param)
+    }
+    return false
+  }
+
+  drawOn = (context) => {
+    this.func.bind(context)(...this.param)
   }
 }

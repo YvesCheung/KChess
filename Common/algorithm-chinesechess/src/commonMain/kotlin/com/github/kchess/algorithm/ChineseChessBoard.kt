@@ -19,6 +19,7 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
     /**
      * [ROW_SIZE] * [COLUMN_SIZE]
      */
+    @JsName("reset")
     fun reset() {
         @Suppress("RemoveExplicitTypeArguments")
         gameBoard = arrayOf<Array<Chessman?>>(
@@ -72,11 +73,13 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         }
     }
 
+    @JsName("contains")
     fun contains(row: Int, column: Int): Boolean =
         row in 0 until ROW_SIZE && column in 0 until COLUMN_SIZE
 
     operator fun contains(pos: Position): Boolean = contains(pos.r, pos.c)
 
+    @JsName("get")
     operator fun get(row: Int, column: Int): Chessman? {
         if (contains(row, column)) return gameBoard[row][column]
         return null

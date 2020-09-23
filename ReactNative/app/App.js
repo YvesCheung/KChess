@@ -3,7 +3,7 @@ import {Image, ImageBackground, StatusBar, StyleSheet, View} from 'react-native'
 import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
 import Canvas from 'react-native-canvas';
-import CanvasRenderer from './CanvasRenderer'
+import ChineseChessRenderer from './ChineseChessRenderer'
 import OnTouchEventDispatcher from "./OnTouchEventDispatcher";
 
 export default class App extends Component {
@@ -11,7 +11,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.game = new ChineseChess.ChineseChess()
-    this.renderer = new CanvasRenderer({
+    this.renderer = new ChineseChessRenderer({
       chessBoardWidth: styles.gameBoard.width,
       chessBoardHeight: styles.gameBoard.height,
       chessBoardStart: ui.px2dp(8),
@@ -20,10 +20,8 @@ export default class App extends Component {
       chessmanHeight: ui.px2dp(30),
       rowGap: ui.px2dp(36),
       columnGap: ui.px2dp(35),
-      rowSize: ChineseChess.ChineseChessBoard.ROW_SIZE,
-      columnSize: ChineseChess.ChineseChessBoard.COLUMN_SIZE,
       imageUrlMap: App.imgSrc,
-      gameBoard: this.game.gameBoard
+      game: this.game
     })
   }
 

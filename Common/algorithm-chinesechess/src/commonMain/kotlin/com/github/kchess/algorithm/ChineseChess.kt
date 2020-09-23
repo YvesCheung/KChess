@@ -1,5 +1,7 @@
 package com.github.kchess.algorithm
 
+import kotlin.js.JsName
+
 /**
  * @author YvesCheung
  * 2020/9/16
@@ -28,6 +30,7 @@ class ChineseChess {
      * @param action 棋子移动
      * @param player 回合行动的玩家
      */
+    @JsName("move")
     fun move(action: GameAction<ChineseChess>, player: OwnerShip = currentPlayer) {
         takeAction(action, player)
     }
@@ -37,6 +40,7 @@ class ChineseChess {
      *
      * @param player 回合行动的玩家
      */
+    @JsName("autoMove")
     fun autoMove(player: OwnerShip = currentPlayer) {
         val result =
             moveSearch.alphaBetaSearch(4, this, player)
@@ -57,6 +61,7 @@ class ChineseChess {
      *
      * @param recoverStep 回退步数
      */
+    @JsName("regret")
     fun regret(recoverStep: Int = 2) {
         var step = recoverStep
         while (step-- > 0) {
@@ -76,6 +81,7 @@ class ChineseChess {
      * @param row 目标棋子所在行数
      * @param column 目标棋子所在的列数
      */
+    @JsName("getIntentAction")
     fun getIntentAction(row: Int, column: Int): List<Position> {
         val chessman = this.gameBoard[row, column]
         if (chessman != null) {
