@@ -8,7 +8,8 @@ export default class OnTouchEventDispatcher extends Component {
   constructor(props) {
     super(props);
     this._panResponder = PanResponder.create({
-      onMoveShouldSetPanResponderCapture: () => true,
+      onStartShouldSetPanResponder: (evt, gestureState) => true,
+      onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
       onPanResponderGrant: this.onResponderGrant,
       onPanResponderRelease: this.onPanResponderRelease,
     });
