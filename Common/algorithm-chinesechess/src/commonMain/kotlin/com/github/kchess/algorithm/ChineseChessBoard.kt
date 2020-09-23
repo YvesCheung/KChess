@@ -77,7 +77,7 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
     fun contains(row: Int, column: Int): Boolean =
         row in 0 until ROW_SIZE && column in 0 until COLUMN_SIZE
 
-    operator fun contains(pos: Position): Boolean = contains(pos.r, pos.c)
+    operator fun contains(pos: Position): Boolean = contains(pos.row, pos.column)
 
     @JsName("get")
     operator fun get(row: Int, column: Int): Chessman? {

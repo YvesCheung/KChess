@@ -25,68 +25,68 @@ class ChessmanRuleTest {
         testChessman(
             0, 0, Chessman.黑车,
             listOf(
-                Position(r = 1, c = 0),
-                Position(r = 2, c = 0),
-                Position(r = 3, c = 0),
-                Position(r = 4, c = 0),
-                Position(r = 5, c = 0),
-                Position(r = 0, c = 1),
-                Position(r = 0, c = 2)
+                Position(row = 1, column = 0),
+                Position(row = 2, column = 0),
+                Position(row = 3, column = 0),
+                Position(row = 4, column = 0),
+                Position(row = 5, column = 0),
+                Position(row = 0, column = 1),
+                Position(row = 0, column = 2)
             )
         )
 
         testChessman(
             0, 8, Chessman.黑车,
             listOf(
-                Position(r = 1, c = 8),
-                Position(r = 2, c = 8),
-                Position(r = 3, c = 8),
-                Position(r = 4, c = 8),
-                Position(r = 5, c = 8),
-                Position(r = 6, c = 8),
-                Position(r = 7, c = 8),
-                Position(r = 8, c = 8),
-                Position(r = 9, c = 8)
+                Position(row = 1, column = 8),
+                Position(row = 2, column = 8),
+                Position(row = 3, column = 8),
+                Position(row = 4, column = 8),
+                Position(row = 5, column = 8),
+                Position(row = 6, column = 8),
+                Position(row = 7, column = 8),
+                Position(row = 8, column = 8),
+                Position(row = 9, column = 8)
             )
         )
 
         testChessman(
             5, 0, Chessman.红车,
             listOf(
-                Position(r = 4, c = 0),
-                Position(r = 3, c = 0),
-                Position(r = 2, c = 0),
-                Position(r = 1, c = 0),
-                Position(r = 0, c = 0),
-                Position(r = 6, c = 0),
-                Position(r = 7, c = 0),
-                Position(r = 8, c = 0),
-                Position(r = 9, c = 0),
-                Position(r = 5, c = 1),
-                Position(r = 5, c = 2),
-                Position(r = 5, c = 3),
-                Position(r = 5, c = 4),
-                Position(r = 5, c = 5),
-                Position(r = 5, c = 6),
-                Position(r = 5, c = 7),
-                Position(r = 5, c = 8)
+                Position(row = 4, column = 0),
+                Position(row = 3, column = 0),
+                Position(row = 2, column = 0),
+                Position(row = 1, column = 0),
+                Position(row = 0, column = 0),
+                Position(row = 6, column = 0),
+                Position(row = 7, column = 0),
+                Position(row = 8, column = 0),
+                Position(row = 9, column = 0),
+                Position(row = 5, column = 1),
+                Position(row = 5, column = 2),
+                Position(row = 5, column = 3),
+                Position(row = 5, column = 4),
+                Position(row = 5, column = 5),
+                Position(row = 5, column = 6),
+                Position(row = 5, column = 7),
+                Position(row = 5, column = 8)
             )
         )
 
         testChessman(
             2, 6, Chessman.红车,
             listOf(
-                Position(r = 1, c = 6),
-                Position(r = 0, c = 6),
-                Position(r = 3, c = 6),
-                Position(r = 4, c = 6),
-                Position(r = 5, c = 6),
-                Position(r = 6, c = 6),
-                Position(r = 7, c = 6),
-                Position(r = 8, c = 6),
-                Position(r = 2, c = 5),
-                Position(r = 2, c = 4),
-                Position(r = 2, c = 7)
+                Position(row = 1, column = 6),
+                Position(row = 0, column = 6),
+                Position(row = 3, column = 6),
+                Position(row = 4, column = 6),
+                Position(row = 5, column = 6),
+                Position(row = 6, column = 6),
+                Position(row = 7, column = 6),
+                Position(row = 8, column = 6),
+                Position(row = 2, column = 5),
+                Position(row = 2, column = 4),
+                Position(row = 2, column = 7)
             )
         )
     }
@@ -97,17 +97,17 @@ class ChessmanRuleTest {
 
         testChessman(3, 5, Chessman.黑车,
             listOf(
-                Position(r = 2, c = 5),
-                Position(r = 1, c = 5),
-                Position(r = 4, c = 5),
-                Position(r = 5, c = 5),
-                Position(r = 6, c = 5),
-                Position(r = 7, c = 5),
-                Position(r = 8, c = 5),
-                Position(r = 9, c = 5),
-                Position(r = 3, c = 4),
-                Position(r = 3, c = 6),
-                Position(r = 3, c = 7)
+                Position(row = 2, column = 5),
+                Position(row = 1, column = 5),
+                Position(row = 4, column = 5),
+                Position(row = 5, column = 5),
+                Position(row = 6, column = 5),
+                Position(row = 7, column = 5),
+                Position(row = 8, column = 5),
+                Position(row = 9, column = 5),
+                Position(row = 3, column = 4),
+                Position(row = 3, column = 6),
+                Position(row = 3, column = 7)
             ))
     }
 
@@ -116,20 +116,20 @@ class ChessmanRuleTest {
         testChessman(
             0, 7, Chessman.黑马,
             listOf(
-                Position(r = 2, c = 6),
-                Position(r = 2, c = 8)
+                Position(row = 2, column = 6),
+                Position(row = 2, column = 8)
             )
         )
 
         testChessman(
             7, 4, Chessman.红马,
             listOf(
-                Position(r = 5, c = 3),
-                Position(r = 5, c = 5),
-                Position(r = 6, c = 2),
-                Position(r = 8, c = 2),
-                Position(r = 6, c = 6),
-                Position(r = 8, c = 6)
+                Position(row = 5, column = 3),
+                Position(row = 5, column = 5),
+                Position(row = 6, column = 2),
+                Position(row = 8, column = 2),
+                Position(row = 6, column = 6),
+                Position(row = 8, column = 6)
             )
         )
     }
@@ -138,24 +138,24 @@ class ChessmanRuleTest {
     fun testPao() {
         testChessman(2, 1, Chessman.黑炮,
             listOf(
-                Position(r = 1, c = 1),
-                Position(r = 0, c = 1),
-                Position(r = 3, c = 1),
-                Position(r = 4, c = 1),
-                Position(r = 5, c = 1),
-                Position(r = 6, c = 1),
-                Position(r = 2, c = 0),
-                Position(r = 2, c = 2),
-                Position(r = 2, c = 3),
-                Position(r = 2, c = 6)
+                Position(row = 1, column = 1),
+                Position(row = 0, column = 1),
+                Position(row = 3, column = 1),
+                Position(row = 4, column = 1),
+                Position(row = 5, column = 1),
+                Position(row = 6, column = 1),
+                Position(row = 2, column = 0),
+                Position(row = 2, column = 2),
+                Position(row = 2, column = 3),
+                Position(row = 2, column = 6)
             ))
 
         testChessman(2, 7, Chessman.黑炮,
             listOf(
-                Position(r = 1, c = 7),
-                Position(r = 3, c = 7),
-                Position(r = 9, c = 7),
-                Position(r = 2, c = 8)
+                Position(row = 1, column = 7),
+                Position(row = 3, column = 7),
+                Position(row = 9, column = 7),
+                Position(row = 2, column = 8)
             ))
     }
 
@@ -164,9 +164,9 @@ class ChessmanRuleTest {
         testChessman(
             2, 4, Chessman.黑象,
             listOf(
-                Position(r = 0, c = 2),
-                Position(r = 4, c = 2),
-                Position(r = 4, c = 6)
+                Position(row = 0, column = 2),
+                Position(row = 4, column = 2),
+                Position(row = 4, column = 6)
             )
         )
 
@@ -181,16 +181,16 @@ class ChessmanRuleTest {
         testChessman(
             8, 4, Chessman.红士,
             listOf(
-                Position(r = 9, c = 3),
-                Position(r = 7, c = 3),
-                Position(r = 7, c = 5)
+                Position(row = 9, column = 3),
+                Position(row = 7, column = 3),
+                Position(row = 7, column = 5)
             )
         )
 
         testChessman(
             0, 3, Chessman.黑士,
             listOf(
-                Position(r = 1, c = 4)
+                Position(row = 1, column = 4)
             )
         )
     }
@@ -200,15 +200,15 @@ class ChessmanRuleTest {
         testChessman(
             0, 4, Chessman.黑帅,
             listOf(
-                Position(r = 1, c = 4)
+                Position(row = 1, column = 4)
             )
         )
 
         testChessman(
             9, 5, Chessman.红将,
             listOf(
-                Position(r = 8, c = 5),
-                Position(r = 9, c = 4)
+                Position(row = 8, column = 5),
+                Position(row = 9, column = 4)
             )
         )
     }
@@ -216,14 +216,14 @@ class ChessmanRuleTest {
     @Test
     fun testBin() {
         testChessman(4, 4, Chessman.黑卒,
-            listOf(Position(r = 5, c = 4))
+            listOf(Position(row = 5, column = 4))
         )
 
         testChessman(4, 7, Chessman.红兵,
             listOf(
-                Position(r = 3, c = 7),
-                Position(r = 4, c = 8),
-                Position(r = 4, c = 6)
+                Position(row = 3, column = 7),
+                Position(row = 4, column = 8),
+                Position(row = 4, column = 6)
             ))
     }
 

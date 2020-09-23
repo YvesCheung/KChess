@@ -92,7 +92,7 @@ class ChineseChess {
 }
 
 
-data class Position(val r: Int, val c: Int) {
+data class Position(val row: Int, val column: Int) {
 
-    fun offset(offset: Position): Position = Position(r + offset.r, c + offset.c)
+    fun offset(offset: Position): Position = Position(row + offset.row, column + offset.column)
 }

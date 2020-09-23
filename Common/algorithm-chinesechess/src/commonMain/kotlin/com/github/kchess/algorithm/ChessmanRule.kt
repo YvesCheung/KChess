@@ -31,17 +31,17 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
                     if (target == null || target.owner != owner) yield(Position(r, c))
                     return target != null
                 }
-                for (r in current.r - 1 downTo 0) {
-                    if (yieldPosition(r, current.c)) break
+                for (r in current.row - 1 downTo 0) {
+                    if (yieldPosition(r, current.column)) break
                 }
-                for (r in current.r + 1 until ROW_SIZE) {
-                    if (yieldPosition(r, current.c)) break
+                for (r in current.row + 1 until ROW_SIZE) {
+                    if (yieldPosition(r, current.column)) break
                 }
-                for (c in current.c - 1 downTo 0) {
-                    if (yieldPosition(current.r, c)) break
+                for (c in current.column - 1 downTo 0) {
+                    if (yieldPosition(current.row, c)) break
                 }
-                for (c in current.c + 1 until COLUMN_SIZE) {
-                    if (yieldPosition(current.r, c)) break
+                for (c in current.column + 1 until COLUMN_SIZE) {
+                    if (yieldPosition(current.row, c)) break
                 }
             }
         }
@@ -55,10 +55,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
             //考虑绊马脚的情况
-            if (game.gameBoard[current.r - 1, current.c] == null) step += top
-            if (game.gameBoard[current.r + 1, current.c] == null) step += bottom
-            if (game.gameBoard[current.r, current.c - 1] == null) step += left
-            if (game.gameBoard[current.r, current.c + 1] == null) step += right
+            if (game.gameBoard[current.row - 1, current.column] == null) step += top
+            if (game.gameBoard[current.row + 1, current.column] == null) step += bottom
+            if (game.gameBoard[current.row, current.column - 1] == null) step += left
+            if (game.gameBoard[current.row, current.column + 1] == null) step += right
             return sequenceFromStep(current, step)
         }
     },
@@ -71,7 +71,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequenceFromStep(current, step)
                 .filter { //不能离开九宫格
-                    it.c in 3..5 && (it.r in 0..2 || it.r in 7..9)
+                    it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
                 }
         }
 
@@ -84,13 +84,13 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
-            if (game.gameBoard[current.r - 1, current.c - 1] == null) step += leftTop
-            if (game.gameBoard[current.r - 1, current.c + 1] == null) step += rightTop
-            if (game.gameBoard[current.r + 1, current.c - 1] == null) step += leftBottom
-            if (game.gameBoard[current.r + 1, current.c + 1] == null) step += rightBottom
+            if (game.gameBoard[current.row - 1, current.column - 1] == null) step += leftTop
+            if (game.gameBoard[current.row - 1, current.column + 1] == null) step += rightTop
+            if (game.gameBoard[current.row + 1, current.column - 1] == null) step += leftBottom
+            if (game.gameBoard[current.row + 1, current.column + 1] == null) step += rightBottom
             return sequenceFromStep(current, step)
                 .filter { //不能过河
-                    (!!owner && it.r > 4) || (!owner && it.r <= 4)
+                    (!!owner && it.row > 4) || (!owner && it.row <= 4)
                 }
         }
     },
@@ -104,7 +104,7 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
             //todo:长将的情况
             return sequenceFromStep(current, step)
                 .filter { //不能离开九宫格
-                    it.c in 3..5 && (it.r in 0..2 || it.r in 7..9)
+                    it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
                 }
         }
     },
@@ -117,12 +117,12 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return if (!!owner) {
-                if (current.r <= 4) //过河
+                if (current.row <= 4) //过河
                     sequenceFromStep(current, toTopLeftRight)
                 else
                     sequenceFromStep(current, toTop)
             } else {
-                if (current.r > 4)
+                if (current.row > 4)
                     sequenceFromStep(current, toBottomLeftRight)
                 else
                     sequenceFromStep(current, toBottom)
@@ -149,20 +149,20 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
                 }
 
                 hasBlock = false
-                for (r in current.r - 1 downTo 0) {
-                    if (yieldPosition(r, current.c)) break
+                for (r in current.row - 1 downTo 0) {
+                    if (yieldPosition(r, current.column)) break
                 }
                 hasBlock = false
-                for (r in current.r + 1 until ROW_SIZE) {
-                    if (yieldPosition(r, current.c)) break
+                for (r in current.row + 1 until ROW_SIZE) {
+                    if (yieldPosition(r, current.column)) break
                 }
                 hasBlock = false
-                for (c in current.c - 1 downTo 0) {
-                    if (yieldPosition(current.r, c)) break
+                for (c in current.column - 1 downTo 0) {
+                    if (yieldPosition(current.row, c)) break
                 }
                 hasBlock = false
-                for (c in current.c + 1 until COLUMN_SIZE) {
-                    if (yieldPosition(current.r, c)) break
+                for (c in current.column + 1 until COLUMN_SIZE) {
+                    if (yieldPosition(current.row, c)) break
                 }
             }
         }
