@@ -10,6 +10,6 @@ body {
   height: 806px;
   width: 650px;
   margin-top: 20px;
-  background: no-repeat url("./img/bg.png");
+  background: no-repeat url("~kchess-react-shared/img/bg.png");
   background-size: cover;
 }

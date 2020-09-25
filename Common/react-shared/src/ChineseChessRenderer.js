@@ -3,9 +3,6 @@ import './util'
 
 export default class ChineseChessRenderer {
 
-  static ROW_SIZE = ChineseChess.ChessBoard.ROW_SIZE
-  static COLUMN_SIZE = ChineseChess.ChessBoard.COLUMN_SIZE
-
   constructor(props) {
     this.style = {
       chessBoardWidth: props.chessBoardWidth,
@@ -25,7 +22,7 @@ export default class ChineseChessRenderer {
     this.Image = props.imageConstructor
   }
 
-  onCanvasReady = (ref) => {
+  onCanvasReady(ref) {
     if (ref) {
       this.canvas = ref
       this.context = ref.getContext('2d')
@@ -40,7 +37,7 @@ export default class ChineseChessRenderer {
     }
   }
 
-  _downloadImage = () => {
+  _downloadImage() {
     let unFinishImageCount = this.imageUrlMap.size
     for (const [key, url] of this.imageUrlMap.entries()) {
       const image = new this.Image(this.canvas)
@@ -59,15 +56,15 @@ export default class ChineseChessRenderer {
     }
   }
 
-  render = () => {
+  render() {
     const width = this.style.chessmanWidth
     const height = this.style.chessmanHeight
 
     if (this.context && this.imgResult.size > 0) {
-      const drawBufferCache = new Array(ChineseChessRenderer.ROW_SIZE)
+      const drawBufferCache = new Array(ROW_SIZE)
       this.gameBoard.forEach((chessman, newLine, row, column) => {
         if (column === 0) {
-          drawBufferCache[row] = new Array(ChineseChessRenderer.COLUMN_SIZE)
+          drawBufferCache[row] = new Array(COLUMN_SIZE)
         }
         drawBufferCache[row][column] = []
         if (chessman) {
@@ -79,7 +76,7 @@ export default class ChineseChessRenderer {
 
             const decorateArray = this.controller.getRenderDecorate(row, column)
             for (const decorate of decorateArray) {
-              const name = ChineseChessRenderer.decorateImage[decorate]
+              const name = decorateImage[decorate]
               const decorImg = this.imgResult.get(name)
               if (decorImg) {
                 drawBufferCache[row][column].push(
@@ -122,7 +119,7 @@ export default class ChineseChessRenderer {
     }
   }
 
-  onClick = (x, y) => {
+  onClick(x, y) {
     if (this.context) {
       const columnIndex = Math.floor((x - this.style.chessBoardStart) / this.style.columnGap)
       const rowIndex = Math.floor((y - this.style.chessBoardTop) / this.style.rowGap)
@@ -130,18 +127,6 @@ export default class ChineseChessRenderer {
       this.controller.click(rowIndex, columnIndex)
     }
   }
-
-  static decorateImage = (() => {
-    const Decorate = ChineseChess.com.github.kchess.algorithm.ChineseChessUiController.Decorate
-    return {
-      [Decorate.Player1From]: "targetRed",
-      [Decorate.Player1To]: "targetRed",
-      [Decorate.Player1Select]: "targetRed",
-      [Decorate.Player2From]: "targetBlack",
-      [Decorate.Player2To]: "targetBlack",
-      [Decorate.Player2Select]: "targetBlack",
-    }
-  })()
 }
 
 export class RenderElement {
@@ -150,14 +135,29 @@ export class RenderElement {
     this.param = param
   }
 
-  equals = (other) => {
+  equals(other) {
     if (other instanceof RenderElement) {
       return this.func === other.func && this.param.equals(other.param)
     }
     return false
   }
 
-  drawOn = (context) => {
+  drawOn(context) {
     this.func.bind(context)(...this.param)
   }
 }
+
+const ROW_SIZE = ChineseChess.ChessBoard.ROW_SIZE
+const COLUMN_SIZE = ChineseChess.ChessBoard.COLUMN_SIZE
+
+const decorateImage = (() => {
+  const Decorate = ChineseChess.com.github.kchess.algorithm.ChineseChessUiController.Decorate
+  return {
+    [Decorate.Player1From]: "targetRed",
+    [Decorate.Player1To]: "targetRed",
+    [Decorate.Player1Select]: "targetRed",
+    [Decorate.Player2From]: "targetBlack",
+    [Decorate.Player2To]: "targetBlack",
+    [Decorate.Player2Select]: "targetBlack",
+  }
+})()
