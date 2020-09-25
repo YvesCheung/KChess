@@ -1,0 +1,21 @@
+{
+  "name": "kchess-react-shared",
+  "version": "1.0.0",
+  "description": "A library used by React and ReactNative",
+  "private": true,
+  "workspaces": [
+    "../../build/js/packages/kchess-algorithm",
+    "../../build/js/packages/kchess-algorithm-chinesechess"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "kchess-algorithm": "file:../../build/js/packages/kchess-algorithm",
+    "kchess-algorithm-chinesechess": "file:../../build/js/packages/kchess-algorithm-chinesechess",
+    "kotlin": "1.3.72"
+  },
+  "author": "YvesCheung",
+  "license": "ISC"
+}

@@ -3,8 +3,9 @@ import {Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, V
 import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
 import Canvas from 'react-native-canvas';
-import ChineseChessRenderer from './ChineseChessRenderer'
+import {ChineseChessRenderer} from "kchess-react-shared";
 import OnTouchEventDispatcher from "./OnTouchEventDispatcher";
+import {Image as CanvasImage} from 'react-native-canvas';
 
 export default class App extends Component {
 
@@ -23,7 +24,8 @@ export default class App extends Component {
       columnGap: ui.px2dp(35),
       imageUrlMap: App.imgSrc,
       game: this.game,
-      controller: this.controller
+      controller: this.controller,
+      imageConstructor: CanvasImage
     })
   }
 
@@ -34,8 +36,8 @@ export default class App extends Component {
   render() {
     return <View style={{flex: 1}}>
       <StatusBar backgroundColor={'#ffaa00'} barStyle={'light-content'}/>
-      <ImageBackground style={styles.background} source={require('./img/bg.jpg')}>
-        <ImageBackground style={styles.gameBoard} source={require('./img/bg.png')}>
+      <ImageBackground style={styles.background} source={require('kchess-react-shared/img/bg.jpg')}>
+        <ImageBackground style={styles.gameBoard} source={require('kchess-react-shared/img/bg.png')}>
           <OnTouchEventDispatcher listener={this.renderer}>
             <Canvas ref={this.renderer.onCanvasReady}/>
           </OnTouchEventDispatcher>
@@ -62,24 +64,24 @@ export default class App extends Component {
     //fixme:shortcut
     const man = ChineseChess.com.github.kchess.algorithm.Chessman
     const img = new Map()
-    img.set(man.红兵, require('./img/r_z.png'))
-    img.set(man.红车, require('./img/r_c.png'))
-    img.set(man.红士, require('./img/r_s.png'))
-    img.set(man.红炮, require('./img/r_p.png'))
-    img.set(man.红马, require('./img/r_m.png'))
-    img.set(man.红象, require('./img/r_x.png'))
-    img.set(man.红将, require('./img/r_j.png'))
+    img.set(man.红兵, require('kchess-react-shared/img/r_z.png'))
+    img.set(man.红车, require('kchess-react-shared/img/r_c.png'))
+    img.set(man.红士, require('kchess-react-shared/img/r_s.png'))
+    img.set(man.红炮, require('kchess-react-shared/img/r_p.png'))
+    img.set(man.红马, require('kchess-react-shared/img/r_m.png'))
+    img.set(man.红象, require('kchess-react-shared/img/r_x.png'))
+    img.set(man.红将, require('kchess-react-shared/img/r_j.png'))
 
-    img.set(man.黑卒, require('./img/b_z.png'))
-    img.set(man.黑车, require('./img/b_c.png'))
-    img.set(man.黑士, require('./img/b_s.png'))
-    img.set(man.黑炮, require('./img/b_p.png'))
-    img.set(man.黑马, require('./img/b_m.png'))
-    img.set(man.黑象, require('./img/b_x.png'))
-    img.set(man.黑帅, require('./img/b_j.png'))
+    img.set(man.黑卒, require('kchess-react-shared/img/b_z.png'))
+    img.set(man.黑车, require('kchess-react-shared/img/b_c.png'))
+    img.set(man.黑士, require('kchess-react-shared/img/b_s.png'))
+    img.set(man.黑炮, require('kchess-react-shared/img/b_p.png'))
+    img.set(man.黑马, require('kchess-react-shared/img/b_m.png'))
+    img.set(man.黑象, require('kchess-react-shared/img/b_x.png'))
+    img.set(man.黑帅, require('kchess-react-shared/img/b_j.png'))
 
-    img.set("targetRed", require('./img/r_box.png'))
-    img.set("targetBlack", require('./img/b_box.png'))
+    img.set("targetRed", require('kchess-react-shared/img/r_box.png'))
+    img.set("targetBlack", require('kchess-react-shared/img/b_box.png'))
 
     for ([key, value] of img.entries()) {
       img.set(key, Image.resolveAssetSource(value).uri)

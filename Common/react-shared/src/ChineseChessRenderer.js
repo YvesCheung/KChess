@@ -1,5 +1,5 @@
-import {Image} from 'react-native-canvas';
 import ChineseChess from "kchess-algorithm-chinesechess"
+import './util'
 
 export default class ChineseChessRenderer {
 
@@ -22,7 +22,7 @@ export default class ChineseChessRenderer {
     this.controller = props.controller
     this.gameBoard = this.game.gameBoard
     this.imgResult = new Map()
-    require('./util')
+    this.Image = props.imageConstructor
   }
 
   onCanvasReady = (ref) => {
@@ -43,7 +43,7 @@ export default class ChineseChessRenderer {
   _downloadImage = () => {
     let unFinishImageCount = this.imageUrlMap.size
     for (const [key, url] of this.imageUrlMap.entries()) {
-      const image = new Image(this.canvas)
+      const image = new this.Image(this.canvas)
       image.src = url
       image.addEventListener('load', () => {
         this.imgResult.set(key, image)
