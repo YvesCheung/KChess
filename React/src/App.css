@@ -1,5 +1,5 @@
 body {
-  background: no-repeat url("http://file.500sucai.com/upload/image/201512/ce51cd14-183b-4344-961a-99832b003dbd_thumb.jpg");
+  background: no-repeat url('./img/body.jpg');
   background-size: cover;
 }
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import ChineseChess from "kchess-algorithm-chinesechess";
+import {ChineseChessRenderer} from "kchess-react-shared";
 
 export default class App extends Component {
 
@@ -8,7 +9,6 @@ export default class App extends Component {
     super(props);
     this.game = new ChineseChess.ChineseChess()
     this.controller = new ChineseChess.Controller(this.game)
-    const ChineseChessRenderer = require('kchess-react-shared').ChineseChessRenderer
     this.renderer = new ChineseChessRenderer({
       chessBoardWidth: 650,
       chessBoardHeight: 806,
