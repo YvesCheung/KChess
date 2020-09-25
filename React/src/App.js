@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import ChineseChess from "kchess-algorithm-chinesechess";
 import {ChineseChessRenderer} from "kchess-react-shared";
+import GameBoard from "./component/gameBoard";
+import GameRecord from "./component/gameRecord";
 
 export default class App extends Component {
 
@@ -28,16 +30,37 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="GameBoard">
-          <canvas ref={(ref) => {
-            ref.addEventListener('click', (event) => {
-              this.renderer.onClick(event.offsetX, event.offsetY)
-            })
-            this.renderer.onCanvasReady(ref)
-          }}/>
+        <GameBoard renderer={this.renderer}/>
+
+        <div className="CtrlPanel">
+          <GameRecord game={this.game}/>
+          <button onClick={() => this._assistance()}>帮你走 (ASSISTANCE)</button>
+          <button onClick={() => this._regret()}>悔棋 (REGRET)</button>
+          <button onClick={() => this._reset()}>重置 (RESET)</button>
         </div>
       </div>
     );
+  }
+
+  _assistance() {
+    setTimeout(() => {
+      this.game.autoMove()
+      this.renderer.render()
+      setTimeout(() => {
+        this.game.autoMove()
+        this.renderer.render()
+      }, 500)
+    }, 500)
+  }
+
+  _regret() {
+    this.game.regret()
+    this.renderer.render()
+  }
+
+  _reset() {
+    this.game.reset()
+    this.renderer.render()
   }
 
   static imgSrc = (() => {

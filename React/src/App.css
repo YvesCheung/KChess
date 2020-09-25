@@ -3,13 +3,40 @@ body {
   background-size: cover;
 }
 
-.GameBoard {
+.App {
   display: flex;
-  margin-left: auto;
+  flex-direction: row;
+}
+
+.CtrlPanel {
   margin-right: auto;
-  height: 806px;
-  width: 650px;
-  margin-top: 20px;
-  background: no-repeat url("~kchess-react-shared/img/bg.png");
-  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: 100px;
+  padding-bottom: 60px;
+}
+
+.CtrlPanel button {
+  margin-top: 40px;
+  font-size: 20px;
+  width: 340px;
+  border-radius: 16px;
+  border: solid 2px black;
+  background: white;
+  outline: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  transition-duration: 0.3s;
+}
+
+.CtrlPanel button:hover {
+  color: white;
+  background-color: black;
+}
+
+.CtrlPanel button:active {
+  transform: translateY(4px);
 }

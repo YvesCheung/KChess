@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.ChessmanEvaluator.Companion.DEAD_VALUE
+import com.github.kchess.algorithm.util.ObservableList
 import kotlin.js.JsName
 import kotlin.math.abs
 
@@ -13,10 +14,12 @@ class ChineseChess {
 
     private val moveSearch = ChineseChessSearch()
 
-    private val actionRecord = mutableListOf<GameAction<ChineseChess>>()
+    private val actionRecord = ObservableList<GameAction<ChineseChess>> { actionList ->
+        listeners["record"]?.forEach { callback -> callback(actionList.toTypedArray()) }
+    }
 
     private val listeners: Map<String, MutableList<(param: Array<Any>) -> Unit>> =
-        listOf("reset", "over").associateWith {
+        listOf("reset", "over", "record").associateWith {
             @Suppress("RemoveExplicitTypeArguments")
             mutableListOf<(param: Array<Any>) -> Unit>()
         }
@@ -82,8 +85,7 @@ class ChineseChess {
             if (actionRecord.isEmpty()) {
                 return
             }
-            val action =
-                actionRecord.removeAt(actionRecord.lastIndex)
+            val action = actionRecord.removeLast()
             action.undo(this)
             currentPlayer = -currentPlayer
         }
@@ -105,7 +107,7 @@ class ChineseChess {
     }
 
     @JsName("record")
-    fun actionRecord(): List<GameAction<ChineseChess>> = actionRecord
+    fun actionRecord(): List<GameAction<ChineseChess>> = actionRecord.toList()
 
     /**
      * 重置游戏
@@ -129,6 +131,7 @@ class ChineseChess {
      * ```
      * addEventListener("over", (winner)=>{})
      * addEventListener("reset", ()=>{})
+     * addEventListener("record", (Array<action>)=>{})
      * ```
      */
     @JsName("addEventListener")
@@ -145,10 +148,4 @@ class ChineseChess {
         val typeListeners = listeners[type]
         typeListeners?.remove(callback)
     }
-}
-
-
-data class Position(val row: Int, val column: Int) {
-
-    fun offset(offset: Position): Position = Position(row + offset.row, column + offset.column)
 }
