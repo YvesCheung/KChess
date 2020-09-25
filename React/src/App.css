@@ -1,23 +1,15 @@
-.App {
-  text-align: center;
+body {
+  background: no-repeat url("http://file.500sucai.com/upload/image/201512/ce51cd14-183b-4344-961a-99832b003dbd_thumb.jpg");
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.GameBoard {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+  margin-left: auto;
+  margin-right: auto;
+  height: 806px;
+  width: 650px;
+  margin-top: 20px;
+  background: no-repeat url("./img/bg.png");
+  background-size: cover;
 }

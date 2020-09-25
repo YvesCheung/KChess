@@ -23,7 +23,10 @@ export default class OnTouchEventDispatcher extends Component {
     if (this._isClick(gestureState)) {
       console.log("click ", gestureState)
       if (this.props.listener) {
-        this.props.listener.onClick(event, gestureState)
+        this.props.listener.onClick(
+          event.nativeEvent.locationX,
+          event.nativeEvent.locationY
+        )
       }
     }
   }

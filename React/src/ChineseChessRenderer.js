@@ -1,4 +1,3 @@
-import {Image} from 'react-native-canvas';
 import ChineseChess from "kchess-algorithm-chinesechess"
 
 export default class ChineseChessRenderer {

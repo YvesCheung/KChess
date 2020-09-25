@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, StatusBar, StyleSheet, View, Button, Text, TouchableOpacity} from 'react-native';
+import {Image, ImageBackground, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ui from "./ui";
 import ChineseChess from "kchess-algorithm-chinesechess"
 import Canvas from 'react-native-canvas';
