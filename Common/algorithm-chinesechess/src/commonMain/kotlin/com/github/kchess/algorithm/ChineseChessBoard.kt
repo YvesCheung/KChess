@@ -95,5 +95,3 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         const val COLUMN_SIZE = 9
     }
 }
-
-data class ChessmanWithPosition(val chessman: Chessman, val row: Int, val column: Int)
