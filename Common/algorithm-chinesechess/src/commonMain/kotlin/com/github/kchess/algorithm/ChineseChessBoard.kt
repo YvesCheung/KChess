@@ -84,11 +84,17 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         return null
     }
 
+    operator fun get(position: Position): Chessman? =
+        get(position.row, position.column)
+
     internal operator fun set(row: Int, column: Int, chessman: Chessman?) {
         if (contains(row, column)) {
             gameBoard[row][column] = chessman
         }
     }
+
+    internal operator fun set(pos: Position, chessman: Chessman?) =
+        set(pos.row, pos.column, chessman)
 
     companion object {
         const val ROW_SIZE = 10

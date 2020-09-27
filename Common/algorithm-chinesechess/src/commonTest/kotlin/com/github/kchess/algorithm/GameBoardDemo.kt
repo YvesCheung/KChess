@@ -65,4 +65,18 @@ object GameBoardDemo {
             /*8*/arrayOf(/*0*/null, /*1*/黑车, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
             /*9*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红将, /*5*/null, /*6*/null, /*7*/null, /*8*/null)
         )
+
+    val DEMO5 =
+        arrayOf<Array<Chessman?>>(
+            /*0*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/红炮, /*4*/黑帅, /*5*/红炮, /*6*/null, /*7*/null, /*8*/null),
+            /*1*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/黑帅, /*6*/null, /*7*/null, /*8*/null),
+            /*2*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/黑帅, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*3*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红炮, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*4*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*5*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*6*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*7*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*8*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/红将, /*4*/null, /*5*/红将, /*6*/null, /*7*/null, /*8*/null),
+            /*9*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红将, /*5*/null, /*6*/null, /*7*/null, /*8*/null)
+        )
 }

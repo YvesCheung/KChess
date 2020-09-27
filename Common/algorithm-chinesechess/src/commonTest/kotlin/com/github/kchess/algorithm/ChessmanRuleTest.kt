@@ -2,6 +2,7 @@ package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.GameBoardDemo.DEMO1
 import com.github.kchess.algorithm.GameBoardDemo.DEMO3
+import com.github.kchess.algorithm.GameBoardDemo.DEMO5
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -209,6 +210,43 @@ class ChessmanRuleTest {
             listOf(
                 Position(row = 8, column = 5),
                 Position(row = 9, column = 4)
+            )
+        )
+
+        game.reset(DEMO5)
+
+        testChessman(8, 3, Chessman.红将,
+            listOf(
+                Position(row = 2, column = 3),
+                Position(row = 9, column = 3),
+                Position(row = 8, column = 4),
+                Position(row = 7, column = 3)
+            )
+        )
+
+        testChessman(9, 4, Chessman.红将,
+            listOf(
+                Position(row = 9, column = 5),
+                Position(row = 8, column = 4),
+                Position(row = 9, column = 3)
+            )
+        )
+
+        testChessman(8, 5, Chessman.红将,
+            listOf(
+                Position(row = 1, column = 5),
+                Position(row = 9, column = 5),
+                Position(row = 7, column = 5),
+                Position(row = 8, column = 4)
+            )
+        )
+
+        testChessman(1, 5, Chessman.黑帅,
+            listOf(
+                Position(row = 8, column = 5),
+                Position(row = 2, column = 5),
+                Position(row = 0, column = 5),
+                Position(row = 1, column = 4)
             )
         )
     }

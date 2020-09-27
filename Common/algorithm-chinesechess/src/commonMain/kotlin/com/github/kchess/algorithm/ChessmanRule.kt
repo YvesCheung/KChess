@@ -101,11 +101,28 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
-            //todo:长将的情况
-            return sequenceFromStep(current, step)
-                .filter { //不能离开九宫格
-                    it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
+            return sequence {
+                //将对将的情况
+                suspend fun SequenceScope<Position>.checkAnotherKingFaceToFace(rowRange: IntProgression) {
+                    for (r in rowRange) {
+                        val chessman = game.gameBoard[r, current.column]
+                        if (chessman == 红将 || chessman == 黑帅) {
+                            yield(Position(r, current.column))
+                        } else if (chessman != null) {
+                            break
+                        }
+                    }
                 }
+                if (current.row in 0..2) checkAnotherKingFaceToFace(current.row + 1 until ROW_SIZE)
+                if (current.row in 7..9) checkAnotherKingFaceToFace(current.row - 1 downTo 0)
+                //走一步的情况
+                yieldAll(
+                    sequenceFromStep(current, step)
+                        .filter { //不能离开九宫格
+                            it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
+                        }
+                )
+            }
         }
     },
     Bin(红兵, 黑卒) {
