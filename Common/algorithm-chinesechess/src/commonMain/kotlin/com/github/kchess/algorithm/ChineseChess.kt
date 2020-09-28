@@ -12,6 +12,8 @@ import kotlin.math.abs
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class ChineseChess {
 
+    private var gameOver = false
+
     private val moveSearch = ChineseChessSearch()
 
     private val actionRecord = ObservableList<GameAction<ChineseChess>> { actionList ->
@@ -53,6 +55,8 @@ class ChineseChess {
      */
     @JsName("autoMove")
     fun autoMove(player: OwnerShip = currentPlayer) {
+        if (gameOver) return
+
         val result =
             moveSearch.alphaBetaSearch(4, this, player)
         val action = result.action
@@ -62,6 +66,8 @@ class ChineseChess {
     }
 
     private fun takeAction(action: GameAction<ChineseChess>, player: OwnerShip) {
+        if (gameOver) return
+
         action.run(this)
         actionRecord.add(action)
         currentPlayer = -player
@@ -69,6 +75,7 @@ class ChineseChess {
         val checkGameOver =
             moveSearch.alphaBetaSearch(2, this, currentPlayer)
         if (abs(checkGameOver.evaluateValue) > DEAD_VALUE) {
+            gameOver = true
             listeners["over"]?.forEach { callback -> callback(arrayOf(player)) }
         }
     }
@@ -121,15 +128,19 @@ class ChineseChess {
         }
         currentPlayer = OwnerShip.Player1
         actionRecord.clear()
+        gameOver = false
 
         listeners["reset"]?.forEach { callback -> callback(emptyArray()) }
     }
+
+    @JsName("isGameOver")
+    fun isGameOver(): Boolean = gameOver
 
     /**
      * 添加事件监听
      *
      * ```
-     * addEventListener("over", (winner)=>{})
+     * addEventListener("over", ([winner])=>{})
      * addEventListener("reset", ()=>{})
      * addEventListener("record", (Array<action>)=>{})
      * ```
