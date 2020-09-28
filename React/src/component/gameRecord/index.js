@@ -26,8 +26,8 @@ export default class GameRecord extends Component {
     return (<div className="RecordPanel">
       <text>记录(Record)</text>
       <ul ref={(ref) => this.list = ref}>
-        {this.state.record.map((action) =>
-          <li key={action.toString()}>{action.toString()}</li>
+        {this.state.record.map((action, index) =>
+          <li key={action.toString() + index}>{action.toString()}</li>
         )}
       </ul>
     </div>)
