@@ -4,6 +4,7 @@ import ChineseChess from "kchess-algorithm-chinesechess";
 import {ChineseChessRenderer} from "kchess-react-shared";
 import GameBoard from "./component/gameBoard";
 import GameRecord from "./component/gameRecord";
+import {showResultDialog} from "./component/gameDialog/Dialog"
 
 export default class App extends Component {
 
@@ -27,11 +28,17 @@ export default class App extends Component {
     })
   }
 
+  componentDidMount() {
+    this.game.addEventListener('over', ([winner]) => {
+      console.log("GameOver, winner is " + winner)
+      showResultDialog(winner, () => this._reset())
+    })
+  }
+
   render() {
     return (
       <div className="App">
         <GameBoard renderer={this.renderer}/>
-
         <div className="CtrlPanel">
           <GameRecord game={this.game}/>
           <button onClick={() => this._assistance()}>帮你走 (ASSISTANCE)</button>

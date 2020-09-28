@@ -8,6 +8,8 @@
     "../Common/react-shared"
   ],
   "dependencies": {
+    "@ant-design/icons": "latest",
+    "antd": "4.6.6",
     "kchess-algorithm": "file:../build/js/packages/kchess-algorithm",
     "kchess-algorithm-chinesechess": "file:../build/js/packages/kchess-algorithm-chinesechess",
     "kchess-react-shared": "file:../Common/react-shared",
