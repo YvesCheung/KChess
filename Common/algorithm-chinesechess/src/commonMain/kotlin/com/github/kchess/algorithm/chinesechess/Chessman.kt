@@ -1,5 +1,6 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
+import com.github.kchess.algorithm.OwnerShip
 import com.github.kchess.algorithm.OwnerShip.Player1
 import com.github.kchess.algorithm.OwnerShip.Player2
 

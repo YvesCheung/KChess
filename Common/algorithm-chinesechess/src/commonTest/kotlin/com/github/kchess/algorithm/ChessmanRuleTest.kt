@@ -3,6 +3,9 @@ package com.github.kchess.algorithm
 import com.github.kchess.algorithm.GameBoardDemo.DEMO1
 import com.github.kchess.algorithm.GameBoardDemo.DEMO3
 import com.github.kchess.algorithm.GameBoardDemo.DEMO5
+import com.github.kchess.algorithm.chinesechess.Chessman
+import com.github.kchess.algorithm.chinesechess.ChessmanRule
+import com.github.kchess.algorithm.chinesechess.ChineseChess
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals

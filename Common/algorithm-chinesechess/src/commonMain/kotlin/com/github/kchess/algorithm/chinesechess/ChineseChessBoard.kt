@@ -1,6 +1,7 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
-import com.github.kchess.algorithm.Chessman.*
+import com.github.kchess.algorithm.Position
+import com.github.kchess.algorithm.chinesechess.Chessman.*
 import kotlin.js.JsName
 
 /**
@@ -65,7 +66,13 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
             gameBoard.forEachIndexed { r, row ->
                 row.forEachIndexed { c, chessman ->
                     if (chessman != null) {
-                        yield(ChessmanWithPosition(chessman, r, c))
+                        yield(
+                            ChessmanWithPosition(
+                                chessman,
+                                r,
+                                c
+                            )
+                        )
                     }
                 }
             }

@@ -1,7 +1,10 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.ChineseChessEvaluator.Companion.DEAD_VALUE
+import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator.Companion.DEAD_VALUE
 import com.github.kchess.algorithm.GameBoardDemo.DEMO4
+import com.github.kchess.algorithm.chinesechess.ChineseChess
+import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator
+import com.github.kchess.algorithm.chinesechess.ChineseChessSearch
 import kotlin.math.abs
 import kotlin.test.Test
 import kotlin.test.assertTrue

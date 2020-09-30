@@ -62,7 +62,7 @@ export default class App extends Component {
 
   static imgSrc = (() => {
     //fixme:shortcut
-    const man = ChineseChess.com.github.kchess.algorithm.Chessman
+    const man = ChineseChess.com.github.kchess.algorithm.chinesechess.Chessman
     const img = new Map()
     img.set(man.红兵, require('kchess-react-shared/img/r_z.png'))
     img.set(man.红车, require('kchess-react-shared/img/r_c.png'))

@@ -1,5 +1,6 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
+import com.github.kchess.algorithm.OwnerShip
 import kotlin.js.JsName
 
 /**
@@ -22,7 +23,11 @@ class ChineseChessUiController(val game: ChineseChess) {
         val selectTarget = selectedTarget
         val clickTarget = game.gameBoard[row, column]
         if (clickTarget?.owner == player) { //重新选了自己的另外的一个棋子
-            selectedTarget = ChessmanWithPosition(clickTarget, row, column)
+            selectedTarget = ChessmanWithPosition(
+                clickTarget,
+                row,
+                column
+            )
         } else if (selectTarget != null) { //已经有选中的棋子
             val canMove =
                 game.getIntentAction(selectTarget.row, selectTarget.column)

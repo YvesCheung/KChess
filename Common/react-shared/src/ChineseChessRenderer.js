@@ -151,7 +151,7 @@ const ROW_SIZE = ChineseChess.ChessBoard.ROW_SIZE
 const COLUMN_SIZE = ChineseChess.ChessBoard.COLUMN_SIZE
 
 const decorateImage = (() => {
-  const Decorate = ChineseChess.com.github.kchess.algorithm.ChineseChessUiController.Decorate
+  const Decorate = ChineseChess.com.github.kchess.algorithm.chinesechess.ChineseChessUiController.Decorate
   return {
     [Decorate.Player1From]: "targetRed",
     [Decorate.Player1To]: "targetRed",

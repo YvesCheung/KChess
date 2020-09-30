@@ -1,4 +1,8 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
+
+import com.github.kchess.algorithm.GameAction
+import com.github.kchess.algorithm.GameActionSearch
+import com.github.kchess.algorithm.OwnerShip
 
 /**
  * @author YvesCheung
@@ -18,7 +22,13 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
                 if (chessman.owner == player) {
                     yieldAll(
                         ChessmanRule.nextMove(chessman, row, column, context).map { (newRow, newColumn) ->
-                            ChineseChessAction(chessman, row, column, newRow, newColumn)
+                            ChineseChessAction(
+                                chessman,
+                                row,
+                                column,
+                                newRow,
+                                newColumn
+                            )
                         }
                     )
                 }

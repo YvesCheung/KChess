@@ -1,7 +1,9 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
-import com.github.kchess.algorithm.ChineseChessEvaluator.Companion.DEAD_VALUE
+import com.github.kchess.algorithm.*
+import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator.Companion.DEAD_VALUE
 import com.github.kchess.algorithm.util.ObservableList
+import com.github.kchess.algorithm.Position
 import kotlin.js.JsName
 import kotlin.math.abs
 
@@ -14,9 +16,10 @@ class ChineseChess : Game() {
 
     private val moveSearch = ChineseChessSearch()
 
-    private val actionRecord = ObservableList<GameAction<ChineseChess>> { actionList ->
-        listeners["record"]?.forEach { callback -> callback(actionList.toTypedArray()) }
-    }
+    private val actionRecord =
+        ObservableList<GameAction<ChineseChess>> { actionList ->
+            listeners["record"]?.forEach { callback -> callback(actionList.toTypedArray()) }
+        }
 
     /**
      * 棋盘

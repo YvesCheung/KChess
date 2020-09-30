@@ -1,34 +1,42 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
-import com.github.kchess.algorithm.Chessman.红兵
-import com.github.kchess.algorithm.Chessman.红士
-import com.github.kchess.algorithm.Chessman.红将
-import com.github.kchess.algorithm.Chessman.红炮
-import com.github.kchess.algorithm.Chessman.红象
-import com.github.kchess.algorithm.Chessman.红车
-import com.github.kchess.algorithm.Chessman.红马
-import com.github.kchess.algorithm.Chessman.黑卒
-import com.github.kchess.algorithm.Chessman.黑士
-import com.github.kchess.algorithm.Chessman.黑帅
-import com.github.kchess.algorithm.Chessman.黑炮
-import com.github.kchess.algorithm.Chessman.黑象
-import com.github.kchess.algorithm.Chessman.黑车
-import com.github.kchess.algorithm.Chessman.黑马
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
+import com.github.kchess.algorithm.*
+import com.github.kchess.algorithm.chinesechess.Chessman.红兵
+import com.github.kchess.algorithm.chinesechess.Chessman.红士
+import com.github.kchess.algorithm.chinesechess.Chessman.红将
+import com.github.kchess.algorithm.chinesechess.Chessman.红炮
+import com.github.kchess.algorithm.chinesechess.Chessman.红象
+import com.github.kchess.algorithm.chinesechess.Chessman.红车
+import com.github.kchess.algorithm.chinesechess.Chessman.红马
+import com.github.kchess.algorithm.chinesechess.Chessman.黑卒
+import com.github.kchess.algorithm.chinesechess.Chessman.黑士
+import com.github.kchess.algorithm.chinesechess.Chessman.黑帅
+import com.github.kchess.algorithm.chinesechess.Chessman.黑炮
+import com.github.kchess.algorithm.chinesechess.Chessman.黑象
+import com.github.kchess.algorithm.chinesechess.Chessman.黑车
+import com.github.kchess.algorithm.chinesechess.Chessman.黑马
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.ROW_SIZE
+import com.github.kchess.algorithm.Position
 
 /**
  * @author YvesCheung
  * 2020/9/16
  */
 @Suppress("unused")
-enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
+enum class ChessmanRule(vararg chessman: Chessman) :
+    Producible<Chessman> {
     Che(红车, 黑车) {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return sequence {
                 suspend fun SequenceScope<Position>.yieldPosition(r: Int, c: Int): Boolean {
                     val target = game.gameBoard[r, c]
-                    if (target == null || target.owner != owner) yield(Position(r, c))
+                    if (target == null || target.owner != owner) yield(
+                        Position(
+                            r,
+                            c
+                        )
+                    )
                     return target != null
                 }
                 for (r in current.row - 1 downTo 0) {
@@ -47,10 +55,22 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         }
     },
     Ma(红马, 黑马) {
-        private val top = arrayOf(Position(-2, -1), Position(-2, 1))
-        private val left = arrayOf(Position(-1, -2), Position(1, -2))
-        private val right = arrayOf(Position(-1, 2), Position(1, 2))
-        private val bottom = arrayOf(Position(2, -1), Position(2, 1))
+        private val top = arrayOf(
+            Position(-2, -1),
+            Position(-2, 1)
+        )
+        private val left = arrayOf(
+            Position(-1, -2),
+            Position(1, -2)
+        )
+        private val right = arrayOf(
+            Position(-1, 2),
+            Position(1, 2)
+        )
+        private val bottom = arrayOf(
+            Position(2, -1),
+            Position(2, 1)
+        )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
@@ -59,17 +79,25 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
             if (game.gameBoard[current.row + 1, current.column] == null) step += bottom
             if (game.gameBoard[current.row, current.column - 1] == null) step += left
             if (game.gameBoard[current.row, current.column + 1] == null) step += right
-            return sequenceFromStep(current, step)
+            return sequenceFromStep(
+                current,
+                step
+            )
         }
     },
     Shi(红士, 黑士) {
         private val step = arrayOf(
-            Position(1, 1), Position(1, -1),
-            Position(-1, -1), Position(-1, 1)
+            Position(1, 1),
+            Position(1, -1),
+            Position(-1, -1),
+            Position(-1, 1)
         )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
-            return sequenceFromStep(current, step)
+            return sequenceFromStep(
+                current,
+                step
+            )
                 .filter { //不能离开九宫格
                     it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
                 }
@@ -79,8 +107,18 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
     Xiang(红象, 黑象) {
         private val leftTop = arrayOf(Position(-2, -2))
         private val rightTop = arrayOf(Position(-2, 2))
-        private val leftBottom = arrayOf(Position(2, -2))
-        private val rightBottom = arrayOf(Position(2, 2))
+        private val leftBottom = arrayOf(
+            Position(
+                2,
+                -2
+            )
+        )
+        private val rightBottom = arrayOf(
+            Position(
+                2,
+                2
+            )
+        )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             var step = emptyArray<Position>()
@@ -88,7 +126,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
             if (game.gameBoard[current.row - 1, current.column + 1] == null) step += rightTop
             if (game.gameBoard[current.row + 1, current.column - 1] == null) step += leftBottom
             if (game.gameBoard[current.row + 1, current.column + 1] == null) step += rightBottom
-            return sequenceFromStep(current, step)
+            return sequenceFromStep(
+                current,
+                step
+            )
                 .filter { //不能过河
                     (!!owner && it.row > 4) || (!owner && it.row <= 4)
                 }
@@ -96,8 +137,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
     },
     Jiang(红将, 黑帅) {
         private val step = arrayOf(
-            Position(1, 0), Position(0, 1),
-            Position(-1, 0), Position(0, -1)
+            Position(1, 0),
+            Position(0, 1),
+            Position(-1, 0),
+            Position(0, -1)
         )
 
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
@@ -107,7 +150,12 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
                     for (r in rowRange) {
                         val chessman = game.gameBoard[r, current.column]
                         if (chessman == 红将 || chessman == 黑帅) {
-                            yield(Position(r, current.column))
+                            yield(
+                                Position(
+                                    r,
+                                    current.column
+                                )
+                            )
                         } else if (chessman != null) {
                             break
                         }
@@ -117,7 +165,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
                 if (current.row in 7..9) checkAnotherKingFaceToFace(current.row - 1 downTo 0)
                 //走一步的情况
                 yieldAll(
-                    sequenceFromStep(current, step)
+                    sequenceFromStep(
+                        current,
+                        step
+                    )
                         .filter { //不能离开九宫格
                             it.column in 3..5 && (it.row in 0..2 || it.row in 7..9)
                         }
@@ -126,7 +177,10 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         }
     },
     Bin(红兵, 黑卒) {
-        private val toLeftRight = arrayOf(Position(0, 1), Position(0, -1))
+        private val toLeftRight = arrayOf(
+            Position(0, 1),
+            Position(0, -1)
+        )
         private val toTop = arrayOf(Position(-1, 0))
         private val toBottom = arrayOf(Position(1, 0))
         private val toTopLeftRight = toTop + toLeftRight
@@ -135,14 +189,26 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
         override fun nextMove(current: Position, game: ChineseChess, owner: OwnerShip): Sequence<Position> {
             return if (!!owner) {
                 if (current.row <= 4) //过河
-                    sequenceFromStep(current, toTopLeftRight)
+                    sequenceFromStep(
+                        current,
+                        toTopLeftRight
+                    )
                 else
-                    sequenceFromStep(current, toTop)
+                    sequenceFromStep(
+                        current,
+                        toTop
+                    )
             } else {
                 if (current.row > 4)
-                    sequenceFromStep(current, toBottomLeftRight)
+                    sequenceFromStep(
+                        current,
+                        toBottomLeftRight
+                    )
                 else
-                    sequenceFromStep(current, toBottom)
+                    sequenceFromStep(
+                        current,
+                        toBottom
+                    )
             }
         }
     },
@@ -195,7 +261,11 @@ enum class ChessmanRule(vararg chessman: Chessman) : Producible<Chessman> {
 
         fun nextMove(chessman: Chessman, currentRow: Int, currentColumn: Int, game: ChineseChess): Sequence<Position> {
             val rule = factory.create(chessman)
-            return rule.nextMove(Position(currentRow, currentColumn), game, chessman.owner)
+            return rule.nextMove(
+                Position(
+                    currentRow,
+                    currentColumn
+                ), game, chessman.owner)
                 .filter { (newRow, newColumn) ->
                     game.gameBoard.contains(newRow, newColumn) &&
                         (currentRow != newRow || currentColumn != newColumn) &&

@@ -1,4 +1,4 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
 /**
  * @author YvesCheung

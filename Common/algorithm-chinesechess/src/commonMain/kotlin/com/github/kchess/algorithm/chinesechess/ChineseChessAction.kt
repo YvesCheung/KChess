@@ -1,4 +1,6 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
+
+import com.github.kchess.algorithm.GameAction
 
 /**
  * @author YvesCheung

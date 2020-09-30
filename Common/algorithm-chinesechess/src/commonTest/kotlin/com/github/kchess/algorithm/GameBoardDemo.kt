@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.Chessman.*
+import com.github.kchess.algorithm.chinesechess.Chessman
+import com.github.kchess.algorithm.chinesechess.Chessman.*
 
 /**
  * @author YvesCheung

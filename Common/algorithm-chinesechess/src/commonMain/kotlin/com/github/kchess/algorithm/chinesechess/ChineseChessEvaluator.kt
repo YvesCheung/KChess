@@ -1,7 +1,10 @@
-package com.github.kchess.algorithm
+package com.github.kchess.algorithm.chinesechess
 
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
+import com.github.kchess.algorithm.OwnerShip
+import com.github.kchess.algorithm.Producible
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.ROW_SIZE
+import com.github.kchess.algorithm.toFactory
 
 /**
  * @author YvesCheung

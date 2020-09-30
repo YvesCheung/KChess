@@ -1,12 +1,11 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
-import kotlin.test.BeforeTest
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertSame
-import kotlin.test.assertTrue
+import com.github.kchess.algorithm.chinesechess.Chessman
+import com.github.kchess.algorithm.chinesechess.ChineseChess
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.ROW_SIZE
+import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator
+import kotlin.test.*
 
 /**
  * @author YvesCheung

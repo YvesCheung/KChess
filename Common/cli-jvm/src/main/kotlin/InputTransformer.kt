@@ -1,5 +1,5 @@
-import com.github.kchess.algorithm.Chessman
-import com.github.kchess.algorithm.ChineseChessBoard.Companion.COLUMN_SIZE
+import com.github.kchess.algorithm.chinesechess.Chessman
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard.Companion.COLUMN_SIZE
 
 /**
  * @author YvesCheung

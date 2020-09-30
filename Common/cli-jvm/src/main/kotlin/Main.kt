@@ -1,4 +1,7 @@
 import com.github.kchess.algorithm.*
+import com.github.kchess.algorithm.chinesechess.ChineseChess
+import com.github.kchess.algorithm.chinesechess.ChineseChessBoard
+import com.github.kchess.algorithm.chinesechess.ChineseChessSearch
 
 /**
  * @author YvesCheung

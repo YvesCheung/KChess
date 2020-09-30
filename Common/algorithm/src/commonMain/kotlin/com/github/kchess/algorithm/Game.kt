@@ -20,7 +20,7 @@ abstract class Game {
     /**
      * 当前可行动的玩家
      */
-    @get:JsName("currentPlayer")
+    @JsName("currentPlayer")
     var currentPlayer: OwnerShip = OwnerShip.Player1
         protected set
 
