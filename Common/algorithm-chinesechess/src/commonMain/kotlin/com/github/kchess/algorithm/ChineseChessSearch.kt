@@ -8,7 +8,7 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
 
     override fun evaluate(context: ChineseChess, player: OwnerShip): Int {
         return context.gameBoard.fold(0) { value, (chessman, row, column) ->
-            value + ChessmanEvaluator.evaluate(chessman, row, column, player)
+            value + ChineseChessEvaluator.evaluate(chessman, row, column, player)
         }
     }
 

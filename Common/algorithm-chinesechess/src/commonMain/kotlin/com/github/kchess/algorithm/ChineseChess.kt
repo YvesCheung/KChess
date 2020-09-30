@@ -1,6 +1,6 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.ChessmanEvaluator.Companion.DEAD_VALUE
+import com.github.kchess.algorithm.ChineseChessEvaluator.Companion.DEAD_VALUE
 import com.github.kchess.algorithm.util.ObservableList
 import kotlin.js.JsName
 import kotlin.math.abs
@@ -10,9 +10,7 @@ import kotlin.math.abs
  * 2020/9/16
  */
 @Suppress("MemberVisibilityCanBePrivate", "unused")
-class ChineseChess {
-
-    private var gameOver = false
+class ChineseChess : Game() {
 
     private val moveSearch = ChineseChessSearch()
 
@@ -20,22 +18,10 @@ class ChineseChess {
         listeners["record"]?.forEach { callback -> callback(actionList.toTypedArray()) }
     }
 
-    private val listeners: Map<String, MutableList<(param: Array<Any>) -> Unit>> =
-        listOf("reset", "over", "record").associateWith {
-            @Suppress("RemoveExplicitTypeArguments")
-            mutableListOf<(param: Array<Any>) -> Unit>()
-        }
-
     /**
      * 棋盘
      */
     val gameBoard = ChineseChessBoard()
-
-    /**
-     * 当前可行动的玩家
-     */
-    var currentPlayer: OwnerShip = OwnerShip.Player1
-        private set
 
     /**
      * 进行一次棋子移动
@@ -131,32 +117,5 @@ class ChineseChess {
         gameOver = false
 
         listeners["reset"]?.forEach { callback -> callback(emptyArray()) }
-    }
-
-    @JsName("isGameOver")
-    fun isGameOver(): Boolean = gameOver
-
-    /**
-     * 添加事件监听
-     *
-     * ```
-     * addEventListener("over", ([winner])=>{})
-     * addEventListener("reset", ()=>{})
-     * addEventListener("record", (Array<action>)=>{})
-     * ```
-     */
-    @JsName("addEventListener")
-    fun addEventListener(type: String, callback: (param: Array<Any>) -> Unit) {
-        val typeListeners = listeners[type]
-        typeListeners?.add(callback)
-    }
-
-    /**
-     * @see addEventListener
-     */
-    @JsName("removeEventListener")
-    fun removeEventListener(type: String, callback: (param: Array<Any>) -> Unit) {
-        val typeListeners = listeners[type]
-        typeListeners?.remove(callback)
     }
 }

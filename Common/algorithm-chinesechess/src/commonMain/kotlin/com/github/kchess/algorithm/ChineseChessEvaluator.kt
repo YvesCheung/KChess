@@ -7,7 +7,8 @@ import com.github.kchess.algorithm.ChineseChessBoard.Companion.ROW_SIZE
  * @author YvesCheung
  * 2020/9/16
  */
-enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
+enum class ChineseChessEvaluator(vararg chessman: Chessman) :
+    Producible<Chessman> {
     Che(Chessman.红车, Chessman.黑车) {
         override val valueMap: Array<IntArray> = arrayOf(
             intArrayOf(206, 208, 207, 213, 214, 213, 207, 208, 206),
@@ -121,7 +122,7 @@ enum class ChessmanEvaluator(vararg chessman: Chessman) : Producible<Chessman> {
     companion object {
 
         /**
-         * 只有[ChessmanEvaluator.jiang]的价值大于这个值，
+         * 只有[ChineseChessEvaluator.jiang]的价值大于这个值，
          * 其余所有棋子的价值都远低于这个值。可以用来判断是否将死。
          */
         const val DEAD_VALUE = 900000
