@@ -3,6 +3,7 @@ rootProject.name = "kchess"
 includeCommonProject(
     "algorithm",
     "algorithm-chinesechess",
+    "algorithm-gobang",
     "cli-jvm"
 )
 
@@ -12,4 +13,3 @@ fun includeCommonProject(vararg projectNames: String) {
         project(":$name").projectDir = file("Common/$name")
     }
 }
-
