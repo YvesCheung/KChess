@@ -15,3 +15,8 @@ enum class Pieces {
             if (player.toBoolean()) WHITE else BLACK
     }
 }
+
+infix fun Pieces?.belongsTo(player: OwnerShip): Boolean {
+    val isWhite = player.toBoolean()
+    return (isWhite && this === Pieces.WHITE) || (!isWhite && this === Pieces.BLACK)
+}

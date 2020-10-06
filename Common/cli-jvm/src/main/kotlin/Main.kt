@@ -27,7 +27,7 @@ fun main() {
 }
 
 private fun printChessBoard(board: ChineseChessBoard) {
-    board.forEachNullable { chessman, newLine, _, _ ->
+    board.forEach { (chessman, newLine, _, _) ->
         if (newLine) {
             println()
             println()

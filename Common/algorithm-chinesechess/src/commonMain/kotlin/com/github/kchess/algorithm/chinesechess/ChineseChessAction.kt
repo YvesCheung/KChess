@@ -1,5 +1,6 @@
 package com.github.kchess.algorithm.chinesechess
 
+import com.github.kchess.algorithm.Game
 import com.github.kchess.algorithm.GameAction
 import com.github.kchess.algorithm.GamePieceWithPosition
 
@@ -12,14 +13,14 @@ data class ChineseChessAction(
     val chessman: Chessman,
     val row: Int, val column: Int,
     val newRow: Int, val newColumn: Int
-) : GameAction<ChineseChess> {
+) : GameAction<Chessman> {
 
     constructor(chessman: GamePieceWithPosition<Chessman>, newRow: Int, newColumn: Int) :
         this(chessman.chessman, chessman.row, chessman.column, newRow, newColumn)
 
     private var eat: Chessman? = null
 
-    override fun run(context: ChineseChess) {
+    override fun run(context: Game<Chessman>) {
         if (context.gameBoard[row, column] !== chessman) {
             throw IllegalArgumentException("Run error: gameBoard[$row,$column] should be $chessman!")
         }
@@ -28,7 +29,7 @@ data class ChineseChessAction(
         context.gameBoard[newRow, newColumn] = chessman
     }
 
-    override fun undo(context: ChineseChess) {
+    override fun undo(context: Game<Chessman>) {
         if (context.gameBoard[newRow, newColumn] !== chessman) {
             throw IllegalArgumentException("Undo error: gameBoard[$newRow,$newColumn] should be $chessman!")
         }

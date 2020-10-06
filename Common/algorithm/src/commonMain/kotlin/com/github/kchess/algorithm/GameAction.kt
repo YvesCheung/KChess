@@ -4,9 +4,9 @@ package com.github.kchess.algorithm
  * @author YvesCheung
  * 2020/9/16
  */
-interface GameAction<Game> {
+interface GameAction<Piece : Any> {
 
-    fun run(context: Game)
+    fun run(context: Game<Piece>)
 
-    fun undo(context: Game)
+    fun undo(context: Game<Piece>)
 }

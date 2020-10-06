@@ -1,38 +1,39 @@
 package com.github.kchess.algorithm
 
-import kotlin.contracts.InvocationKind
-import kotlin.contracts.contract
 import kotlin.js.JsName
 
 /**
  * @author YvesCheung
  * 2020/9/30
  */
-abstract class GameBoard<GamePiece : Any> : Iterable<GamePieceWithPosition<GamePiece>> {
+@Suppress("unused")
+abstract class GameBoard<GamePiece : Any> : Iterable<GamePieceWithPosition<GamePiece?>> {
 
     protected lateinit var gameBoard: Array<Array<GamePiece?>>
 
-    override fun iterator(): Iterator<GamePieceWithPosition<GamePiece>> {
+    abstract fun reset()
+
+    open fun reset(board: Array<Array<GamePiece?>>) {
+        gameBoard = board
+    }
+
+    override fun iterator(): Iterator<GamePieceWithPosition<GamePiece?>> {
         return iterator {
-            gameBoard.forEachIndexed { r, row ->
-                row.forEachIndexed { c, chessman ->
-                    if (chessman != null) {
-                        yield(GamePieceWithPosition(chessman, r, c))
-                    }
+            var newLine = false
+            gameBoard.forEachIndexed { rowIndex, row ->
+                row.forEachIndexed { columnIndex, chessman ->
+                    yield(GamePieceWithPosition(chessman, newLine, rowIndex, columnIndex))
+                    newLine = false
                 }
+                newLine = true
             }
         }
     }
 
     @JsName("forEach")
-    fun forEachNullable(yield: (element: GamePiece?, newLine: Boolean, row: Int, column: Int) -> Unit) {
-        var newLine = false
-        gameBoard.forEachIndexed { rowIndex, row ->
-            row.forEachIndexed { columnIndex, chessman ->
-                yield(chessman, newLine, rowIndex, columnIndex)
-                newLine = false
-            }
-            newLine = true
+    fun forEachJs(yield: (element: GamePiece?, newLine: Boolean, row: Int, column: Int) -> Unit) {
+        forEach { (chessman, newLine, rowIndex, columnIndex) ->
+            yield(chessman, newLine, rowIndex, columnIndex)
         }
     }
 

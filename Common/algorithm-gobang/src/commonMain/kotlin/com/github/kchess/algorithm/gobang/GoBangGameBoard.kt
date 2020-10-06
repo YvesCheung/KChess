@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm.gobang
 
 import com.github.kchess.algorithm.GameBoard
+import com.github.kchess.algorithm.TestOnly
 
 /**
  * @author YvesCheung
@@ -9,17 +10,17 @@ import com.github.kchess.algorithm.GameBoard
 @Suppress("MemberVisibilityCanBePrivate")
 class GoBangGameBoard : GameBoard<Pieces>() {
 
+    init {
+        reset()
+    }
+
     var rowSize: Int = DEFAULT_SIZE
         private set
 
     var columnSize: Int = DEFAULT_SIZE
         private set
 
-    init {
-        reset()
-    }
-
-    internal fun reset(size: Int = DEFAULT_SIZE) = reset(size, size)
+    override fun reset() = reset(DEFAULT_SIZE, DEFAULT_SIZE)
 
     internal fun reset(rowSize: Int, columnSize: Int) {
         if (rowSize <= 0 || columnSize <= 0) {
@@ -27,7 +28,14 @@ class GoBangGameBoard : GameBoard<Pieces>() {
         }
         this.rowSize = rowSize
         this.columnSize = columnSize
-        gameBoard = Array(rowSize) { arrayOfNulls(columnSize) }
+        gameBoard = Array(rowSize) { arrayOfNulls<Pieces?>(columnSize) }
+    }
+
+    @TestOnly
+    override fun reset(board: Array<Array<Pieces?>>) {
+        this.rowSize = board.size
+        this.columnSize = board.first().size
+        super.reset(board)
     }
 
     override fun contains(row: Int, column: Int): Boolean {
@@ -35,6 +43,6 @@ class GoBangGameBoard : GameBoard<Pieces>() {
     }
 
     companion object {
-        const val DEFAULT_SIZE = 10
+        const val DEFAULT_SIZE = 15
     }
 }

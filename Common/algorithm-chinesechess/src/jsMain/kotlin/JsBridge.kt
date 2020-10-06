@@ -23,7 +23,7 @@ fun Action(
     column: Int,
     newRow: Int,
     newColumn: Int
-): GameAction<ChineseChess> = ChineseChessAction(
+): GameAction<Chessman> = ChineseChessAction(
     chessman,
     row,
     column,

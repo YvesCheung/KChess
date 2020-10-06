@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm.chinesechess
 
 import com.github.kchess.algorithm.GameBoard
+import com.github.kchess.algorithm.TestOnly
 import com.github.kchess.algorithm.chinesechess.Chessman.*
 
 /**
@@ -17,7 +18,7 @@ class ChineseChessBoard : GameBoard<Chessman>() {
     /**
      * [ROW_SIZE] * [COLUMN_SIZE]
      */
-    internal fun reset() {
+    override fun reset() {
         @Suppress("RemoveExplicitTypeArguments")
         gameBoard = arrayOf<Array<Chessman?>>(
             arrayOf(黑车, 黑马, 黑象, 黑士, 黑帅, 黑士, 黑象, 黑马, 黑车),
@@ -34,7 +35,8 @@ class ChineseChessBoard : GameBoard<Chessman>() {
         )
     }
 
-    internal fun reset(board: Array<Array<Chessman?>>) {
+    @TestOnly
+    override fun reset(board: Array<Array<Chessman?>>) {
         if (board.size != ROW_SIZE) {
             throw IllegalArgumentException("board.size must be $ROW_SIZE")
         }
@@ -43,7 +45,7 @@ class ChineseChessBoard : GameBoard<Chessman>() {
                 throw IllegalArgumentException("board[$index].size must be $COLUMN_SIZE")
             }
         }
-        gameBoard = board
+        super.reset(board)
     }
 
     override fun contains(row: Int, column: Int): Boolean {
@@ -57,7 +59,7 @@ class ChineseChessBoard : GameBoard<Chessman>() {
         fun noChessman() = "--+--"
 
         val s = StringBuilder()
-        forEachNullable { chessman, newLine, _, _ ->
+        forEach { (chessman, newLine, _, _) ->
             if (newLine) {
                 s.append('\n')
                 s.append('\n')

@@ -5,9 +5,9 @@ package com.github.kchess.algorithm
  * @author YvesCheung
  * 2020/9/16
  */
-abstract class GameActionSearch<Game : Any> {
+abstract class GameActionSearch<Piece : Any, GameType : Game<Piece>> {
 
-    fun alphaBetaSearch(depth: Int, context: Game, player: OwnerShip = OwnerShip.Player2): GameSearchResult<Game> {
+    fun alphaBetaSearch(depth: Int, context: GameType, player: OwnerShip = OwnerShip.Player2): GameSearchResult<Piece> {
         return alphaBetaSearch(
             depth,
             ALPHA,
@@ -19,18 +19,18 @@ abstract class GameActionSearch<Game : Any> {
     }
 
     fun alphaBetaSearchWithTimeout(
-        context: Game,
+        context: GameType,
         player: OwnerShip = OwnerShip.Player2,
         minDepth: Int = 2,
         maxDepth: Int = 10,
         timeout: Long = 5 * 1000L
-    ): GameSearchResult<Game> {
+    ): GameSearchResult<Piece> {
         if (timeout <= NO_TIMEOUT) {
             throw IllegalArgumentException("Timeout should be larger than 0")
         }
         val timeoutTimeStamp = currentTime() + timeout
         var depth = minDepth
-        var lastResult: GameSearchResult<Game> = alphaBetaSearch(depth, context, player)
+        var lastResult: GameSearchResult<Piece> = alphaBetaSearch(depth, context, player)
         try {
             while (depth < maxDepth) {
                 if (currentTime() > timeoutTimeStamp) break
@@ -46,10 +46,10 @@ abstract class GameActionSearch<Game : Any> {
         depth: Int,
         alpha: Int,
         beta: Int,
-        context: Game,
+        context: GameType,
         player: OwnerShip,
         timeoutTimeStamp: Long
-    ): GameSearchResult<Game> {
+    ): GameSearchResult<Piece> {
         if (timeoutTimeStamp > NO_TIMEOUT && currentTime() > timeoutTimeStamp) {
             throw TimeoutException()
         }
@@ -60,7 +60,7 @@ abstract class GameActionSearch<Game : Any> {
             return GameSearchResult(null, evaluate(context, player), depth)
         }
         var maxAlpha = alpha
-        var alphaAction: GameAction<Game>? = null
+        var alphaAction: GameAction<Piece>? = null
         for (action in nextMove(context, depth, player)) {
             action.run(context)
             try {
@@ -80,9 +80,9 @@ abstract class GameActionSearch<Game : Any> {
         return GameSearchResult(alphaAction, maxAlpha, depth)
     }
 
-    abstract fun evaluate(context: Game, player: OwnerShip): Int
+    abstract fun evaluate(context: GameType, player: OwnerShip): Int
 
-    abstract fun nextMove(context: Game, depth: Int, player: OwnerShip): Sequence<GameAction<Game>>
+    abstract fun nextMove(context: GameType, depth: Int, player: OwnerShip): Sequence<GameAction<Piece>>
 
     companion object {
 
