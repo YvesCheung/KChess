@@ -1,7 +1,20 @@
 package com.github.kchess.algorithm
 
 import com.github.kchess.algorithm.chinesechess.Chessman
-import com.github.kchess.algorithm.chinesechess.Chessman.*
+import com.github.kchess.algorithm.chinesechess.Chessman.红兵
+import com.github.kchess.algorithm.chinesechess.Chessman.红士
+import com.github.kchess.algorithm.chinesechess.Chessman.红将
+import com.github.kchess.algorithm.chinesechess.Chessman.红炮
+import com.github.kchess.algorithm.chinesechess.Chessman.红象
+import com.github.kchess.algorithm.chinesechess.Chessman.红车
+import com.github.kchess.algorithm.chinesechess.Chessman.红马
+import com.github.kchess.algorithm.chinesechess.Chessman.黑卒
+import com.github.kchess.algorithm.chinesechess.Chessman.黑士
+import com.github.kchess.algorithm.chinesechess.Chessman.黑帅
+import com.github.kchess.algorithm.chinesechess.Chessman.黑炮
+import com.github.kchess.algorithm.chinesechess.Chessman.黑象
+import com.github.kchess.algorithm.chinesechess.Chessman.黑车
+import com.github.kchess.algorithm.chinesechess.Chessman.黑马
 
 /**
  * @author YvesCheung
@@ -107,5 +120,19 @@ object GameBoardDemo {
             /*7*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null,/*8*/黑马),
             /*8*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红士, /*5*/红炮, /*6*/null, /*7*/null,/*8*/null),
             /*9*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红将, /*5*/红士, /*6*/null, /*7*/null,/*8*/null)
+        )
+
+    val DEMO8 =
+        arrayOf<Array<Chessman?>>(
+            /*0*/arrayOf(/*0*/null, /*1*/红车, /*2*/黑象, /*3*/null, /*4*/黑帅, /*5*/黑士, /*6*/null, /*7*/null, /*8*/null),
+            /*1*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/红马, /*4*/黑士, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*2*/arrayOf(/*0*/null, /*1*/null, /*2*/红车, /*3*/null, /*4*/黑象, /*5*/null, /*6*/null, /*7*/null,/*8*/null),
+            /*3*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红炮, /*5*/黑马, /*6*/null, /*7*/null,/*8*/null),
+            /*4*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null,/*8*/null),
+            /*5*/arrayOf(/*0*/null, /*1*/null, /*2*/红兵, /*3*/null, /*4*/null, /*5*/null, /*6*/null, /*7*/null, /*8*/null),
+            /*6*/arrayOf(/*0*/红兵, /*1*/null, /*2*/null, /*3*/null, /*4*/红兵, /*5*/null, /*6*/黑马, /*7*/null,/*8*/红兵),
+            /*7*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/红炮, /*4*/null, /*5*/null, /*6*/null, /*7*/null,/*8*/null),
+            /*8*/arrayOf(/*0*/null, /*1*/null, /*2*/null, /*3*/null, /*4*/红士, /*5*/null, /*6*/null, /*7*/null,/*8*/null),
+            /*9*/arrayOf(/*0*/null, /*1*/null, /*2*/红象, /*3*/红士, /*4*/红将, /*5*/null, /*6*/null, /*7*/黑炮,/*8*/null)
         )
 }

@@ -3,6 +3,8 @@ package com.github.kchess.algorithm
 import com.github.kchess.algorithm.GameBoardDemo.DEMO4
 import com.github.kchess.algorithm.GameBoardDemo.DEMO6
 import com.github.kchess.algorithm.GameBoardDemo.DEMO7
+import com.github.kchess.algorithm.GameBoardDemo.DEMO8
+import com.github.kchess.algorithm.GameBoardDemo.DEMO9
 import com.github.kchess.algorithm.chinesechess.Chessman.黑士
 import com.github.kchess.algorithm.chinesechess.ChineseChess
 import com.github.kchess.algorithm.chinesechess.ChineseChessAction
@@ -73,5 +75,14 @@ class ChineseChessSearchTest {
         val action =
             algorithm.alphaBetaSearch(4, game, OwnerShip.Player2)
         assertEquals(ChineseChessAction(黑士, 1, 4, 0, 3), action.action)
+    }
+
+    @Test
+    fun dontKillItSelf3() {
+        game.reset(DEMO8)
+
+        val action =
+            algorithm.alphaBetaSearch(5, game, OwnerShip.Player2)
+        println(action)
     }
 }
