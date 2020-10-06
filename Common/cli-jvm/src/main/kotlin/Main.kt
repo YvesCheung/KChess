@@ -27,8 +27,8 @@ fun main() {
 }
 
 private fun printChessBoard(board: ChineseChessBoard) {
-    board.forEach { (chessman, newLine, _, _) ->
-        if (newLine) {
+    board.forEach { (chessman, row, column) ->
+        if (row != 0 && column == 0) {
             println()
             println()
         }

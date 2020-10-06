@@ -14,7 +14,7 @@ object GoBangEvaluator {
 
     fun evaluate(context: GoBang, player: OwnerShip): Int {
         val evaluateBoard = transform(context.gameBoard)
-        return evaluateBoard.fold(0) { acc, (evaluateValue, _, row, column) ->
+        return evaluateBoard.fold(0) { acc, (evaluateValue, row, column) ->
             val v = evaluateValue?.max ?: 0
             if (context.gameBoard[row, column] belongsTo player) {
                 acc + normalize(v)
@@ -29,7 +29,7 @@ object GoBangEvaluator {
     fun transform(gameBoard: GoBangGameBoard): Matrix {
         val calculate = Matrix(gameBoard.rowSize, gameBoard.columnSize)
 
-        gameBoard.forEach { (piece, _, row, column) ->
+        gameBoard.forEach { (piece, row, column) ->
             if (piece != null) {
                 val left = pieceInLine(gameBoard, calculate, piece, row, column - 1) { it.horizontal }
                 val top = pieceInLine(gameBoard, calculate, piece, row - 1, column) { it.vertical }

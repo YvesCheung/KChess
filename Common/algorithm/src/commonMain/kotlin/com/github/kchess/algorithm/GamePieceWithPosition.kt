@@ -6,7 +6,6 @@ package com.github.kchess.algorithm
  */
 data class GamePieceWithPosition<GamePiece : Any?>(
     val chessman: GamePiece,
-    val newLine: Boolean,
     val row: Int,
     val column: Int
 )

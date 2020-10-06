@@ -17,7 +17,7 @@ import com.github.kchess.algorithm.chinesechess.Chessman.黑帅
 class ChineseChessSearch : GameActionSearch<Chessman, ChineseChess>() {
 
     override fun evaluate(context: ChineseChess, player: OwnerShip): Int {
-        return context.gameBoard.fold(0) { value, (chessman, _, row, column) ->
+        return context.gameBoard.fold(0) { value, (chessman, row, column) ->
             if (chessman != null) {
                 value + ChineseChessEvaluator.evaluate(chessman, row, column, player)
             } else {
@@ -28,7 +28,7 @@ class ChineseChessSearch : GameActionSearch<Chessman, ChineseChess>() {
 
     override fun nextMove(context: ChineseChess, depth: Int, player: OwnerShip): Sequence<GameAction<Chessman>> {
         return sequence {
-            context.gameBoard.forEach { (chessman, _, row, column) ->
+            context.gameBoard.forEach { (chessman, row, column) ->
                 if (chessman != null && chessman.owner == player) {
                     yieldAll(
                         ChessmanRule.nextMove(chessman, row, column, context)

@@ -2,7 +2,20 @@ package com.github.kchess.algorithm.chinesechess
 
 import com.github.kchess.algorithm.GameBoard
 import com.github.kchess.algorithm.TestOnly
-import com.github.kchess.algorithm.chinesechess.Chessman.*
+import com.github.kchess.algorithm.chinesechess.Chessman.红兵
+import com.github.kchess.algorithm.chinesechess.Chessman.红士
+import com.github.kchess.algorithm.chinesechess.Chessman.红将
+import com.github.kchess.algorithm.chinesechess.Chessman.红炮
+import com.github.kchess.algorithm.chinesechess.Chessman.红象
+import com.github.kchess.algorithm.chinesechess.Chessman.红车
+import com.github.kchess.algorithm.chinesechess.Chessman.红马
+import com.github.kchess.algorithm.chinesechess.Chessman.黑卒
+import com.github.kchess.algorithm.chinesechess.Chessman.黑士
+import com.github.kchess.algorithm.chinesechess.Chessman.黑帅
+import com.github.kchess.algorithm.chinesechess.Chessman.黑炮
+import com.github.kchess.algorithm.chinesechess.Chessman.黑象
+import com.github.kchess.algorithm.chinesechess.Chessman.黑车
+import com.github.kchess.algorithm.chinesechess.Chessman.黑马
 
 /**
  * @author YvesCheung
@@ -59,8 +72,8 @@ class ChineseChessBoard : GameBoard<Chessman>() {
         fun noChessman() = "--+--"
 
         val s = StringBuilder()
-        forEach { (chessman, newLine, _, _) ->
-            if (newLine) {
+        forEach { (chessman, row, column) ->
+            if (row != 0 && column == 0) {
                 s.append('\n')
                 s.append('\n')
             }

@@ -19,21 +19,18 @@ abstract class GameBoard<GamePiece : Any> : Iterable<GamePieceWithPosition<GameP
 
     override fun iterator(): Iterator<GamePieceWithPosition<GamePiece?>> {
         return iterator {
-            var newLine = false
             gameBoard.forEachIndexed { rowIndex, row ->
                 row.forEachIndexed { columnIndex, chessman ->
-                    yield(GamePieceWithPosition(chessman, newLine, rowIndex, columnIndex))
-                    newLine = false
+                    yield(GamePieceWithPosition(chessman, rowIndex, columnIndex))
                 }
-                newLine = true
             }
         }
     }
 
     @JsName("forEach")
-    fun forEachJs(yield: (element: GamePiece?, newLine: Boolean, row: Int, column: Int) -> Unit) {
-        forEach { (chessman, newLine, rowIndex, columnIndex) ->
-            yield(chessman, newLine, rowIndex, columnIndex)
+    fun forEachJs(yield: (element: GamePiece?, row: Int, column: Int) -> Unit) {
+        forEach { (chessman, rowIndex, columnIndex) ->
+            yield(chessman, rowIndex, columnIndex)
         }
     }
 

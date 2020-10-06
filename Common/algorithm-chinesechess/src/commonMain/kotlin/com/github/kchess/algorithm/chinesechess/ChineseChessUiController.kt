@@ -26,7 +26,6 @@ class ChineseChessUiController(val game: ChineseChess) {
         if (clickTarget?.owner == player) { //重新选了自己的另外的一个棋子
             selectedTarget = GamePieceWithPosition(
                 clickTarget,
-                false,
                 row,
                 column
             )
