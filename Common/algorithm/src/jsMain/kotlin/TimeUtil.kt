@@ -1,3 +1,5 @@
+package com.github.kchess.algorithm
+
 import kotlin.js.Date
 
 /**

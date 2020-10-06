@@ -50,6 +50,24 @@ class ChineseChessBoard : GameBoard<Chessman>() {
         return row in 0 until ROW_SIZE && column in 0 until COLUMN_SIZE
     }
 
+    override fun toString(): String {
+
+        fun chessman(c: Chessman) = "-${c.name}-"
+
+        fun noChessman() = "--+--"
+
+        val s = StringBuilder()
+        forEachNullable { chessman, newLine, _, _ ->
+            if (newLine) {
+                s.append('\n')
+                s.append('\n')
+            }
+            if (chessman != null) s.append(chessman(chessman)) else s.append(noChessman())
+        }
+        s.append('\n')
+        return s.toString()
+    }
+
     companion object {
         const val ROW_SIZE = 10
         const val COLUMN_SIZE = 9

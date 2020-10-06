@@ -79,10 +79,27 @@ class ChineseChessSearchTest {
 
     @Test
     fun dontKillItSelf3() {
+        game.reset(DEMO9)
+
+        game.autoMove(OwnerShip.Player2)
+        println(game.gameBoard)
+    }
+
+    @Test
+    @ExperimentalTime
+    fun testTimeoutSearch() {
         game.reset(DEMO8)
 
-        val action =
-            algorithm.alphaBetaSearch(5, game, OwnerShip.Player2)
-        println(action)
+        val result1 = measureTimedValue {
+            algorithm.alphaBetaSearchWithTimeout(game, OwnerShip.Player2, timeout = 5 * 1000L)
+        }
+        assertTrue(abs(5 * 1000L - result1.duration.toLongMilliseconds()) < 10L)
+        println(result1)
+
+        val result2 = measureTimedValue {
+            algorithm.alphaBetaSearchWithTimeout(game, OwnerShip.Player2, timeout = 10 * 1000L)
+        }
+        assertTrue(abs(10 * 1000L - result2.duration.toLongMilliseconds()) < 10L)
+        println(result2)
     }
 }

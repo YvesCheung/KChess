@@ -1,3 +1,5 @@
+package com.github.kchess.algorithm
+
 /**
  * @author YvesCheung
  * 2020/10/6

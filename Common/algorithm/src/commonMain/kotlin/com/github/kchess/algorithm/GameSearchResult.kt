@@ -6,5 +6,6 @@ package com.github.kchess.algorithm
  */
 data class GameSearchResult<Game>(
     val action: GameAction<Game>?,
-    val evaluateValue: Int
+    val evaluateValue: Int,
+    val depth: Int
 )

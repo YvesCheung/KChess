@@ -9,6 +9,8 @@ class ObservableList<E>(
     private val onChange: (List<E>) -> Unit
 ) {
 
+    val size: Int get() = actual.size
+
     fun isEmpty(): Boolean = actual.isEmpty()
 
     fun add(e: E): Boolean {

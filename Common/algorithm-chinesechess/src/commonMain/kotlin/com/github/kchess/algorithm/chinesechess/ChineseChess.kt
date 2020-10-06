@@ -46,8 +46,15 @@ class ChineseChess : Game() {
     fun autoMove(player: OwnerShip = currentPlayer) {
         if (gameOver) return
 
+        val (maxDepth, thinkingTime) =
+            when (actionRecord.size) {
+                in 0..6 -> 4 to 5 * 1000L
+                in 7..16 -> 5 to 10 * 1000L
+                in 16..30 -> 6 to 10 * 1000L
+                else -> 6 to 15 * 1000L
+            }
         val result =
-            moveSearch.alphaBetaSearch(4, this, player)
+            moveSearch.alphaBetaSearchWithTimeout(this, player, 4, maxDepth, thinkingTime)
         val action = result.action
         if (action != null) {
             takeAction(action, player)
