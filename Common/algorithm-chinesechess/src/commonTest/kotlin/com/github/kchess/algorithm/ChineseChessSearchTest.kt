@@ -1,11 +1,14 @@
 package com.github.kchess.algorithm
 
+import com.github.kchess.algorithm.GameBoardDemo.DEMO10
 import com.github.kchess.algorithm.GameBoardDemo.DEMO4
 import com.github.kchess.algorithm.GameBoardDemo.DEMO6
 import com.github.kchess.algorithm.GameBoardDemo.DEMO7
 import com.github.kchess.algorithm.GameBoardDemo.DEMO8
 import com.github.kchess.algorithm.GameBoardDemo.DEMO9
+import com.github.kchess.algorithm.chinesechess.Chessman.红马
 import com.github.kchess.algorithm.chinesechess.Chessman.黑士
+import com.github.kchess.algorithm.chinesechess.Chessman.黑车
 import com.github.kchess.algorithm.chinesechess.ChineseChess
 import com.github.kchess.algorithm.chinesechess.ChineseChessAction
 import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator
@@ -101,5 +104,24 @@ class ChineseChessSearchTest {
         }
         assertTrue(abs(10 * 1000L - result2.duration.toLongMilliseconds()) < 10L)
         println(result2)
+    }
+
+    @Test
+    fun testRepeat() {
+        game.reset(DEMO10)
+
+//        val repeat1 = ChineseChessAction(黑车, 4, 6, 4, 5)
+//        val repeat2 = ChineseChessAction(红马, 5, 4, 7, 5)
+//        val repeat3 = ChineseChessAction(黑车, 4, 5, 4, 6)
+//        val repeat4 = ChineseChessAction(红马, 7, 5, 5, 4)
+//        repeat1.run(game)
+//        repeat2.run(game)
+//        repeat3.run(game)
+//        repeat4.run(game)
+        println(game.gameBoard)
+
+        val result =
+            algorithm.alphaBetaSearchWithTimeout(game, OwnerShip.Player2, 4, 6, 15000)
+        println(result)
     }
 }

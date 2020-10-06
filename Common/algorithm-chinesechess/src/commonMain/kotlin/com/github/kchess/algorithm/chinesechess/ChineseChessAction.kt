@@ -20,12 +20,18 @@ data class ChineseChessAction(
     private var eat: Chessman? = null
 
     override fun run(context: ChineseChess) {
+        if (context.gameBoard[row, column] !== chessman) {
+            throw IllegalArgumentException("Run error: gameBoard[$row,$column] should be $chessman!")
+        }
         context.gameBoard[row, column] = null
         eat = context.gameBoard[newRow, newColumn]
         context.gameBoard[newRow, newColumn] = chessman
     }
 
     override fun undo(context: ChineseChess) {
+        if (context.gameBoard[newRow, newColumn] !== chessman) {
+            throw IllegalArgumentException("Undo error: gameBoard[$newRow,$newColumn] should be $chessman!")
+        }
         context.gameBoard[newRow, newColumn] = eat
         context.gameBoard[row, column] = chessman
     }

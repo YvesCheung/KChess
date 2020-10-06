@@ -32,7 +32,7 @@ abstract class GameActionSearch<Game : Any> {
         var depth = minDepth
         var lastResult: GameSearchResult<Game> = alphaBetaSearch(depth, context, player)
         try {
-            while (depth <= maxDepth) {
+            while (depth < maxDepth) {
                 if (currentTime() > timeoutTimeStamp) break
                 lastResult = alphaBetaSearch(++depth, ALPHA, BETA, context, player, timeoutTimeStamp)
             }
