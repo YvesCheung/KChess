@@ -31,7 +31,7 @@ export default class App extends Component {
   componentDidMount() {
     this.game.addEventListener('over', ([winner]) => {
       console.log("GameOver, winner is " + winner)
-      showResultDialog(winner, () => this._reset())
+      showResultDialog(this.game, winner, () => this._reset())
     })
   }
 
