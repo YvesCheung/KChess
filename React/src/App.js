@@ -36,17 +36,24 @@ export default class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <GameBoard renderer={this.renderer}/>
-        <div className="CtrlPanel">
-          <GameRecord game={this.game}/>
-          <button onClick={() => this._assistance()}>帮你走 (ASSISTANCE)</button>
-          <button onClick={() => this._regret()}>悔棋 (REGRET)</button>
-          <button onClick={() => this._reset()}>重置 (RESET)</button>
+    const isPhone = window.matchMedia("screen and (max-width: 768px)")
+    return isPhone.matches
+      ? (
+        <div className="App">
+          <GameBoard renderer={this.renderer}/>
         </div>
-      </div>
-    );
+      )
+      : (
+        <div className="App">
+          <GameBoard renderer={this.renderer}/>
+          <div className="CtrlPanel">
+            <GameRecord game={this.game}/>
+            <button onClick={() => this._assistance()}>帮你走 (ASSISTANCE)</button>
+            <button onClick={() => this._regret()}>悔棋 (REGRET)</button>
+            <button onClick={() => this._reset()}>重置 (RESET)</button>
+          </div>
+        </div>
+      );
   }
 
   _assistance() {
@@ -72,7 +79,7 @@ export default class App extends Component {
 
   static imgSrc = (() => {
     //fixme:shortcut
-    const man = ChineseChess.com.github.kchess.algorithm.Chessman
+    const man = ChineseChess.com.github.kchess.algorithm.chinesechess.Chessman
     const img = new Map()
     img.set(man.红兵, require('kchess-react-shared/img/r_z.png'))
     img.set(man.红车, require('kchess-react-shared/img/r_c.png'))
