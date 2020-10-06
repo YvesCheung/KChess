@@ -1,4 +1,5 @@
-import com.github.kchess.algorithm.*
+import com.github.kchess.algorithm.OwnerShip
+import com.github.kchess.algorithm.chinesechess.Chessman
 import com.github.kchess.algorithm.chinesechess.ChineseChess
 import com.github.kchess.algorithm.chinesechess.ChineseChessBoard
 import com.github.kchess.algorithm.chinesechess.ChineseChessSearch

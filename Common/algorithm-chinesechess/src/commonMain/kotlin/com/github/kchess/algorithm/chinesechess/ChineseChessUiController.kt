@@ -1,5 +1,6 @@
 package com.github.kchess.algorithm.chinesechess
 
+import com.github.kchess.algorithm.GamePieceWithPosition
 import com.github.kchess.algorithm.OwnerShip
 import kotlin.js.JsName
 
@@ -10,7 +11,7 @@ import kotlin.js.JsName
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class ChineseChessUiController(val game: ChineseChess) {
 
-    private var selectedTarget: ChessmanWithPosition? = null
+    private var selectedTarget: GamePieceWithPosition<Chessman>? = null
 
     private var render: ((renderFinish: () -> Unit) -> Unit)? = null
 
@@ -23,7 +24,7 @@ class ChineseChessUiController(val game: ChineseChess) {
         val selectTarget = selectedTarget
         val clickTarget = game.gameBoard[row, column]
         if (clickTarget?.owner == player) { //重新选了自己的另外的一个棋子
-            selectedTarget = ChessmanWithPosition(
+            selectedTarget = GamePieceWithPosition(
                 clickTarget,
                 row,
                 column
@@ -62,7 +63,8 @@ class ChineseChessUiController(val game: ChineseChess) {
     fun getRenderDecorate(row: Int, column: Int): Array<Decorate> {
         val selectTarget = selectedTarget
         if (selectTarget != null &&
-            selectTarget.row == row && selectTarget.column == column) {
+            selectTarget.row == row && selectTarget.column == column
+        ) {
             return if (selectTarget.chessman.owner.toBoolean())
                 arrayOf(Decorate.Player1Select)
             else

@@ -1,17 +1,14 @@
 package com.github.kchess.algorithm.chinesechess
 
-import com.github.kchess.algorithm.Position
+import com.github.kchess.algorithm.GameBoard
 import com.github.kchess.algorithm.chinesechess.Chessman.*
-import kotlin.js.JsName
 
 /**
  * @author YvesCheung
  * 2020/9/16
  */
 @Suppress("MemberVisibilityCanBePrivate", "unused")
-class ChineseChessBoard : Iterable<ChessmanWithPosition> {
-
-    private lateinit var gameBoard: Array<Array<Chessman?>>
+class ChineseChessBoard : GameBoard<Chessman>() {
 
     init {
         reset()
@@ -49,59 +46,9 @@ class ChineseChessBoard : Iterable<ChessmanWithPosition> {
         gameBoard = board
     }
 
-    @JsName("forEach")
-    fun forEachNullable(yield: (element: Chessman?, newLine: Boolean, row: Int, column: Int) -> Unit) {
-        var newLine = false
-        gameBoard.forEachIndexed { rowIndex, row ->
-            row.forEachIndexed { columnIndex, chessman ->
-                yield(chessman, newLine, rowIndex, columnIndex)
-                newLine = false
-            }
-            newLine = true
-        }
+    override fun contains(row: Int, column: Int): Boolean {
+        return row in 0 until ROW_SIZE && column in 0 until COLUMN_SIZE
     }
-
-    override fun iterator(): Iterator<ChessmanWithPosition> {
-        return iterator {
-            gameBoard.forEachIndexed { r, row ->
-                row.forEachIndexed { c, chessman ->
-                    if (chessman != null) {
-                        yield(
-                            ChessmanWithPosition(
-                                chessman,
-                                r,
-                                c
-                            )
-                        )
-                    }
-                }
-            }
-        }
-    }
-
-    @JsName("contains")
-    fun contains(row: Int, column: Int): Boolean =
-        row in 0 until ROW_SIZE && column in 0 until COLUMN_SIZE
-
-    operator fun contains(pos: Position): Boolean = contains(pos.row, pos.column)
-
-    @JsName("get")
-    operator fun get(row: Int, column: Int): Chessman? {
-        if (contains(row, column)) return gameBoard[row][column]
-        return null
-    }
-
-    operator fun get(position: Position): Chessman? =
-        get(position.row, position.column)
-
-    internal operator fun set(row: Int, column: Int, chessman: Chessman?) {
-        if (contains(row, column)) {
-            gameBoard[row][column] = chessman
-        }
-    }
-
-    internal operator fun set(pos: Position, chessman: Chessman?) =
-        set(pos.row, pos.column, chessman)
 
     companion object {
         const val ROW_SIZE = 10

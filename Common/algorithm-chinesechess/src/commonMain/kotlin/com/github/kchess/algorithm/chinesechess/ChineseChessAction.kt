@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm.chinesechess
 
 import com.github.kchess.algorithm.GameAction
+import com.github.kchess.algorithm.GamePieceWithPosition
 
 /**
  * @author YvesCheung
@@ -13,7 +14,7 @@ class ChineseChessAction(
     val newRow: Int, val newColumn: Int
 ) : GameAction<ChineseChess> {
 
-    constructor(chessman: ChessmanWithPosition, newRow: Int, newColumn: Int) :
+    constructor(chessman: GamePieceWithPosition<Chessman>, newRow: Int, newColumn: Int) :
         this(chessman.chessman, chessman.row, chessman.column, newRow, newColumn)
 
     private var eat: Chessman? = null
