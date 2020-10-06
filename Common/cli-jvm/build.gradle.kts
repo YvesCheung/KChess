@@ -12,6 +12,7 @@ repositories {
 
 dependencies {
     compile(project(":algorithm-chinesechess"))
+    compile(project(":algorithm-gobang"))
     compile(kotlin("stdlib-common"))
     compile(kotlin("stdlib-jdk8"))
 

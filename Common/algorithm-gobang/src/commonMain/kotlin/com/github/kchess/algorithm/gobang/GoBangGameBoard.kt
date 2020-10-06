@@ -1,6 +1,7 @@
 package com.github.kchess.algorithm.gobang
 
 import com.github.kchess.algorithm.GameBoard
+import com.github.kchess.algorithm.OwnerShip
 import com.github.kchess.algorithm.TestOnly
 
 /**
@@ -40,6 +41,25 @@ class GoBangGameBoard : GameBoard<Pieces>() {
 
     override fun contains(row: Int, column: Int): Boolean {
         return row in 0 until rowSize && column in 0 until columnSize
+    }
+
+    override fun toString(): String {
+
+        fun piece(c: Pieces) =
+            "--${if (c belongsTo OwnerShip.Player1) "O" else "X"}--"
+
+        fun noPiece() = "--+--"
+
+        val s = StringBuilder()
+        forEach { (piece, row, column) ->
+            if (row != 0 && column == 0) {
+                s.append('\n')
+                s.append('\n')
+            }
+            if (piece != null) s.append(piece(piece)) else s.append(noPiece())
+        }
+        s.append('\n')
+        return s.toString()
     }
 
     companion object {
