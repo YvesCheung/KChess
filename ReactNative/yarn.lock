@@ -4295,8 +4295,8 @@ jsx-ast-utils@^2.2.3:
 "kchess-react-shared@file:../Common/react-shared":
   version "1.0.0"
   dependencies:
-    kchess-algorithm "file:../../../Library/Caches/Yarn/v6/npm-kchess-react-shared-1.0.0-1b0e8098-4438-49ad-9a4b-98cece24318c-1601469149953/build/js/packages/kchess-algorithm"
-    kchess-algorithm-chinesechess "file:../../../Library/Caches/Yarn/v6/npm-kchess-react-shared-1.0.0-1b0e8098-4438-49ad-9a4b-98cece24318c-1601469149953/build/js/packages/kchess-algorithm-chinesechess"
+    kchess-algorithm "file:../../../Library/Caches/Yarn/v6/npm-kchess-react-shared-1.0.0-f5259f70-1933-4bf4-917a-3dc06cb4eb85-1602000692885/build/js/packages/kchess-algorithm"
+    kchess-algorithm-chinesechess "file:../../../Library/Caches/Yarn/v6/npm-kchess-react-shared-1.0.0-f5259f70-1933-4bf4-917a-3dc06cb4eb85-1602000692885/build/js/packages/kchess-algorithm-chinesechess"
     kotlin "1.3.72"
 
 kind-of@^1.1.0:

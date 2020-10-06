@@ -33,7 +33,7 @@ export const showResultDialog = (game, player, onPress) => {
   }
 
   let outputStr = 'arrayOf<Array<Chessman?>>(\n'
-  game.gameBoard.forEach((chessman, newLine, row, column) => {
+  game.gameBoard.forEach((chessman, row, column) => {
     if (column === 0) {
       outputStr += `\t/*${row}*/arrayOf(`
     }

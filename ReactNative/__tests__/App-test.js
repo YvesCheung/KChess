@@ -10,17 +10,17 @@ import App from '../app/App';
 import renderer from 'react-test-renderer';
 
 it('renders correctly', () => {
-    renderer.create(<App/>);
+  renderer.create(<App/>);
 });
 
 it('test kotlin2js', function () {
-    const algorithm = require("kchess-algorithm-chinesechess")
-    const game = new algorithm.ChineseChess()
-    game.gameBroad.forEach((newLine, chessman) => {
-        if (chessman) {
-            console.log(chessman.desc)
-        } else {
-            console.log('+')
-        }
-    })
+  const algorithm = require("kchess-algorithm-chinesechess")
+  const game = new algorithm.ChineseChess()
+  game.gameBoard.forEach((chessman) => {
+    if (chessman) {
+      console.log(chessman.desc)
+    } else {
+      console.log('+')
+    }
+  })
 });

@@ -62,7 +62,7 @@ export default class ChineseChessRenderer {
 
     if (this.context && this.imgResult.size > 0) {
       const drawBufferCache = new Array(ROW_SIZE)
-      this.gameBoard.forEach((chessman, newLine, row, column) => {
+      this.gameBoard.forEach((chessman, row, column) => {
         if (column === 0) {
           drawBufferCache[row] = new Array(COLUMN_SIZE)
         }
