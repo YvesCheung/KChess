@@ -26,8 +26,8 @@ object GoBangEvaluator {
 
     private fun normalize(v: Int) = if (v == 0) 0 else 10.0.pow(v).toInt()
 
-    fun transform(gameBoard: GoBangGameBoard): IntBoard {
-        val calculate = IntBoard(gameBoard.rowSize, gameBoard.columnSize)
+    fun transform(gameBoard: GoBangGameBoard): Matrix {
+        val calculate = Matrix(gameBoard.rowSize, gameBoard.columnSize)
 
         gameBoard.forEach { (piece, _, row, column) ->
             if (piece != null) {
@@ -35,7 +35,7 @@ object GoBangEvaluator {
                 val top = pieceInLine(gameBoard, calculate, piece, row - 1, column) { it.vertical }
                 val leftTop = pieceInLine(gameBoard, calculate, piece, row - 1, column - 1) { it.leftTop }
                 val rightTop = pieceInLine(gameBoard, calculate, piece, row - 1, column + 1) { it.rightTop }
-                calculate[row, column] = Direction(left, top, leftTop, rightTop)
+                calculate[row, column] = Vector(left, top, leftTop, rightTop)
             }
         }
         return calculate
@@ -43,27 +43,27 @@ object GoBangEvaluator {
 
     private inline fun pieceInLine(
         gameBoard: GoBangGameBoard,
-        calculate: IntBoard,
+        calculate: Matrix,
         piece: Pieces,
         r: Int, c: Int,
-        orientation: (Direction) -> Int
+        orientation: (Vector) -> Int
     ): Int =  //has adjacent piece
         if (gameBoard[r, c] == piece) (calculate[r, c]?.let(orientation) ?: 0) + 1 else 1
 
 
     @TestOnly
-    class IntBoard internal constructor(val rowSize: Int, val columnSize: Int) : GameBoard<Direction>() {
+    class Matrix internal constructor(val rowSize: Int, val columnSize: Int) : GameBoard<Vector>() {
 
         init {
             reset()
         }
 
         override fun reset() {
-            gameBoard = Array(rowSize) { arrayOfNulls<Direction?>(columnSize) }
+            gameBoard = Array(rowSize) { arrayOfNulls<Vector?>(columnSize) }
         }
 
         override fun equals(other: Any?): Boolean {
-            return if (other is IntBoard) gameBoard.contentDeepEquals(other.gameBoard)
+            return if (other is Matrix) gameBoard.contentDeepEquals(other.gameBoard)
             else false
         }
 
@@ -76,7 +76,7 @@ object GoBangEvaluator {
 
     //Four direction '米'
     @TestOnly
-    data class Direction internal constructor(
+    data class Vector internal constructor(
         val horizontal: Int = 0, /* - */
         val vertical: Int = 0, /* | */
         val leftTop: Int = 0, /* \ */

@@ -14,7 +14,7 @@ class GoBangSearch : GameActionSearch<Pieces, GoBang>() {
         return GoBangEvaluator.evaluate(context, player)
     }
 
-    override fun nextMove(context: GoBang, depth: Int, player: OwnerShip): Sequence<GameAction<GoBang>> {
+    override fun nextMove(context: GoBang, depth: Int, player: OwnerShip): Sequence<GameAction<Pieces>> {
         return sequence {
             context.gameBoard.forEach { (piece, _, row, column) ->
                 if (piece == null) {

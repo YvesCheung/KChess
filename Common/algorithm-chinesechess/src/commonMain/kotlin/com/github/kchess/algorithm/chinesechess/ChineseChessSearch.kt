@@ -1,5 +1,6 @@
 package com.github.kchess.algorithm.chinesechess
 
+import com.github.kchess.algorithm.Game
 import com.github.kchess.algorithm.GameAction
 import com.github.kchess.algorithm.GameActionSearch
 import com.github.kchess.algorithm.OwnerShip
@@ -41,7 +42,7 @@ class ChineseChessSearch : GameActionSearch<Chessman, ChineseChess>() {
         }
     }
 
-    private fun validate(depth: Int, context: ChineseChess, action: ChineseChessAction): Boolean {
+    private fun validate(depth: Int, context: Game<Chessman>, action: ChineseChessAction): Boolean {
         if (depth > 1) { //Just evaluate while depth <= 1, let it pass.
             val eat = context.gameBoard[action.newRow, action.newColumn]
             if ((context.currentPlayer == Player1 && eat == 红将) ||

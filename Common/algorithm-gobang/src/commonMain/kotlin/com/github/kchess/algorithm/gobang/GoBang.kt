@@ -1,6 +1,8 @@
 package com.github.kchess.algorithm.gobang
 
 import com.github.kchess.algorithm.Game
+import com.github.kchess.algorithm.GameAction
+import com.github.kchess.algorithm.OwnerShip
 
 /**
  * @author YvesCheung
@@ -8,19 +10,23 @@ import com.github.kchess.algorithm.Game
  */
 class GoBang : Game<Pieces>() {
 
-    override val autoSearch = GoBangSearch()
-
     /**
      * 棋盘
      */
     override val gameBoard = GoBangGameBoard()
 
-    companion object {
-
-        const val PIECE_IN_ROW = 5
-    }
+    override val autoSearch = GoBangSearch()
 
     override fun checkGameOver(): Boolean {
-        TODO("Not yet implemented")
+        val matrix = GoBangEvaluator.transform(gameBoard)
+        return matrix.any { (vector) -> (vector?.max ?: 0) >= PIECE_IN_ROW }
+    }
+
+    override fun autoMoveAction(player: OwnerShip): GameAction<Pieces>? {
+        return autoSearch.alphaBetaSearch(5, this, player).action
+    }
+
+    companion object {
+        const val PIECE_IN_ROW = 5
     }
 }
