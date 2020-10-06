@@ -32,7 +32,7 @@ abstract class GameActionSearch<Game : Any> {
         }
         var maxAlpha = alpha
         var alphaAction: GameAction<Game>? = null
-        for (action in nextMove(context, player)) {
+        for (action in nextMove(context, depth, player)) {
             action.run(context)
             val result = alphaBetaSearch(depth - 1, -beta, -maxAlpha, context, -player)
             val value = -result.evaluateValue
@@ -50,5 +50,5 @@ abstract class GameActionSearch<Game : Any> {
 
     abstract fun evaluate(context: Game, player: OwnerShip): Int
 
-    abstract fun nextMove(context: Game, player: OwnerShip): Sequence<GameAction<Game>>
+    abstract fun nextMove(context: Game, depth: Int, player: OwnerShip): Sequence<GameAction<Game>>
 }

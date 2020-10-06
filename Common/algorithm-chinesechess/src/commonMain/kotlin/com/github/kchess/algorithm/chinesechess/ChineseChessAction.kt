@@ -8,7 +8,7 @@ import com.github.kchess.algorithm.GamePieceWithPosition
  * 2020/9/16
  */
 @Suppress("MemberVisibilityCanBePrivate")
-class ChineseChessAction(
+data class ChineseChessAction(
     val chessman: Chessman,
     val row: Int, val column: Int,
     val newRow: Int, val newColumn: Int

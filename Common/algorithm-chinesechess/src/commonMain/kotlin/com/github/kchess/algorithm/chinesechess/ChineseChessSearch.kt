@@ -3,6 +3,11 @@ package com.github.kchess.algorithm.chinesechess
 import com.github.kchess.algorithm.GameAction
 import com.github.kchess.algorithm.GameActionSearch
 import com.github.kchess.algorithm.OwnerShip
+import com.github.kchess.algorithm.OwnerShip.Player1
+import com.github.kchess.algorithm.OwnerShip.Player2
+import com.github.kchess.algorithm.chinesechess.Chessman.红将
+import com.github.kchess.algorithm.chinesechess.Chessman.黑帅
+
 
 /**
  * @author YvesCheung
@@ -16,23 +21,30 @@ class ChineseChessSearch : GameActionSearch<ChineseChess>() {
         }
     }
 
-    override fun nextMove(context: ChineseChess, player: OwnerShip): Sequence<GameAction<ChineseChess>> {
+    override fun nextMove(context: ChineseChess, depth: Int, player: OwnerShip): Sequence<GameAction<ChineseChess>> {
         return sequence {
             context.gameBoard.forEach { (chessman, row, column) ->
                 if (chessman.owner == player) {
                     yieldAll(
-                        ChessmanRule.nextMove(chessman, row, column, context).map { (newRow, newColumn) ->
-                            ChineseChessAction(
-                                chessman,
-                                row,
-                                column,
-                                newRow,
-                                newColumn
-                            )
-                        }
+                        ChessmanRule.nextMove(chessman, row, column, context)
+                            .map { (newRow, newColumn) ->
+                                ChineseChessAction(chessman, row, column, newRow, newColumn)
+                            }
+                            .filter { action -> validate(depth, context, action) }
                     )
                 }
             }
         }
+    }
+
+    private fun validate(depth: Int, context: ChineseChess, action: ChineseChessAction): Boolean {
+        if (depth > 1) { //Just evaluate while depth <= 1, let it pass.
+            val eat = context.gameBoard[action.newRow, action.newColumn]
+            if ((context.currentPlayer == Player1 && eat == 红将) ||
+                (context.currentPlayer == Player2 && eat == 黑帅)) { //It would kill itself, don't do this!
+                return false
+            }
+        }
+        return true
     }
 }

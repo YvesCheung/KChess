@@ -1,12 +1,16 @@
 package com.github.kchess.algorithm
 
-import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator.Companion.DEAD_VALUE
 import com.github.kchess.algorithm.GameBoardDemo.DEMO4
+import com.github.kchess.algorithm.GameBoardDemo.DEMO6
+import com.github.kchess.algorithm.chinesechess.Chessman.黑士
 import com.github.kchess.algorithm.chinesechess.ChineseChess
+import com.github.kchess.algorithm.chinesechess.ChineseChessAction
 import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator
+import com.github.kchess.algorithm.chinesechess.ChineseChessEvaluator.Companion.DEAD_VALUE
 import com.github.kchess.algorithm.chinesechess.ChineseChessSearch
 import kotlin.math.abs
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTimedValue
@@ -17,20 +21,19 @@ import kotlin.time.measureTimedValue
  */
 class ChineseChessSearchTest {
 
+    private val game = ChineseChess()
+    private val algorithm = ChineseChessSearch()
+
     @ExperimentalTime
     @Test
     fun testAlphaBeta() {
-        val game = ChineseChess()
-        val algorithm = ChineseChessSearch()
-
+        game.reset()
         println(measureTimedValue { algorithm.alphaBetaSearch(4, game) })
     }
 
     @Test
     fun checkDead() {
-        val game = ChineseChess()
         game.reset(DEMO4)
-        val algorithm = ChineseChessSearch()
 
         val deadValue = DEAD_VALUE
         ChineseChessEvaluator.values().forEach { evaluator ->
@@ -51,5 +54,14 @@ class ChineseChessSearchTest {
         val player1 = abs(
             algorithm.alphaBetaSearch(2, game, OwnerShip.Player2).evaluateValue)
         assertTrue(player1 > deadValue)
+    }
+
+    @Test
+    fun dontKillItself() {
+        game.reset(DEMO6)
+
+        val action =
+            algorithm.alphaBetaSearch(5, game, OwnerShip.Player2)
+        assertEquals(ChineseChessAction(黑士, 1, 4, 0, 3), action.action)
     }
 }
