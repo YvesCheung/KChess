@@ -74,6 +74,8 @@ abstract class Game<Piece : Any> {
         val action = autoMoveAction(player)
         if (action != null) {
             takeAction(action, player)
+        } else {
+            listeners["over"]?.forEach { callback -> callback(arrayOf(-player)) }
         }
     }
 
