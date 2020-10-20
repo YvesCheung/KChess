@@ -10,6 +10,11 @@ enum class Pieces {
     WHITE,
     BLACK;
 
+    /**
+     * Another player's piece
+     */
+    fun opponent(): Pieces = if (this === WHITE) BLACK else WHITE
+
     companion object {
         fun of(player: OwnerShip): Pieces =
             if (player.toBoolean()) WHITE else BLACK

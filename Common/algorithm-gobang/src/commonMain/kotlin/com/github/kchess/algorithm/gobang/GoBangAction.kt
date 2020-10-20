@@ -17,4 +17,6 @@ class GoBangAction(val piece: Pieces, val row: Int, val column: Int) : GameActio
     override fun undo(context: Game<Pieces>) {
         context.gameBoard[row, column] = null
     }
+
+    override fun toString(): String = "Piece $piece in ($row, $column)"
 }

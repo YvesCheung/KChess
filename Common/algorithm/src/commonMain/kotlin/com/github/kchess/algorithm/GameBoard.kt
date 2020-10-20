@@ -57,4 +57,20 @@ abstract class GameBoard<GamePiece : Any> : Iterable<GamePieceWithPosition<GameP
 
     operator fun set(pos: Position, chessman: GamePiece?) =
         set(pos.row, pos.column, chessman)
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Iterable<*>) {
+            val a = iterator()
+            val b = other.iterator()
+            while (a.hasNext() && b.hasNext()) {
+                if (a.next() != b.next()) {
+                    return false
+                }
+            }
+            if (!a.hasNext() && !b.hasNext()) return true
+        }
+        return false
+    }
+
+    override fun hashCode(): Int = gameBoard.hashCode()
 }

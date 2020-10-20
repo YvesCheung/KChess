@@ -19,7 +19,7 @@ class GoBang : Game<Pieces>() {
 
     override fun checkGameOver(): Boolean {
         val matrix = GoBangEvaluator.transform(gameBoard)
-        return matrix.any { (vector) -> (vector?.max ?: 0) >= PIECE_IN_ROW }
+        return matrix.any { (vector) -> (vector?.maxPieceInLine ?: 0) >= PIECE_IN_ROW }
     }
 
     override fun autoMoveAction(player: OwnerShip): GameAction<Pieces>? {
