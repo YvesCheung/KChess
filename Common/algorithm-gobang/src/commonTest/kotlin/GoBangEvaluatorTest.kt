@@ -4,8 +4,14 @@ import com.github.kchess.algorithm.OwnerShip
 import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO1
 import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO2
 import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO3
+import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO4
+import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO5
+import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO6
+import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO7
+import com.github.kchess.algorithm.gobang.GoBangDemo.DEMO8
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 /**
  * @author YvesCheung
@@ -56,5 +62,41 @@ class GoBangEvaluatorTest {
 
         game.reset(DEMO3)
         assert()
+    }
+
+    @Test
+    fun testEvaluateComparable() {
+        game.reset(DEMO1)
+        val value1 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        game.reset(DEMO4)
+        val value4 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        game.reset(DEMO5)
+        val value5 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        game.reset(DEMO6)
+        val value6 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        println("$value1 $value4 $value5 $value6")
+        assertEquals(value1, value4)
+        assertTrue(value5 < value1)
+        assertTrue(value6 < value5)
+    }
+
+    @Test
+    fun testBlock() {
+        game.reset(DEMO6)
+        val value6 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        game.reset(DEMO7)
+        val value7 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        game.reset(DEMO8)
+        val value8 = GoBangEvaluator.evaluate(game, OwnerShip.Player2)
+
+        assertTrue(value7 < value6)
+        assertTrue(value8 < value6)
+        assertEquals(value8, value7)
     }
 }

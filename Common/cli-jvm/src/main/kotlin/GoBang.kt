@@ -12,7 +12,7 @@ fun main() {
     var step = 20
     var player = OwnerShip.Player1
     while (step-- > 0 && !game.isGameOver()) {
-        val action = algorithm.alphaBetaSearch(5, game, player)
+        val action = algorithm.alphaBetaSearch(4, game, player)
         player = -player
         action.action?.run(game)
 

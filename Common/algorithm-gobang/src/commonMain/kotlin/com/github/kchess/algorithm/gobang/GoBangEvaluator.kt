@@ -66,6 +66,8 @@ object GoBangEvaluator {
                         nextPiece == piece.opponent() /*next to the enemy*/) {
                         currentData.evaluatePoint = true
                         currentData.isBlocked++ //NO_BLOCK -> ONE_BLOCK or ONE_BLOCK -> TWO_BLOCK
+                    } else if (nextPiece == null /*last piece in the line*/) {
+                        currentData.evaluatePoint = true
                     }
                 }
             }
@@ -105,6 +107,12 @@ object GoBangEvaluator {
 
         val evaluateValue: Int
             get() = values.fold(0) { acc, vectorData -> max(acc, vectorData.evaluateValue) }
+
+        override fun toString(): String {
+            return entries.joinToString(prefix = "Vector4d(", postfix = ")", separator = ",") { (key, value) ->
+                "$key: $value"
+            }
+        }
     }
 
     @TestOnly
