@@ -40,4 +40,17 @@ object GoBangDemo {
     val DEMO8 = Array(1) {
         arrayOf(null, null, null, null, Pieces.BLACK, Pieces.BLACK, Pieces.BLACK, Pieces.WHITE, null, null)
     }
+
+    val DEMO9 = arrayOf(
+        arrayOf(Pieces.BLACK, null, null, Pieces.BLACK, Pieces.WHITE, null, null, Pieces.BLACK, Pieces.WHITE),
+        arrayOf(null, null, null, null, null, Pieces.WHITE, null, Pieces.BLACK, Pieces.BLACK),
+        arrayOf(null, null, null, null, null, null, Pieces.BLACK, null, null),
+        arrayOf(null, null, null, Pieces.WHITE, null, Pieces.WHITE, null, null, null)
+    )
+
+    val DEMO10 = arrayOf(
+        arrayOf<Pieces?>(null, null, null, null, null, null, null, null, null),
+        arrayOf<Pieces?>(null, null, null, null, null, Pieces.WHITE, null, null, null),
+        arrayOf<Pieces?>(null, null, null, null, null, null, null, null, null)
+    )
 }
